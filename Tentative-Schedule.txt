@@ -1,0 +1,67 @@
+Sprint 1: Sept 23 - Oct 4
+
+ 
+
+Sprint 1 Goals:
+- Initial group meeting
+- Review course
+- Tenative schedule
+
+ 
+
+S1 Meeting 1: Oct 3rd
+S1 Status Review Mtg: Oct 6th
+
+ 
+
+ 
+
+Sprint 2: Oct 5 - Oct 25
+
+ 
+
+Sprint 2 Goals:
+- Selenium Lab started and finished
+- API Tests Lab started and finished
+
+ 
+
+S2 Meeting 1: Oct 9th
+S2 Meeting 2: Oct 23rd
+S2 Status Review Mtg: Oct 20th
+
+ 
+
+ 
+
+Sprint 3: Nov 18 - Dec 4
+
+ 
+
+Sprint 3 Goals:
+- BDD Lab started and finished
+- TDD Lab started and finished
+- Secondary project started
+
+ 
+
+S3 Meeting 1: Nov 20th
+S3 Meeting 2: Nov 27th
+S3 Status Review Mtg: Nov 24th
+
+ 
+
+ 
+
+Sprint 4: Nov 29 - Dec 5
+
+ 
+
+Sprint 4 Goals:
+- TDD ensured finished
+- Secondary project finished
+
+ 
+
+S4 Meeting 1: Dec 1st
+S4 Status Review Mtg: Dec 1st

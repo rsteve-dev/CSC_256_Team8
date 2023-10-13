@@ -4,15 +4,15 @@
 > ###### Functionality:
 > - Collect user information (name, email, age, and book genre interest).
 > - Validate and store user data in the database.
-
+> 
 > #### User Authentication
-
+> 
 > ##### Functionality:
 > - Authenticate users during login.
 > - Validate user email.
-
+> 
 > #### Profile Management
-
+> 
 > ###### Functionality:
 > - Allow users to update personal information and password. >
 
@@ -41,7 +41,7 @@
 > ###### Functionality:
 > - Allow users to proceed to checkout and complete the purchase.
 > - Generate an order confirmation with a unique order ID.
-> 
+
 ## Admin Panel Module
 > 
 > #### Content Management (Books)

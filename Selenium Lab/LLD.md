@@ -13,32 +13,32 @@
 
 #### 1.3 Profile Management
 
-####### Functionality:
+###### Functionality:
 - Allow users to update personal information and password.
 
 ## Book Management Module
 
 #### Book Browsing and Searching
 
-####### Functionality:
+###### Functionality:
 - Display books by categories (fiction, non-fiction, genres, etc.).
 - Provide a search feature for users to find specific books.
 
 #### Book Details and Reviews
 
-####### Functionality:
+###### Functionality:
 - Show detailed information about a book (author, description, price).
 - Allow users to submit reviews and ratings for books.
 
 #### Shopping Cart
 
-####### Functionality:
+###### Functionality:
 - Enable users to add books to the shopping cart.
 - Display the total price and allow modification of cart contents.
 
 #### Order Processing
 
-####### Functionality:
+###### Functionality:
 - Allow users to proceed to checkout and complete the purchase.
 - Generate an order confirmation with a unique order ID.
 
@@ -46,11 +46,11 @@
 
 #### Content Management (Books)
 
-####### Functionality:
+###### Functionality:
 - Allow admins to add, edit, or remove books from the catalog.
 
 #### User and Order Management
 
-####### Functionality:
+###### Functionality:
 - Enable admins to manage user accounts.
 - Allow admins to view order details.

@@ -14,7 +14,7 @@
 > #### Profile Management
 
 > ###### Functionality:
-> - Allow users to update personal information and password.
+> - Allow users to update personal information and password. >
 
 ## Book Management Module
 

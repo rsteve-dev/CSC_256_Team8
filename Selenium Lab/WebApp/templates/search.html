@@ -11,7 +11,7 @@
 
     <h1>Wake County Bookstore</h1>
 
-    <input type="text" id="searchInput" onkeyup="search()" placeholder="Search for books..">
+    <input type="text" id="searchInput" onkeyup="search()" placeholder="Search for titles..">
 
     <table id="books_table">
 
@@ -27,37 +27,50 @@
         <tbody id="tbody">
             <script>
                 (function build_table() {
+                    // Build the table from the csv_data in a JSON format
                     var data = {{ csv_data | tojson }};
-                    console.log(data);
 
+                    // Loop every object in the data table
                     for(i = 0; data.length; i++) {
 
+                        // Add content for a row of information to var x
                         x = "<tr>";
                         x += "<td style='text-align: center;'>" + data[i]["title"] + " " + data[i]["subtitle"] + "</td>";
                         x += "<td>" + data[i]["authors"] + "</td>";
                         x += "<td>" + data[i]["categories"] + "</td>";
                         x += "<td>" + data[i]["num_pages"] + "</td>";
                         x += "<td>" + data[i]["published_year"] + "</td>";
-                        
                         x += "</tr>";
 
+                        // Add x to the inner HTML of the table's body
                         document.getElementById("tbody").innerHTML += x;
                     }
                 })();
 
+                /**
+                 * Filters the values in the table by toggling the display of objects that don't meet
+                 * the filter provided.
+                 */
                 function search() {
+                    // Establish user input, the filter, the table, and get all rows in table
                     var input = document.getElementById('searchInput');
                     var filter = searchInput.value.toUpperCase();
                     var data_table = document.getElementById('books_table');
                     var rows = data_table.getElementsByTagName('tr');
 
+                    // Loop through all rows
                     for(i = 0; i < rows.length; i++) {
+                        // Get cells in a row by tag 
                         cells = rows[i].getElementsByTagName('td')[0];
+                        // Make sure cell has data
                         if(cells) {
+                            // Get cell data
                             cell_content = cells.textContent || cells.innerText;
+                            // Match the toUpperCase() from the filter. Searching is NOT case sensitive
                             if(cell_content.toUpperCase().indexOf(filter) > -1) {
                                 rows[i].style.display = "";
                             } else {
+                                // If the data does not match, set the row display to 'none' and hide it
                                 rows[i].style.display = "none";
                             }
                         }

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>County Bookstore</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+    <h1>Wake County Bookstore</h1>
+
+    <input type="text" id="searchInput" onkeyup="search()" placeholder="Search for books..">
+
+    <table id="books_table">
+
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre(s)</th>
+                <th>Page Count</th>
+                <th>Published</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+            <script>
+                (function build_table() {
+                    var data = {{ csv_data | tojson }};
+                    console.log(data);
+
+                    for(i = 0; data.length; i++) {
+
+                        x = "<tr>";
+                        x += "<td style='text-align: center;'>" + data[i]["title"] + " " + data[i]["subtitle"] + "</td>";
+                        x += "<td>" + data[i]["authors"] + "</td>";
+                        x += "<td>" + data[i]["categories"] + "</td>";
+                        x += "<td>" + data[i]["num_pages"] + "</td>";
+                        x += "<td>" + data[i]["published_year"] + "</td>";
+                        
+                        x += "</tr>";
+
+                        document.getElementById("tbody").innerHTML += x;
+                    }
+                })();
+
+                function search() {
+                    var input = document.getElementById('searchInput');
+                    var filter = searchInput.value.toUpperCase();
+                    var data_table = document.getElementById('books_table');
+                    var rows = data_table.getElementsByTagName('tr');
+
+                    for(i = 0; i < rows.length; i++) {
+                        cells = rows[i].getElementsByTagName('td')[0];
+                        if(cells) {
+                            cell_content = cells.textContent || cells.innerText;
+                            if(cell_content.toUpperCase().indexOf(filter) > -1) {
+                                rows[i].style.display = "";
+                            } else {
+                                rows[i].style.display = "none";
+                            }
+                        }
+                    }
+                }
+
+            </script>
+        </tbody>
+    </table>
+
+</body>
+</html>

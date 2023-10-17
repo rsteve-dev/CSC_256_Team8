@@ -6,6 +6,9 @@
     <title>County Bookstore</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/fh-3.4.0/datatables.min.css" rel="stylesheet">
+    <script src="https://cdn.datatables.net/v/dt/dt-1.13.6/fh-3.4.0/datatables.min.js"></script>
 </head>
 <body>
 
@@ -17,11 +20,11 @@
 
         <thead>
             <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Genre(s)</th>
-                <th>Page Count</th>
-                <th>Published</th>
+                <th onclick="sortTable(0)">Title</th>
+                <th onclick="sortTable(1)">Author</th>
+                <th onclick="sortTable(2)">Genre(s)</th>
+                <th onclick="sortTable(3)">Page Count</th>
+                <th onclick="sortTable(4)">Published</th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -31,7 +34,7 @@
                     var data = {{ csv_data | tojson }};
 
                     // Loop every object in the data table
-                    for(i = 0; data.length; i++) {
+                    for(i = 0; data.length > i; i++) {
 
                         // Add content for a row of information to var x
                         x = "<tr>";
@@ -76,6 +79,68 @@
                         }
                     }
                 }
+
+                /*
+                 * Adds click-to-sort functionality to table headers.
+                 *
+                 * param n : The column of the table that will be sorted. Index starts at 0
+                 */
+                function sortTable(n) {
+                    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+                    table = document.getElementById("books_table");
+                    switching = true;
+                    // Set the sorting direction to ascending:
+                    dir = "asc";
+
+                    // Start sorting loop
+                    while (switching) {
+
+                        switching = false;
+                        rows = table.rows;
+
+                        // Loop through all table rows (except the first, which contains table headers)
+                        for (i = 1; i < (rows.length - 1); i++) {
+
+                            // Start by saying there should be no switching:
+                            shouldSwitch = false;
+
+                            // Get the two elements you want to compare one from current row and one from the next 
+                            x = rows[i].getElementsByTagName("td")[n];
+                            y = rows[i + 1].getElementsByTagName("td")[n];
+
+                            // Check if the two rows should switch place
+                            if (dir == "asc") {
+                                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            } else if (dir == "desc") {
+                                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                    // If so, mark as a switch and break the loop:
+                                    shouldSwitch = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        // Mark as switching and change position of row
+                        if (shouldSwitch) {
+                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                            switching = true;
+                            // Each time a switch is done, increase this count by 1:
+                            switchcount ++;
+                        } else {
+                            // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again
+                            if (switchcount == 0 && dir == "asc") {
+                                dir = "desc";
+                                switching = true;
+                            }
+                        }
+                    }
+                }
+
+                
 
             </script>
         </tbody>

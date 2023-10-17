@@ -78,12 +78,16 @@ th {
     vertical-align: middle;
 }
 
+th:hover {
+    cursor: pointer;
+    font-weight: 500;
+}
+
 td {
     border-bottom: 1px solid black;
     border-right: 1px solid black;
     padding: 5px;
     text-align: center;
-    vertical-align: middle;
 }
 
 #searchInput { 

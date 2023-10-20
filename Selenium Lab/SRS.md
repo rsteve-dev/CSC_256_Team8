@@ -1,6 +1,37 @@
-# Software Requirements Specification (SRS): Online Bookstore 
 
- 
+
+# Wake County Online Bookstore
+
+#### Software Requirements Specification (SRS)
+ #### version 1.0
+ <br>
+
+<table>
+  <tr>
+    <th>Version</th>
+    <th>Authors</th>
+    <th>Description</th>
+    <th>Date Completed</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 
 ## 1. Introduction 
 
@@ -30,19 +61,19 @@ The online bookstore will be a web-based platform accessible through a web brows
 
 #### 2.2 System Features 
 
-- User Registration and Authentication 
+  1. User Registration and Authentication 
 
-- Book Browsing and Searching 
+2.  Book Browsing and Searching 
 
-- Book Details and Reviews 
+3. Book Details and Reviews 
 
-- Shopping Cart 
+4. Shopping Cart 
 
-- Order Processing 
+5. Order Processing 
 
-- User Account Management 
+6. User Account Management 
 
-- Admin Panel for Content Management 
+7. Admin Panel for Content Management 
 
 ## 3. Functional Requirements 
 
@@ -116,7 +147,7 @@ The development will use a technology stack including HTML5, CSS3, JavaScript, a
 
 ## 6. User Interfaces 
 
-The UI will be intuitive and response. 
+The UI will be intuitive and responsive 
 
 Mobile responsiveness will be ensured for a seamless experience on various devices. 
 

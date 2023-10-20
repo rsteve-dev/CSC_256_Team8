@@ -2,7 +2,7 @@
 
 # Wake County Online Bookstore
 
-#### Software Requirements Specification (SRS)
+## Software Requirements Specification (SRS)
  #### version 1.0
  <br>
 

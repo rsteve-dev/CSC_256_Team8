@@ -74,7 +74,7 @@ The user management module will have
 
 #### 5. system interactions aand workflows
 ###### 1. sequence diagram
-
-<img src="./HLD%20sequence%20flow.png"/>
+![Alt text](HLDsequenceflow.svg)
+<!--<img src="./HLDsequenceflow.svg"/>-->
 
 

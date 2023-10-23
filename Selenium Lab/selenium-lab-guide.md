@@ -82,7 +82,13 @@ for instance :
 + Edge: <https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/>
   
 __For windows__
->Extract the downloaded driver and place it in a location of your choice <br> Add the path to the driver in your system's PATH variable. This ensures Python can access and use the driver.
+```
+Extract the downloaded driver and place it in a location of your choice
+Add the path to the driver in your system's PATH variable. This ensures Python can access and use the driver.
+```
 
 __For Linux__
->Move the downloaded driver to /usr/local/bin or any directory in your PATH <br> Ensure proper permissions are granted to the driver (use chmod +x ) 
+```
+Move the downloaded driver to /usr/local/bin or any directory in your PATH 
+Ensure proper permissions are granted to the driver (use chmod +x ) 
+```

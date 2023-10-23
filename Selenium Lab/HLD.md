@@ -72,9 +72,10 @@ The user management module will have
 3. Database:_A relational database system_
 4. Version Control: _Git (with platforms like GitHub or GitLab)
 
-#### 5. system interactions aand workflows
+#### 5. system interactions and workflows
 ###### 1. sequence diagram
-![Alt text](HLDsequenceflow.svg)
+![Alt text](Assets/HLDsequenceflow.svg)
+
 <!--<img src="./HLDsequenceflow.svg"/>-->
 
 

@@ -125,7 +125,7 @@ __TC00(4) - UnSuccessful User Login__
 #### TC005 - Book Search Functionality
 
 ![Alt text](Assets/image-6.png)
-This is a database query and no changes should be made in the database
+<br> This is a database query and no changes should be made in the database
 <table>
     <tr>
         <td>Objective</td>

@@ -73,3 +73,16 @@ Using PIP ,install Selenium package  terminal or command prompt by typing `pip i
 <br>
 <br>
 ###### 3. Download WebDriver
+Each browser requires a separate driver and needs to be downloadesd separately
+for instance :
+
++ Chrome:<https://sites.google.com/a/chromium.org/chromedriver/>
++ Firefox: https://github.com/mozilla/geckodriver/releases
++ Safari: Safari driver come swith the macOS 
++ Edge: <https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/>
+  
+__For windows__
+>Extract the downloaded driver and place it in a location of your choice <br> Add the path to the driver in your system's PATH variable. This ensures Python can access and use the driver.
+
+__If you are using Linux__
+>Move the downloaded driver to /usr/local/bin or any directory in your PATH <br> Ensure proper permissions are granted to the driver (use chmod +x ) 

@@ -6,6 +6,7 @@
     <title>County Bookstore</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"> </script>
 </head>
 <body>
 
@@ -25,6 +26,7 @@
             </tr>
         </thead>
         <tbody id="tbody">
+
             <script>
                 (function build_table() {
                     // Build the table from the csv_data in a JSON format
@@ -32,14 +34,16 @@
 
                     // Loop every object in the data table
                     for(i = 0; data.length > i; i++) {
-
+                        // Previously used toString() method was parsing into binary
+                        let id = "row_" + i;
                         // Add content for a row of information to var x
-                        x = "<tr>";
+                        x = "<tr id=" + id + ">";
                         x += "<td style='text-align: center;'>" + data[i]["title"] + " " + data[i]["subtitle"] + "</td>";
                         x += "<td>" + data[i]["authors"] + "</td>";
                         x += "<td>" + data[i]["categories"] + "</td>";
                         x += "<td>" + data[i]["num_pages"] + "</td>";
                         x += "<td>" + data[i]["published_year"] + "</td>";
+                        x += "<td> <button onclick=addBook(" + id + ")>Add To Cart</button> </td>";
                         x += "</tr>";
 
                         // Add x to the inner HTML of the table's body
@@ -136,6 +140,28 @@
                         }
                     }
                 }
+                function addBook(id) {
+                    let tblEntry = id.childNodes;
+                    let bookInfo = [
+                        {'book_title': tblEntry[0].innerHTML},
+                        {'author': tblEntry[1].innerHTML},
+                        {'genre': tblEntry[2].innerHTML},
+                        {'pageCount': tblEntry[3].innerHTML},
+                        {'published': tblEntry[4].innerHTML}
+                    ]
+
+                    $.ajax({
+                        url: '/process',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify(bookInfo),
+                        success: function(response) {
+                            console.log(response);
+                        }
+                    })
+                }
+
+
 
                 
 

@@ -13,7 +13,7 @@ def start_app():
 @app.route("/process", methods=['POST'])
 def process():
     data = request.get_json()
-
+    add_to_cart(data)
     return data
 
 # Funtion to get the CSV file's data
@@ -26,3 +26,7 @@ def get_csv_data(loc):
         csv_data = [row for row in csvReader]
     return csv_data
 
+def add_to_cart(data):
+    with open('./static/database.csv') as file:
+        cdvWriter = csv.DictWriter(file, filenames=['title', 'authors', 'categories', 'num_pages', 'published_year'])
+        cdvWriter.writerow(data)

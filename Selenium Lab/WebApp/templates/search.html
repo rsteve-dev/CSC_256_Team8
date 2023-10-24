@@ -143,11 +143,11 @@
                 function addBook(id) {
                     let tblEntry = id.childNodes;
                     let bookInfo = [
-                        {'book_title': tblEntry[0].innerHTML},
-                        {'author': tblEntry[1].innerHTML},
-                        {'genre': tblEntry[2].innerHTML},
-                        {'pageCount': tblEntry[3].innerHTML},
-                        {'published': tblEntry[4].innerHTML}
+                        {'title': tblEntry[0].innerHTML,
+                        'authors': tblEntry[1].innerHTML,
+                        'categories': tblEntry[2].innerHTML,
+                        'num_pages': tblEntry[3].innerHTML,
+                        'published_year': tblEntry[4].innerHTML}
                     ]
 
                     $.ajax({

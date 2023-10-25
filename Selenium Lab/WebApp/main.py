@@ -10,8 +10,8 @@ def start_app():
     # Render the search.html file in templates folder and pass the csv data through
     return render_template('search.html', csv_data=csv_data)
 
-@app.route("/process", methods=['POST'])
-def process():
+@app.route("/receive_AJAX_POST", methods=['POST'])
+def receive_AJAX_POST():
     data = request.get_json()
     print(data)
     return data

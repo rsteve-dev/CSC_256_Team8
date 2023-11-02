@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\aiden\Documents\WakeTech_Classes_Docs\CSC.256.0001-Software Quality Assurance\Group_Project_Repo\CSC_256_Team8\Selenium Lab\WebApp\env
+set VIRTUAL_ENV=H:\School\CSC-256 Software Quality Assurance\CSC_256_Team8\Selenium Lab\WebApp\env
 
 if not defined PROMPT set PROMPT=$P$G
 

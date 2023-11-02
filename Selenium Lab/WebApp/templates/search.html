@@ -8,21 +8,42 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"> </script>
 </head>
+
 <body>
 
     <h1>Wake County Bookstore</h1>
 
-    <input type="text" id="searchInput" onkeyup="search()" placeholder="Search for titles..">
+    <div class="topRow">
+        <button class="customButton" onclick="toggleVisibility('addNewBook')">Add New Book</button>
+        <input type="text" id="searchInput" onkeyup="search()" placeholder="Search for titles..">
+
+        <div id="addNewBook" style="display: none;">
+            <form id="newBookForm">
+                <label for="newTitle">Title:</label>
+                <input type="text" name="title"  id="newTitle">
+                <label for="newAuthor">Author(s):</label>
+                <input type="text" name="author" id="newAuthor">
+                <label for="newGenres">Genre(s):</label>
+                <input type="text" name="genres" id="newGenres">
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages">
+                <label for="releaseYear">Release Year:</label>
+                <input type="number" name="releaseYear" id="releaseYear">
+            </form>
+            <button id="submitNewBook" class="customButton" style="margin: auto; display: block;" onclick="addNewBook()">Submit</button>
+        </div>
+
+    </div>
 
     <table id="books_table">
-
         <thead>
             <tr>
                 <th onclick="sortTable(0)">Title</th>
                 <th onclick="sortTable(1)">Author</th>
                 <th onclick="sortTable(2)">Genre(s)</th>
-                <th onclick="sortTable(3)">Page Count</th>
-                <th onclick="sortTable(4)">Published</th>
+                <th onclick="sortTable(3, true)">Page Count</th>
+                <th onclick="sortTable(4, true)">Published</th>
+                <th>Add to Cart</th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -30,144 +51,215 @@
             <script>
                 (function build_table() {
                     // Build the table from the csv_data in a JSON format
-                    var data = {{ csv_data | tojson }};
+                    var data = {{ csv_data | safe }};
 
                     // Loop every object in the data table
-                    for(i = 0; data.length > i; i++) {
+                    for(i = 1; data.length > i; i++) {
+
+                        console.log(data[i])
+
                         // Previously used toString() method was parsing into binary
                         let id = "row_" + i;
                         // Add content for a row of information to var x
                         x = "<tr id=" + id + ">";
-                        x += "<td style='text-align: center;'>" + data[i]["title"] + " " + data[i]["subtitle"] + "</td>";
-                        x += "<td>" + data[i]["authors"] + "</td>";
-                        x += "<td>" + data[i]["categories"] + "</td>";
-                        x += "<td>" + data[i]["num_pages"] + "</td>";
-                        x += "<td>" + data[i]["published_year"] + "</td>";
-                        x += "<td> <button onclick=addBook(" + id + ")>Add To Cart</button> </td>";
+                        x += "<td style='text-align: center;'>" + data[i][0] + "</td>";
+                        x += "<td>" + data[i][1] + "</td>";
+                        x += "<td>" + data[i][2] + "</td>";
+                        x += "<td>" + data[i][3] + "</td>";
+                        x += "<td>" + data[i][4] + "</td>";
+                        x += "<td> <button onclick=addBookToCart(" + id + ")>Add To Cart</button> </td>";
                         x += "</tr>";
 
                         // Add x to the inner HTML of the table's body
                         document.getElementById("tbody").innerHTML += x;
                     }
                 })();
-
-                /**
-                 * Filters the values in the table by toggling the display of objects that don't meet
-                 * the filter provided.
-                 */
-                function search() {
-                    // Establish user input, the filter, the table, and get all rows in table
-                    var input = document.getElementById('searchInput');
-                    var filter = searchInput.value.toUpperCase();
-                    var data_table = document.getElementById('books_table');
-                    var rows = data_table.getElementsByTagName('tr');
-
-                    // Loop through all rows
-                    for(i = 0; i < rows.length; i++) {
-                        // Get cells in a row by tag 
-                        cells = rows[i].getElementsByTagName('td')[0];
-                        // Make sure cell has data
-                        if(cells) {
-                            // Get cell data
-                            cell_content = cells.textContent || cells.innerText;
-                            // Match the toUpperCase() from the filter. Searching is NOT case sensitive
-                            if(cell_content.toUpperCase().indexOf(filter) > -1) {
-                                rows[i].style.display = "";
-                            } else {
-                                // If the data does not match, set the row display to 'none' and hide it
-                                rows[i].style.display = "none";
-                            }
-                        }
-                    }
-                }
-
-                /*
-                 * Adds click-to-sort functionality to table headers.
-                 *
-                 * param n : The column of the table that will be sorted. Index starts at 0
-                 */
-                function sortTable(n) {
-                    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-                    table = document.getElementById("books_table");
-                    switching = true;
-                    // Set the sorting direction to ascending:
-                    dir = "asc";
-
-                    // Start sorting loop
-                    while (switching) {
-
-                        switching = false;
-                        rows = table.rows;
-
-                        // Loop through all table rows (except the first, which contains table headers)
-                        for (i = 1; i < (rows.length - 1); i++) {
-
-                            // Start by saying there should be no switching:
-                            shouldSwitch = false;
-
-                            // Get the two elements you want to compare one from current row and one from the next 
-                            x = rows[i].getElementsByTagName("td")[n];
-                            y = rows[i + 1].getElementsByTagName("td")[n];
-
-                            // Check if the two rows should switch place
-                            if (dir == "asc") {
-                                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-                                    // If so, mark as a switch and break the loop:
-                                    shouldSwitch = true;
-                                    break;
-                                }
-                            } else if (dir == "desc") {
-                                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                                    // If so, mark as a switch and break the loop:
-                                    shouldSwitch = true;
-                                    break;
-                                }
-                            }
-                        }
-
-                        // Mark as switching and change position of row
-                        if (shouldSwitch) {
-                            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                            switching = true;
-                            // Each time a switch is done, increase this count by 1:
-                            switchcount ++;
-                        } else {
-                            // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again
-                            if (switchcount == 0 && dir == "asc") {
-                                dir = "desc";
-                                switching = true;
-                            }
-                        }
-                    }
-                }
-                function addBook(id) {
-                    let tblEntry = id.childNodes;
-                    let bookInfo = [
-                        {'title': tblEntry[0].innerHTML,
-                        'authors': tblEntry[1].innerHTML,
-                        'categories': tblEntry[2].innerHTML,
-                        'num_pages': tblEntry[3].innerHTML,
-                        'published_year': tblEntry[4].innerHTML}
-                    ]
-
-                    $.ajax({
-                        url: '/receive_AJAX_POST',
-                        type: 'POST',
-                        contentType: 'application/json',
-                        data: JSON.stringify(bookInfo),
-                        success: function(response) {
-                            location.reload();
-                        }
-                    })
-                }
-
-
-
-                
-
             </script>
         </tbody>
     </table>
+
+    <script>
+    
+        /**
+         * Filters the values in the table by toggling the display of objects that don't meet
+         * the filter provided.
+         */
+        function search() {
+            // Establish user input, the filter, the table, and get all rows in table
+            var input = document.getElementById('searchInput');
+            var filter = searchInput.value.toUpperCase();
+            var data_table = document.getElementById('books_table');
+            var rows = data_table.getElementsByTagName('tr');
+
+            // Loop through all rows
+            for(i = 0; i < rows.length; i++) {
+                // Get cells in a row by tag 
+                cells = rows[i].getElementsByTagName('td')[0];
+                // Make sure cell has data
+                if(cells) {
+                    // Get cell data
+                    cell_content = cells.textContent || cells.innerText;
+                    // Match the toUpperCase() from the filter. Searching is NOT case sensitive
+                    if(cell_content.toUpperCase().indexOf(filter) > -1) {
+                        rows[i].style.display = "";
+                    } else {
+                        // If the data does not match, set the row display to 'none' and hide it
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        /**
+         * Adds click-to-sort functionality to table headers.
+         *
+         * @param {int} n - The column of the table that will be sorted. Index starts at 0
+         * @param {bool} numeric - If the column should be sorted based on it being numeric data
+         */
+        function sortTable(n, numeric = false) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("books_table");
+            switching = true;
+            // Set the sorting direction to ascending:
+            dir = "asc";
+
+            // Start sorting loop
+            while (switching) {
+
+                switching = false;
+                rows = table.rows;
+
+                // Loop through all table rows (except the first, which contains table headers)
+                for (i = 1; i < (rows.length - 1); i++) {
+
+                    // Start by saying there should be no switching:
+                    shouldSwitch = false;
+
+                    // Get the two elements you want to compare one from current row and one from the next 
+                    x = rows[i].getElementsByTagName("td")[n];
+                    y = rows[i + 1].getElementsByTagName("td")[n];
+
+                    // Check if the two rows should switch place
+                    if (dir == "asc") {
+
+                        // Check if the column is being sort numerically. If not, sort alphabetically.
+                        if(numeric) {
+                            if (Number(x.innerHTML) > Number(y.innerHTML)) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else {
+                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                    } else if (dir == "desc") {
+                        // Check if the column is being sort numerically. If not, sort alphabetically.
+                        if(numeric) {
+                            if (Number(x.innerHTML) < Number(y.innerHTML)) {
+                                shouldSwitch = true;
+                                break;
+                            }
+                        } else {
+                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                                // If so, mark as a switch and break the loop:
+                                shouldSwitch = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Mark as switching and change position of row
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    // Each time a switch is done, increase this count by 1:
+                    switchcount ++;
+                } else {
+                    // If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+        /**
+         * Adds a new book to the user's cart and sends it to the Python backend via AJAX for processing.
+         *
+         * @param {int} id - ID of the book being added
+         */
+        function addBookToCart(id) {
+            let tblEntry = id.childNodes;
+            let bookInfo = [
+                {'title': tblEntry[0].innerHTML,
+                'authors': tblEntry[1].innerHTML,
+                'categories': tblEntry[2].innerHTML,
+                'num_pages': tblEntry[3].innerHTML,
+                'published_year': tblEntry[4].innerHTML}
+            ]
+
+            $.ajax({
+                url: '/receive_AJAX_POST',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(bookInfo),
+                success: function(response) {
+                    location.reload();
+                }
+            })
+        }
+
+        /**
+         * Toggle visibility of an element
+         * @param {string} id - ID of element
+         */
+        function toggleVisibility(id) {
+            if(document.getElementById(id).style.display == "none") {
+                document.getElementById(id).style.display = "block";
+            } else {
+                document.getElementById(id).style.display = "none";
+            }
+        }
+
+        /**
+         * Sends information to the Python backend for adding a new book to the CSV file.
+         *
+         * @param
+         */
+        function addNewBook() {
+
+            // Serialize the information currently in the form newBookForm
+            bookInfo = $('#newBookForm').serializeArray();
+
+            // Separate the data into specific variables
+            bookTitle       = bookInfo[0]["value"];
+            bookAuthor      = bookInfo[1]["value"];
+            bookGenres      = bookInfo[2]["value"];
+            bookReleaseYear = bookInfo[4]["value"];
+            bookPages       = bookInfo[3]["value"];
+
+            // Rewrite book info w/ new array
+            bookInfo = [bookTitle, bookAuthor, bookGenres, bookReleaseYear, bookPages];
+
+            // Send AJAX message to backend for adding book.
+            $.ajax({
+                url: '/add_new_book',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(bookInfo),
+                success: function(response) {
+                    // Reloads the page to show the new book has been added
+                    location.reload();
+                }
+            })
+        }
+
+    </script>
 
 </body>
 </html>

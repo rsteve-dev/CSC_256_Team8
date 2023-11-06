@@ -53,9 +53,11 @@ Pages **- _subject to review by corders_**
    <ol type ="I">
      <li>GET /books</li>
       <li>GET /books/:id</li>
+      <li>GET /cart/:id</li>
       <li>POST /users/login</li>
       <li>POST /users/signup</li>
       <li>POST /purchase</li>
+      
    </ol>
 
 ## 3.0 Database

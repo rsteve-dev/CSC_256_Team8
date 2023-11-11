@@ -85,6 +85,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 ```
 
 ### View Cart 
+
  **Endpoint:** /cart \
  **HTTP Method:** GET \
  **Description:** Get the user's shopping cart contents. \

@@ -8,7 +8,7 @@ The base URL for all API endpoints is: `https://api.wc-bookstore.com`
 
 ## Authentication
 
-Authentication is required to access certain API endpoints. We use API keys for authentication. To obtain an API key, please contact our support team.
+Authentication is required to access specific API endpoints. We use API keys for authentication. To obtain an API key, please get in touch with our support team.
 
 ### Request Headers
 
@@ -18,7 +18,7 @@ Authentication is required to access certain API endpoints. We use API keys for 
 
 ### List Books
 
- **Endpoint:** `/books`
+ **Endpoint:** `/books`\n
  **HTTP Method:** GET
  **Description:** Get a list of books available in the bookstore.
  **Parameters:**

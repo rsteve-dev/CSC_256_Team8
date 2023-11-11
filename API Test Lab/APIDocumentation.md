@@ -25,8 +25,8 @@ Authentication is required to access specific API endpoints. We use API keys for
   - `search` : A search query to filter books by title, author, or genre. \
   - `category`: Filter books by category or genre. \
  **Response:** 
-    - Status Code: 200 OK 
-    - Body: JSON array containing book objects. Example response: 
+    - **Status Code:** 200 OK 
+    - **Body:** JSON array containing book objects. Example response: 
 
 ```json
   [
@@ -52,8 +52,8 @@ Authentication is required to access specific API endpoints. We use API keys for
  **Parameters:** \
    `book_id` : The unique identifier of the book. \
  **Response:** 
-  - Status Code: 200 OK 
-  - Body: JSON array containing book objects. Example response: 
+  - **Status Code:** 200 OK 
+  - **Body:** JSON array containing book objects. Example response: 
 
   ```json
   {
@@ -72,9 +72,9 @@ Authentication is required to access specific API endpoints. We use API keys for
  **HTTP Method:** POST \
  **Description:** Add a book to the user's shopping cart. \
 **Response:** 
-  - Status Code: 201 Created 
-  - Body: Confirmation message. 
-  -  Body:JSON object containing book_id and quantity. 
+  - **Status Code:** 201 Created 
+  - **Body:** Confirmation message. 
+  - **Body:** JSON object containing book_id and quantity. 
   
 ```json
   {
@@ -89,8 +89,9 @@ Authentication is required to access specific API endpoints. We use API keys for
  **HTTP Method:** GET \
  **Description:** Get the user's shopping cart contents. \
   **Response:** 
-  - Status Code: 200 OK 
-  - Body: JSON array of cart items. 
+  -
+  - **Status Code:** 200 OK 
+  - **Body:** JSON array of cart items. 
 
   ```json
     [
@@ -113,7 +114,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 **Parameters:** 
 `book_id`: The unique identifier of the book. \
 **Response:** 
-  - Status Code: 204 No Content 
+  - **Status Code:** 204 No Content 
 
 ### Place an Order 
 **Endpoint:** /orders/place \

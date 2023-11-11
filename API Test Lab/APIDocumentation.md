@@ -18,9 +18,9 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ### List Books
 
- **Endpoint:** `/books`\n
- **HTTP Method:** GET
- **Description:** Get a list of books available in the bookstore.
+ **Endpoint:** `/books` \
+ **HTTP Method:** GET \
+ **Description:** Get a list of books available in the bookstore. \
  **Parameters:**
   - `search` : A search query to filter books by title, author, or genre.
   - `category`: Filter books by category or genre.

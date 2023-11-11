@@ -21,12 +21,12 @@ Authentication is required to access specific API endpoints. We use API keys for
  **Endpoint:** `/books` \
  **HTTP Method:** GET \
  **Description:** Get a list of books available in the bookstore. \
- **Parameters:**
-  - `search` : A search query to filter books by title, author, or genre.
-  - `category`: Filter books by category or genre.
- **Response:**
-    - Status Code: 200 OK
-    - Body: JSON array containing book objects. Example response:
+ **Parameters:** \
+  - `search` : A search query to filter books by title, author, or genre. \
+  - `category`: Filter books by category or genre. \
+ **Response:** \
+    - Status Code: 200 OK \
+    - Body: JSON array containing book objects. Example response: \
 
 ```json
   [
@@ -44,16 +44,16 @@ Authentication is required to access specific API endpoints. We use API keys for
     }
   ]
 ```
-### List Books
+### List Books \
 
- **Endpoint:** `/books/{book_id}`
- **HTTP Method:** GET
- **Description:** Get detailed information about a specific book.
- **Parameters:**
-   `book_id` : The unique identifier of the book.
- **Response:**
-  - Status Code: 200 OK
-  - Body: JSON array containing book objects. Example response:
+ **Endpoint:** `/books/{book_id}` \
+ **HTTP Method:** GET \
+ **Description:** Get detailed information about a specific book. \
+ **Parameters:** \
+   `book_id` : The unique identifier of the book. \
+ **Response:** \
+  - Status Code: 200 OK \
+  - Body: JSON array containing book objects. Example response: \
 
   ```json
   {
@@ -66,17 +66,17 @@ Authentication is required to access specific API endpoints. We use API keys for
   }
  ```
 
-### Add Book to Cart
+### Add Book to Cart \
 
- **Endpoint:** /cart/add
- **HTTP Method:** POST
- **Description:** Add a book to the user's shopping cart.
- **Request Body:**
- Status Code: 200 OK
-**Response:**
-  - Status Code: 201 Created
-  - Body: Confirmation message.
-  -  Body:JSON object containing book_id and quantity.
+ **Endpoint:** /cart/add \
+ **HTTP Method:** POST \
+ **Description:** Add a book to the user's shopping cart. \
+ **Request Body:** \
+ Status Code: 200 OK \
+**Response:** \
+  - Status Code: 201 Created \
+  - Body: Confirmation message. \
+  -  Body:JSON object containing book_id and quantity. \
   
 ```json
   {
@@ -86,13 +86,13 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ```
 
-### View Cart
- **Endpoint:** /cart
- **HTTP Method:** GET
- **Description:** Get the user's shopping cart contents.
-  **Response:**
-  - Status Code: 200 OK
-  - Body: JSON array of cart items.
+### View Cart \
+ **Endpoint:** /cart \
+ **HTTP Method:** GET \
+ **Description:** Get the user's shopping cart contents. \
+  **Response:** \
+  - Status Code: 200 OK \
+  - Body: JSON array of cart items. \
 
   ```json
     [
@@ -108,21 +108,21 @@ Authentication is required to access specific API endpoints. We use API keys for
     ]
   ```
 
-### Remove Book from Cart
-**Endpoint:** /cart/remove/{book_id}
-**HTTP Method:** DELETE
-**Description:** Remove a book from the user's shopping cart.
-**Parameters:**
-`book_id`: The unique identifier of the book.
-**Response:**
-  - Status Code: 204 No Content
+### Remove Book from Cart \
+**Endpoint:** /cart/remove/{book_id} \
+**HTTP Method:** DELETE \
+**Description:** Remove a book from the user's shopping cart. \
+**Parameters:** \
+`book_id`: The unique identifier of the book. \
+**Response:** \
+  - Status Code: 204 No Content \
 
-### Place an Order
-**Endpoint:** /orders/place
-**HTTP Method:** POST
-**Description:** Place an order for the books in the user's shopping cart.
-**Request Body:**
-- JSON object containing user and payment information. Example request body:
+### Place an Order \
+**Endpoint:** /orders/place \
+**HTTP Method:** POST \
+**Description:** Place an order for the books in the user's shopping cart. \
+**Request Body:** \
+- JSON object containing user and payment information. Example request body: \
   
 ```json 
 {
@@ -141,10 +141,10 @@ Authentication is required to access specific API endpoints. We use API keys for
 }
 
 ```
-**Response:**
+**Response:** \
 
-- **Status Code:** 201 Created
-- **Body:** Order confirmation with order ID. Example response:
+- **Status Code:** 201 Created \
+- **Body:** Order confirmation with order ID. Example response: \
 
 ```json 
 {
@@ -153,11 +153,11 @@ Authentication is required to access specific API endpoints. We use API keys for
 }
 
 ```
-### View Order History
-**Endpoint:** /orders
-**HTTP Method:** GET
-**Description:** Get the user's order history.
-**Response:**
+### View Order History \
+**Endpoint:** /orders \
+**HTTP Method:** GET \
+**Description:** Get the user's order history. \
+**Response:** \
 - **Status Code:** 200 OK
 - **Body:** JSON array of order objects. Example response:
 ```json

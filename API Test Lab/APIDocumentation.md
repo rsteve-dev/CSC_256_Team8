@@ -71,7 +71,7 @@ Authentication is required to access specific API endpoints. We use API keys for
  **Endpoint:** /cart/add \
  **HTTP Method:** POST \
  **Description:** Add a book to the user's shopping cart. \
-**Response:** 
+ **Response:** 
   - **Status Code:** 201 Created 
   - **Body:** Confirmation message. 
   - **Body:** JSON object containing book_id and quantity. 
@@ -85,12 +85,10 @@ Authentication is required to access specific API endpoints. We use API keys for
 ```
 
 ### View Cart 
-
- **Endpoint:** /cart \
- **HTTP Method:** GET \
- **Description:** Get the user's shopping cart contents. \
-  **Response:** 
-  -
+**Endpoint:** /cart \
+**HTTP Method:** GET \
+**Description:** Get the user's shopping cart contents. \
+**Response:** 
   - **Status Code:** 200 OK 
   - **Body:** JSON array of cart items. 
 

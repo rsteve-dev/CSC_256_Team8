@@ -1,0 +1,196 @@
+openapi: 3.0.0
+info:
+  title: wc-bookstore API
+  version: 1.0.0
+  description: API for an online bookstore.
+
+paths:
+  /books:
+    get:
+      summary: List Books
+      description: Get a list of books available in the bookstore.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+
+  /books/{bookId}:
+    get:
+      summary: Get Book Details
+      description: Get detailed information about a specific book.
+      parameters:
+        - name: bookId
+          in: path
+          description: The unique identifier of the book.
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+
+  /cart:
+    get:
+      summary: View Cart
+      description: Get the user's shopping cart contents.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CartItem'
+
+    post:
+      summary: Add Book to Cart
+      description: Add a book to the user's shopping cart.
+      requestBody:
+        description: JSON object containing book information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddToCartRequest'
+      responses:
+        '201':
+          description: Book successfully added to the cart
+
+  /cart/{bookId}:
+    delete:
+      summary: Remove Book from Cart
+      description: Remove a book from the user's shopping cart.
+      parameters:
+        - name: bookId
+          in: path
+          description: The unique identifier of the book to remove.
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Book successfully removed from the cart
+
+  /checkout:
+    post:
+      summary: Place an Order
+      description: Place an order for the books in the user's shopping cart.
+      requestBody:
+        description: JSON object containing user and payment information.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Order successfully placed
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderConfirmation'
+
+  /orders:
+    get:
+      summary: View Order History
+      description: Get the user's order history.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        author:
+          type: string
+        price:
+          type: number
+      required:
+        - id
+        - title
+        - author
+        - price
+
+    CartItem:
+      type: object
+      properties:
+        book:
+          $ref: '#/components/schemas/Book'
+        quantity:
+          type: integer
+
+    AddToCartRequest:
+      type: object
+      properties:
+        bookId:
+          type: string
+        quantity:
+          type: integer
+      required:
+        - bookId
+        - quantity
+
+    OrderRequest:
+      type: object
+      properties:
+        userId:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AddToCartRequest'
+        payment:
+          type: object
+          properties:
+            cardNumber:
+              type: string
+            expiryDate:
+              type: string
+            cvv:
+              type: string
+      required:
+        - userId
+        - items
+        - payment
+
+    OrderConfirmation:
+      type: object
+      properties:
+        orderId:
+          type: string
+        totalAmount:
+          type: number
+
+    Order:
+      type: object
+      properties:
+        orderId:
+          type: string
+        orderDate:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/CartItem'
+        totalAmount:
+          type: number

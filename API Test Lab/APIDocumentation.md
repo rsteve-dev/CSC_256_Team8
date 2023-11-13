@@ -14,12 +14,12 @@ Authentication is required to access certain API endpoints. We use API keys for 
 
  `Authorization: Bearer YOUR_API_KEY`
 
-## Endpoints
-
+## Endpoints 
+ Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***
 ### List Books
 
  **Endpoint:** `/books`
- **HTTP Method:** GET
+ **HTTP Method:** GET \n
  **Description:** Get a list of books available in the bookstore.
  **Parameters:**
   - `search` : A search query to filter books by title, author, or genre.

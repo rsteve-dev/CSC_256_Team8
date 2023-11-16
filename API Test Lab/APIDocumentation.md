@@ -4,7 +4,7 @@ Welcome to the Wake County Bookstore. This API allows developers to access and i
 
 ## Base URL
 
-The base URL for all API endpoints is: `https://api.wc-bookstore.com`
+The base URL for all API endpoints is: `http://127.0.0.1:3000`
 
 ## Authentication
 
@@ -18,10 +18,10 @@ Authentication is required to access specific API endpoints. We use API keys for
  Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***
 ### List Books
 
- **Endpoint:** `/books` \
- **HTTP Method:** GET \ \n
+ **Endpoint:** `/api/books` \
+ **HTTP Method:** GET \
  **Description:** Get a list of books available in the bookstore. \
- **Parameters:** \
+ **Parameters:** 
   - `search` : A search query to filter books by title, author, or genre. \
   - `category`: Filter books by category or genre. \
  **Response:** 
@@ -31,20 +31,27 @@ Authentication is required to access specific API endpoints. We use API keys for
 ```json
   [
     {
-      "id": "1",
-      "title": "The Great Gatsby",
-      "author": "F. Scott Fitzgerald",
-      "price": 10.99
+        "authors": "Marilynne Robinson",
+        "categories": "Fiction",
+        "num_pages": "247",
+        "published_year": "2004",
+        "subtitle": "",
+        "title": "Gilead"
     },
     {
-      "id": "2",
-      "title": "To Kill a Mockingbird",
-      "author": "Harper Lee",
-      "price": 12.99
-    }
+        "authors": "Charles Osborne;Agatha Christie",
+        "categories": "Detective and mystery stories",
+        "num_pages": "241",
+        "published_year": "2000",
+        "subtitle": "A Novel",
+        "title": "Spider's Web"
+    },
   ]
 ```
-### List Books 
+
+- **Status Code:** 500 OK
+
+### Display single Book 
 
  **Endpoint:** `/books/{book_id}` \
  **HTTP Method:** GET \

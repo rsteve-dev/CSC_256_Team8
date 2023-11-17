@@ -5,6 +5,6 @@ app = create_app('development')
 
 if __name__ == '__main__':
     # Run the Flask application
-    # The host='0.0.0.0' makes the server publicly available
-    # You can specify the port as well, default is 5000
+    # you can run the The host='0.0.0.0' this makes the server publicly available
+    # You can specify the port as well, default is 5000 but might be in use 
     app.run(host='127.0.0.1', port=3000, debug=True)

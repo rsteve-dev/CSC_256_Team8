@@ -88,3 +88,10 @@ def add_book_to_csv(bookInfo = []):
     except Exception as e:
         print(Exception)
         return False
+    
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

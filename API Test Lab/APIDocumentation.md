@@ -10,9 +10,9 @@ The base URL for all API endpoints is: `http://127.0.0.1:3000`
 
 Authentication is required to access specific API endpoints. We use API keys for authentication. To obtain an API key, please get in touch with our support team.
 
-### Request Headers
+### Request Headers 
 
- `Authorization: Bearer YOUR_API_KEY`
+ `Authorization: Bearer YOUR_API_KEY`   -***-future implementation***
 
 ## Endpoints 
  Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***
@@ -53,7 +53,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ### Display single Book 
 
- **Endpoint:** `/books/{book_id}` \
+ **Endpoint:** `/api/books/{book_id}` \
  **HTTP Method:** GET \
  **Description:** Get detailed information about a specific book. \
  **Parameters:** \
@@ -75,7 +75,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ### Add Book to Cart 
 
- **Endpoint:** /cart/add \
+ **Endpoint:** `/api/cart/add`  \
  **HTTP Method:** POST \
  **Description:** Add a book to the user's shopping cart. \
  **Response:** 
@@ -92,7 +92,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 ```
 
 ### View Cart 
-**Endpoint:** /cart \
+**Endpoint:** `/api/cart` \
 **HTTP Method:** GET \
 **Description:** Get the user's shopping cart contents. \
 **Response:** 

@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "34286d3c-c93b-4f37-867b-893f6ef025bf",
+		"name": "wc-bookstoreAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17012479"
+	},
+	"item": [
+		{
+			"name": "GET-books[by_attributes]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api/books?attribute=published_year & value=2001",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "attribute",
+							"value": "published_year "
+						},
+						{
+							"key": " value",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-books[all books]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://wcbookstore.com:3000/api/books?attribute=published_year & value=2001",
+					"protocol": "http",
+					"host": [
+						"wcbookstore",
+						"com"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "attribute",
+							"value": "published_year "
+						},
+						{
+							"key": " value",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-books[by id/isbn]",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://wcbookstore.com:3000/api/books?attribute=published_year & value=2001",
+					"protocol": "http",
+					"host": [
+						"wcbookstore",
+						"com"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"books"
+					],
+					"query": [
+						{
+							"key": "attribute",
+							"value": "published_year "
+						},
+						{
+							"key": " value",
+							"value": "2001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD-book-to-cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api//cart/add",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"",
+						"cart",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIEW -cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api/cart",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "REMOVE Book from Cart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api/cart/remove/{book_id}",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"remove",
+						"{book_id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ORDER book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api/cart/remove/{book_id}",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"remove",
+						"{book_id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "VIEW Order History",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api/orders ",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"orders "
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get book Category",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response must be an array\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an('array');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{wc-bookstore}}/api/categories",
+					"host": [
+						"{{wc-bookstore}}"
+					],
+					"path": [
+						"api",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

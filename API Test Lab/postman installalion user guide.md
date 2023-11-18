@@ -50,7 +50,10 @@ Postman is a popular tool for API development and testing. It allows developers 
 
 ### Using Collections and Environments
 
+- ***grab the collection and Environment files in the github repo inside API test lab folder and import it to your local installed postman***
+  
 - **Collections**: Group related requests for easier management and execution.
+
 - **Environments**: Use environments to manage sets of variables for different setups (like development, testing, production).
 - 
 - ![Alt text](./postman_images/collection.png)
@@ -68,3 +71,5 @@ Postman is a popular tool for API development and testing. It allows developers 
 ## Conclusion
 
 This guide provides basic steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
+
+

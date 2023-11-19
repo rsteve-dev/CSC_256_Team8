@@ -3,7 +3,8 @@
 		"_postman_id": "34286d3c-c93b-4f37-867b-893f6ef025bf",
 		"name": "wc-bookstoreAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "17012479"
+		"_exporter_id": "17012479",
+		"_collection_link": "https://lunar-comet-218042.postman.co/workspace/885fbabf-933d-40eb-8adb-949dbc4f294e/collection/17012479-34286d3c-c93b-4f37-867b-893f6ef025bf?action=share&source=collection_link&creator=17012479"
 	},
 	"item": [
 		{
@@ -76,26 +77,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://wcbookstore.com:3000/api/books?attribute=published_year & value=2001",
-					"protocol": "http",
+					"raw": "{{wc-bookstore}}/api/books",
 					"host": [
-						"wcbookstore",
-						"com"
+						"{{wc-bookstore}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"books"
-					],
-					"query": [
-						{
-							"key": "attribute",
-							"value": "published_year "
-						},
-						{
-							"key": " value",
-							"value": "2001"
-						}
 					]
 				}
 			},
@@ -125,26 +113,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://wcbookstore.com:3000/api/books?attribute=published_year & value=2001",
-					"protocol": "http",
+					"raw": "{{wc-bookstore}}/api/books/isbn",
 					"host": [
-						"wcbookstore",
-						"com"
+						"{{wc-bookstore}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
-						"books"
-					],
-					"query": [
-						{
-							"key": "attribute",
-							"value": "published_year "
-						},
-						{
-							"key": " value",
-							"value": "2001"
-						}
+						"books",
+						"isbn"
 					]
 				}
 			},

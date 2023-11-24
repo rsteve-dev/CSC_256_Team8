@@ -4,7 +4,7 @@
 		"name": "wc-bookstoreAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17012479",
-		"_collection_link": "https://lunar-comet-218042.postman.co/workspace/885fbabf-933d-40eb-8adb-949dbc4f294e/collection/17012479-34286d3c-c93b-4f37-867b-893f6ef025bf?action=share&source=collection_link&creator=17012479"
+		"_collection_link": "https://lunar-comet-218042.postman.co/workspace/My-Workspace~885fbabf-933d-40eb-8adb-949dbc4f294e/collection/17012479-34286d3c-c93b-4f37-867b-893f6ef025bf?action=share&source=collection_link&creator=17012479"
 	},
 	"item": [
 		{
@@ -28,10 +28,25 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Key",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{wc-bookstore}}/api/books?attribute=published_year & value=2001",
+					"raw": "{{wc-bookstore}}/api/books?attribute=published_year&value=1977",
 					"host": [
 						"{{wc-bookstore}}"
 					],
@@ -42,11 +57,11 @@
 					"query": [
 						{
 							"key": "attribute",
-							"value": "published_year "
+							"value": "published_year"
 						},
 						{
-							"key": " value",
-							"value": "2001"
+							"key": "value",
+							"value": "1977"
 						}
 					]
 				}
@@ -147,16 +162,39 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "{{API}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Key",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authors\": \"Agatha Christie\",\r\n    \"categories\": \"Detective and mystery stories\",\r\n    \"num_pages\": \"247\",\r\n    \"published_year\": \"2000\",\r\n    \"subtitle\": \"A Novel\",\r\n    \"title\": \"mystery stories of wutang\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{wc-bookstore}}/api//cart/add",
+					"raw": "{{wc-bookstore}}/api/cart/add",
 					"host": [
 						"{{wc-bookstore}}"
 					],
 					"path": [
 						"api",
-						"",
 						"cart",
 						"add"
 					]

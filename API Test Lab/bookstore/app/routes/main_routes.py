@@ -1,29 +1,37 @@
-from ..utils import helpers
+from ..utils import helpers, validators
 from flask import Blueprint, jsonify, current_app, request
 
 main = Blueprint("main", __name__)
 
 
 @main.route("/api/books", methods=["GET"])
+@validators.require_api_key
 def get_books():
     # title,subtitle,authors,categories,published_year,num_pages
     attribute = request.args.get("attribute")
     value = request.args.get("value")
-    print(f"attribute: {attribute}")
-    print(f"value: {value}")
 
     try:
         books = helpers.get_books_from_csv(helpers.csv_path)
         if attribute and value:
-            filtered_books = helpers.filter_books(
-                helpers.csv_path, attribute, value.strip("'")
-            )
-            # return books,200
+            filtered_books = helpers.filter_books(helpers.csv_path, attribute, value)
             return jsonify(filtered_books), 200
-
         else:
             books = helpers.get_books_from_csv(helpers.csv_path)
             return jsonify(books), 200
     except Exception as e:
         current_app.logger.error(f"Error occurred: {e}")
         return jsonify({"error": str(e)}), 500
+
+
+@main.route("/api/cart/add", methods=["POST"])
+@validators.require_api_key
+def add_new_book():
+    # Get the data from the POST request as json which is converted to a python list
+    # The data sent is a list of info for a single book.
+    data = request.get_json()
+    print("data:", data)
+    # Call the update function to create the new library.
+    helpers.add_book_to_csv(data)
+
+    return data

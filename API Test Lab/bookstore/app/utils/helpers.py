@@ -3,49 +3,99 @@ import csv
 import os
 from datetime import datetime
 
+current_dir = os.path.dirname(__file__)
+csv_path = os.path.join(current_dir, "..", "db-models", "books.csv")
+cart_csv_path = os.path.join(current_dir, "..", "db-models", "book_cart.csv")
 
-#get books from csv
+
+# *********************************************************************************************************
+# convert dictionary to list :
+def dict_to_list(dict_data, key_order, default_value=""):
+    """
+    Convert a dictionary to a list based on a specified key order.
+
+    :param dict_data: The dictionary to convert.
+    :param key_order: A list of keys in the order they should be extracted.
+    :param default_value: The default value to use if a key is missing.
+    :return: A list of values corresponding to the keys in key_order.
+    """
+    return [dict_data.get(key, default_value) for key in key_order]
+
+
+# our header function is organized as follows:
+key_order = [
+    "authors",
+    "categories",
+    "num_pages",
+    "published_year",
+    "subtitle",
+    "title",
+]
+
+# *********************************************************************************************************
+
+
+# get books from csv
 def get_books_from_csv(csvfile_path):
     books = []
-    with open(csvfile_path, mode='r', encoding='ISO-8859-1',errors='replace') as file:
+    with open(csvfile_path, mode="r", encoding="ISO-8859-1", errors="replace") as file:
         reader = csv.DictReader(file)
         for row in reader:
             books.append(row)
     return books
 
 
-#convert csv to json 
-def filter_books(csvfile_path, attribute , value):
-    matching_rows = []
-    with open(csvfile_path, mode='r', encoding='utf-8') as file:
-        reader = csv.DictReader(file, delimiter=';')
-        for row in reader:
-            if row[attribute] == value:
-                # Assuming 'id' is present in the CSV
-                matching_rows.append(row)
-    metadata = {
-        "total_matching_rows": len(matching_rows),
-        "filter_column": attribute,
-        "filter_value": value,
-        "generated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    }
+def filter_books(csv_path, attribute, value):
+    filtered_books = []
+    books = get_books_from_csv(csv_path)
+    # print(f"Books: {books}")
+    for book in books:
+        if book[attribute] == str(value):
+            filtered_books.append(book)
+    # print(f"filtered books: {filtered_books}")
 
-    result = {
-        "metadata": metadata,
-        "data": matching_rows
-    }
-
-    return json.dumps(result, indent=4)        
- 
-#convert JSON to CSV
-def convert_json_to_csv(json_record):
-    return csv_record
+    return filtered_books
 
 
+"""add book to cart """
 
 
-#test the function
-current_dir = os.path.dirname(__file__)
-csv_path = os.path.join(current_dir, '..', 'db-models', 'books.csv')
-#print(convert_csv_to_json(csv_path,"Year-Of-Publication","1995"))
-#print("books:",get_books_from_csv(csv_path))
+def write_csv_data(loc, data=[]):
+    with open(loc, "a", encoding="utf8", newline="") as file:
+        # Init the csv writer
+        csv_writer = csv.writer(file)
+
+        # Write the data object's contents as rows
+        # Each list inside of data[] becomes a new row
+        # The first row will be interpreted as the csv's headers
+        # print("data to be written:", data)
+        csv_writer.writerows(data)
+
+        # Close the file
+        file.close()
+
+
+def add_book_to_csv(bookInfo=[]):
+    # Get the existing contents of the library
+    data = get_books_from_csv(cart_csv_path)
+    book_list = dict_to_list(bookInfo, key_order)
+    # print(f"Book list: {book_list}")
+    # Add the new book to the data
+    data.append(book_list)
+
+    # Write the new file
+    try:
+        print(f"book:-> {data}")
+        write_csv_data(cart_csv_path, data)
+        return True
+    except Exception as e:
+        print(Exception)
+        return False
+
+
+# test the function
+
+
+# print(convert_csv_to_json(csv_path,"Year-Of-Publication","1995"))
+# print("books:",get_books_from_csv(csv_path))
+# print(filter_books(csv_path, "published_year", "2004"))

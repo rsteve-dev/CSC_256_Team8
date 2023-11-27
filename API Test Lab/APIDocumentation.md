@@ -12,7 +12,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ### Request Headers 
 
- `Authorization: Bearer YOUR_API_KEY`   -***-future implementation***
+ `Authorization: Bearer YOUR_API_KEY`  
 
 ## Endpoints 
  Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***
@@ -31,14 +31,16 @@ Authentication is required to access specific API endpoints. We use API keys for
 ```json
   [
     {
-        "authors": "Marilynne Robinson",
-        "categories": "Fiction",
-        "num_pages": "247",
-        "published_year": "2004",
-        "subtitle": "",
-        "title": "Gilead"
+        "ISBN": "979-2591-85790-10-5",
+        "authors": "Maria Garcia",
+        "categories": "History",
+        "num_pages": "962",
+        "published_year": "2009",
+        "subtitle": "The Mysteries",
+        "title": "The Wind River"
     },
     {
+        "ISBN": "971-4451-85690-10-5",
         "authors": "Charles Osborne;Agatha Christie",
         "categories": "Detective and mystery stories",
         "num_pages": "241",
@@ -51,9 +53,47 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 - **Status Code:** 500 OK
 
-### Display single Book 
+### List Books by attribute e.g. published_year
 
- **Endpoint:** `/api/books/{book_id}` \
+ **Endpoint:** `/api/books?attribute=published_year&value=2007` \
+ **HTTP Method:** GET \
+ **Description:** Get a list of books available in the bookstore. \
+ **Parameters:**
+
+- `search` : A search query to filter books by title, author, or genre. \
+- `category`: Filter books by category or genre. \
+ **Response:**
+  - **Status Code:** 200 OK
+  - **Body:** JSON array containing book objects. Example response:
+
+```json
+  [
+    {
+        "ISBN": "979-2591-85790-10-5",
+        "authors": "Maria Garcia",
+        "categories": "History",
+        "num_pages": "962",
+        "published_year": "2009",
+        "subtitle": "The Mysteries",
+        "title": "The Wind River"
+    },
+    {
+        "ISBN": "971-4451-85690-10-5",
+        "authors": "Charles Osborne;Agatha Christie",
+        "categories": "Detective and mystery stories",
+        "num_pages": "241",
+        "published_year": "2000",
+        "subtitle": "A Novel",
+        "title": "Spider's Web"
+    },
+  ]
+```
+
+- **Status Code:** 500 OK
+
+### Display single Book {by unique id e.g. isbn}
+
+ **Endpoint:** `/api/books/{isbn}` \
  **HTTP Method:** GET \
  **Description:** Get detailed information about a specific book. \
  **Parameters:** \
@@ -75,7 +115,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ### Add Book to Cart 
 
- **Endpoint:** `/api/cart/add`  \
+ **Endpoint:** `/api/{{userID}}/cart/add`  \
  **HTTP Method:** POST \
  **Description:** Add a book to the user's shopping cart. \
  **Response:** 
@@ -92,7 +132,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 ```
 
 ### View Cart 
-**Endpoint:** `/api/cart` \
+**Endpoint:** `/api/{{userID}}/cart` \
 **HTTP Method:** GET \
 **Description:** Get the user's shopping cart contents. \
 **Response:** 
@@ -102,13 +142,13 @@ Authentication is required to access specific API endpoints. We use API keys for
   ```json
     [
         {
-            "book": {
-            "id": "1",
-            "title": "The Great Gatsby",
-            "author": "F. Scott Fitzgerald",
-            "price": 10.99
-            },
-            "quantity": 2
+          "ISBN": "979-2591-85790-10-5",
+          "authors": "Maria Garcia",
+          "categories": "History",
+          "num_pages": "962",
+          "published_year": "2009",
+          "subtitle": "The Mysteries",
+          "title": "The Wind River"
         }
     ]
   ```
@@ -121,8 +161,28 @@ Authentication is required to access specific API endpoints. We use API keys for
 `book_id`: The unique identifier of the book. \
 **Response:** 
   - **Status Code:** 204 No Content 
+  
 
-### Place an Order 
+### Get Categories
+
+**Endpoint:** /categories \
+**HTTP Method:** GET \
+**Description:** Get a list of available book categories or genres. \
+**Response:**
+
+- **Status Code:** 200 OK
+- **Body:** JSON array of category objects. Example response:
+
+```json
+[
+  "Fiction",
+  "Non-Fiction",
+  "Mystery",
+  "Science Fiction"
+]
+```
+
+### Place an Order ***in future release***
 **Endpoint:** /orders/place \
 **HTTP Method:** POST \
 **Description:** Order the books in the user's shopping cart. \
@@ -158,7 +218,9 @@ Authentication is required to access specific API endpoints. We use API keys for
 }
 
 ```
-### View Order History 
+
+### View Order History ***in future release***
+
 **Endpoint:** /orders \
 **HTTP Method:** GET \
 **Description:** Get the user's order history. \
@@ -187,20 +249,6 @@ Authentication is required to access specific API endpoints. We use API keys for
 ]
 ```
 
-### Get Categories 
-**Endpoint:** /categories \
-**HTTP Method:** GET \
-**Description:** Get a list of available book categories or genres. \
-**Response:**
-- **Status Code:** 200 OK
-- **Body:** JSON array of category objects. Example response:
-```json
-[
-  "Fiction",
-  "Non-Fiction",
-  "Mystery",
-  "Science Fiction"
-]
-```
+
 
 ### Error Handling

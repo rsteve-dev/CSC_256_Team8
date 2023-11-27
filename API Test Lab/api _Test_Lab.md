@@ -1,4 +1,4 @@
-# Wake County Bookstore API Test Lab Setup Guide
+# Wake County Bookstore API Test Lab 
 
 ## 1. Setting Up the Environment
 

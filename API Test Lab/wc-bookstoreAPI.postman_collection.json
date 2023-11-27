@@ -4,7 +4,7 @@
 		"name": "wc-bookstoreAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17012479",
-		"_collection_link": "https://lunar-comet-218042.postman.co/workspace/My-Workspace~885fbabf-933d-40eb-8adb-949dbc4f294e/collection/17012479-34286d3c-c93b-4f37-867b-893f6ef025bf?action=share&source=collection_link&creator=17012479"
+		"_collection_link": "https://lunar-comet-218042.postman.co/workspace/885fbabf-933d-40eb-8adb-949dbc4f294e/collection/17012479-34286d3c-c93b-4f37-867b-893f6ef025bf?action=share&source=collection_link&creator=17012479"
 	},
 	"item": [
 		{
@@ -89,6 +89,9 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -105,7 +108,7 @@
 			"response": []
 		},
 		{
-			"name": "GET-books[by id/isbn]",
+			"name": "GET-books[by isbn]",
 			"event": [
 				{
 					"listen": "test",
@@ -125,17 +128,29 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{wc-bookstore}}/api/books/isbn",
+					"raw": "{{wc-bookstore}}/api/books?attribute=ISBN&value=979-2591-85790-10-5",
 					"host": [
 						"{{wc-bookstore}}"
 					],
 					"path": [
 						"api",
-						"books",
-						"isbn"
+						"books"
+					],
+					"query": [
+						{
+							"key": "attribute",
+							"value": "ISBN"
+						},
+						{
+							"key": "value",
+							"value": "979-2591-85790-10-5"
+						}
 					]
 				}
 			},
@@ -178,10 +193,17 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "User-Agent",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"authors\": \"Agatha Christie\",\r\n    \"categories\": \"Detective and mystery stories\",\r\n    \"num_pages\": \"247\",\r\n    \"published_year\": \"2000\",\r\n    \"subtitle\": \"A Novel\",\r\n    \"title\": \"mystery stories of wutang\"\r\n}",
+					"raw": "\r\n    \r\n       {\r\n        \"ISBN\": \"979-2591-85790-10-5\",\r\n        \"authors\": \"Maria Garcia\",\r\n        \"categories\": \"History\",\r\n        \"num_pages\": \"962\",\r\n        \"published_year\": \"2009\",\r\n        \"subtitle\": \"The Mysteries\",\r\n        \"title\": \"The Wind River\"\r\n       }\r\n    \r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -189,12 +211,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{wc-bookstore}}/api/cart/add",
+					"raw": "{{wc-bookstore}}/api/{{userID}}/cart/add",
 					"host": [
 						"{{wc-bookstore}}"
 					],
 					"path": [
 						"api",
+						"{{userID}}",
 						"cart",
 						"add"
 					]
@@ -223,6 +246,9 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -259,6 +285,9 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey"
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
@@ -271,80 +300,6 @@
 						"cart",
 						"remove",
 						"{book_id}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "ORDER book",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response must be an array\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData).to.be.an('array');\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{wc-bookstore}}/api/cart/remove/{book_id}",
-					"host": [
-						"{{wc-bookstore}}"
-					],
-					"path": [
-						"api",
-						"cart",
-						"remove",
-						"{book_id}"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "VIEW Order History",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response must be an array\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData).to.be.an('array');\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{wc-bookstore}}/api/orders ",
-					"host": [
-						"{{wc-bookstore}}"
-					],
-					"path": [
-						"api",
-						"orders "
 					]
 				}
 			},
@@ -371,6 +326,9 @@
 				}
 			],
 			"request": {
+				"auth": {
+					"type": "apikey"
+				},
 				"method": "GET",
 				"header": [],
 				"url": {

@@ -24,14 +24,17 @@ def get_books():
         return jsonify({"error": str(e)}), 500
 
 
-@main.route("/api/cart/add", methods=["POST"])
+@main.route("/api/<userID>/cart/add", methods=["POST"])
 @validators.require_api_key
-def add_new_book():
+def add_new_book(userID):
+    headers = request.headers
+    print("userID:", userID)
     # Get the data from the POST request as json which is converted to a python list
     # The data sent is a list of info for a single book.
     data = request.get_json()
-    print("data:", data)
+    print(type(data))
     # Call the update function to create the new library.
-    helpers.add_book_to_csv(data)
+    helpers.create_cart_and_add_content(str(userID), "db-models", data)
+    # helpers.add_book_to_csv(data)
 
-    return data
+    return data, f"{200}: data successfully added to cart "

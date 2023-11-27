@@ -3,9 +3,79 @@ import csv
 import os
 from datetime import datetime
 
+
 current_dir = os.path.dirname(__file__)
-csv_path = os.path.join(current_dir, "..", "db-models", "books.csv")
+# csv_path = os.path.join(current_dir, "..", "db-models", "books.csv")
+csv_path = os.path.join(current_dir, "..", "db-models", "books_with_isbn.csv")
 cart_csv_path = os.path.join(current_dir, "..", "db-models", "book_cart.csv")
+unprocessed_file_path = os.path.join(current_dir, "..", "db-models", "random_users.csv")
+processed_users_file_path = os.path.join(current_dir, "..", "db-models", "users.csv")
+# processed_users_file_path = "./users.csv"
+
+"""****Create file if it doesnt exist"""
+
+
+def create_cart_and_add_content(filename, destination_folder, content):
+    header_list = [key for key, value in content.items()]
+    list_data = []
+    list_data.append(content)
+    with open(
+        os.path.join(current_dir, "..", destination_folder, f"{filename}_cart.csv"),
+        "a",
+        newline="",
+    ) as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=header_list)
+        writer.writeheader()
+        writer.writerows(list_data)
+
+
+#  *********************users.csv specific functionc*********************
+# this function is specific to user data
+
+
+def add_unique_id_to_csvdata(file_path, unique_id_header=str):
+    new_data = []
+    # convert csv to json
+    with open(file_path, encoding="utf-8") as csvfile:
+        csvReader = csv.DictReader(csvfile)
+        firstInit = ""
+        secondInit = ""
+        num = 0
+        # uniq_num = f"00{num}"
+        userID = ""
+        for row in csvReader:
+            num = num + 1
+            uniq_num = f"00{num}"
+            for key, value in row.items():
+                if key == "first_name":
+                    firstInit = value[0]
+
+                    # print(firstInit)
+                if key == "last_name":
+                    secondInit = value[0]
+            userID = firstInit + secondInit + uniq_num
+            helperdict = {unique_id_header: userID}
+            new_row = {**helperdict, **row}
+            new_data.append(new_row)
+            # print(new_row)
+    return new_data
+
+
+# write the adjusted userdata to users.csv file
+def write_data_to_existing_csv(list_of_dictionary_with_data, file_path):
+    list_of_headers = []
+    for each_item in list_of_dictionary_with_data:
+        header_list = [key for key, value in each_item.items()]
+        list_of_headers = header_list
+    # print(list_of_headers)
+    with open(file_path, "w", newline="") as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=list_of_headers)
+        writer.writeheader()
+        writer.writerows(list_of_dictionary_with_data)
+
+
+new_dictionary_users = add_unique_id_to_csvdata(unprocessed_file_path, "userID")
+write_data_to_existing_csv(new_dictionary_users, processed_users_file_path)
 
 
 # *********************************************************************************************************
@@ -31,6 +101,7 @@ key_order = [
     "subtitle",
     "title",
 ]
+
 
 # *********************************************************************************************************
 
@@ -73,6 +144,9 @@ def write_csv_data(loc, data=[]):
 
         # Close the file
         file.close()
+
+
+# *********************************add book to cart**********************
 
 
 def add_book_to_csv(bookInfo=[]):

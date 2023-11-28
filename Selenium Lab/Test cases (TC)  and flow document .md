@@ -1,128 +1,9 @@
 
 
 
-#### TC001 - User Registration Flow
-
-![Alt text](Assets/image-4.png)
-<table>
-    <tr>
-        <td>Objective</td>
-        <td>To validate successful user registration</td>
-    </tr>
-    <tr>
-        <td>Prerequisite</td>
-        <td>User is on the registration page, and the provided email isn't already registered.</td>
-    </tr>
-    <tr>
-        <td>Steps</td>
-        <td>
-            1. Navigate to registration<br>
-            2. Enter details:Name: <i>John Doe </i>,Email: <i>john.doe@example.com</i>,Password: <i>Secure12345</i>, Confirm Password: <i>Secure12345</i> <br>
-            3. Click <i>"Register."</i>
-    </tr>
-    <tr>
-        <td>Expected Result</td>
-        <td>
-        User is redirected to the homepage or dashboard <br>
-        A welcome message displays: "Welcome back, John Doe!"<br>
-        User-specific elements (like 'My Account', 'My Cart', etc.) are visible and accessible.<br>
-        </td>
-    </tr>
-
-</table>
-
-#### TC002 - Registration with Existing Email
-
-![Alt text](Assets/image-5.png)
-No new user entry should created in the database. This is of high importance inorder to maintain data integrity
-<table>
-    <tr>
-        <td>Objective</td>
-        <td>To ensure no duplicate registrations with the same email</td>
-    </tr>
-    <tr>
-        <td>Prerequisite</td>
-        <td>User is on the registration page.</td>
-    </tr>
-    <tr>
-        <td>Steps</td>
-        <td>
-            1. Navigate to registration<br>
-            2. Enter details:Name: <i>John Doe </i>,Email: <i>john.doe@example.com</i>,Password: <i>Secure12345</i>, Confirm Password: <i>Secure12345</i> <br>
-            3. Click <i>"Register."</i>
-        </td>
-    </tr>
-    <tr>
-        <td>Expected Result</td>
-        <td>Error message displays: "Email already registered.</td> <br> 
-    </tr>
-
-</table>
 
 
-
-#### TC00(3,4) - Successful User Login & Unsuccessful User Login with Incorrect Password
-
-![Alt text](Assets/image-8.png)
-user login is of  _Critical importance_.it is fundamental for users to access their personal account and perform transactions.
-
-  __TC00(3) -  Successful User Login__
-<table>
-<tr>
-    <td>Objective</td>
-    <td>To validate that a registered user can successfully log in using valid credentials</td>
-</tr>
-<tr>
-    <td>Prerequisite</td>
-    <td>User is on the login page, and they have already registered with the email john.doe@example.com and password Secure12345</td>
-</tr>
-<tr>
-    <td>Steps</td>
-    <td>
-        1. Navigate to the login page if not already there.<br>
-        2. Enter Email: <john.doe@example.com>.<br>
-        3. Enter Password: Secure12345.<br>
-        4. Click the "Login" button.<br>
-</tr>
-<tr>
-    <td>Expected Result</td>
-    <td>
-       User is redirected to the homepage or dashboard <br>
-       A welcome message displays: "Welcome back, John Doe!"<br>
-       User-specific elements (like 'My Account', 'My Cart', etc.) are visible and accessible.<br>
-    </td>
-</tr>
-</table>
-
-__TC00(4) - UnSuccessful User Login__
-   
-<table>
-    <tr>
-        <td>Objective</td>
-        <td>validate the system's behavior when a registered user attempts to log in using an incorrect password</td>
-    </tr>
-    <tr>
-        <td>Prerequisite</td>
-        <td>User is on the login page, and they have already registered with the email john.doe@example.com and password Secure12345</td>
-    </tr>
-    <tr>
-        <td>Steps</td>
-        <td>1. Navigate to the login page if not already there.<br>
-            1. Enter Email: john.doe@example.com. <br>
-            2. Enter Password: WrongPassword456.<br>
-            3. Click the "Login" button.</td>
-    </tr>
-    <tr>
-        <td>Expected Result</td>
-        <td>User remains on the login page.<br>
-            An error message displays: "Incorrect password. Please try again."<br>
-            The password field is either cleared or highlighted for re-entry. <br>
-        </td>
-    </tr>
-
-</table>
-
-#### TC005 - Book Search Functionality
+#### TC001 - Book Search Functionality
 
 ![Alt text](Assets/image-6.png)
 <br> This is a database query and no changes should be made in the database
@@ -150,7 +31,7 @@ __TC00(4) - UnSuccessful User Login__
 
 </table>
 
-#### TC006 - Add Book to Cart from Search
+#### TC002 - Add Book to Cart from Search
 
 ![Alt text](Assets/image-7.png)
 <table>
@@ -178,7 +59,7 @@ __TC00(4) - UnSuccessful User Login__
 
 </table>
 
-####  TC007 - View Cart Items
+####  TC003 - View Cart Items
 ![Alt text](Assets/ViewCartItems.png)
 <table>
     <tr>

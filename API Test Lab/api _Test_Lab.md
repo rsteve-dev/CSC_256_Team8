@@ -66,16 +66,6 @@
 
 - **Retrieve Categories:** GET request to verify all categories are listed correctly.
 
-###### Place an Order (`/orders/place`)
-
-- **Place Valid Order:** POST a valid order and verify the response.
-- **Invalid Payment Info:** POST with invalid payment details to test error handling.
-- **Empty Cart:** Try placing an order with an empty cart to test error handling.
-
-###### View Order History (`/orders`)
-
-- **Valid User ID:** GET request with a valid `userID` to verify correct order history.
-- **Invalid User ID:** GET request with an invalid `userID` to test error handling.
 
 ###### Error Handling (All Endpoints)
 

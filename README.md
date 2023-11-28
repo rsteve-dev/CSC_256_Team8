@@ -1,4 +1,4 @@
-# CSC_256_Team8
+# CSC256 Team 8 Test Labs ReadMe
 
 ### Team Members w/ Requested Roles
 1. Logan Bennett - Code Developer

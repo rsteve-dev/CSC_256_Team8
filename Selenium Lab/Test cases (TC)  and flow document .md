@@ -59,8 +59,6 @@
 
 </table>
 
-
-![Alt text](Assets/ViewCartItems.png)
 <table>
     <tr>
         <td>Objective</td>

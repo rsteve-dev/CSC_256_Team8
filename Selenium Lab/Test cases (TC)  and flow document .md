@@ -5,7 +5,7 @@
 
 #### TC001 - Book Search Functionality
 
-![Alt text](Assets/image-6.png)
+
 <br> This is a database query and no changes should be made in the database
 <table>
     <tr>
@@ -33,7 +33,7 @@
 
 #### TC002 - Add Book to Cart from Search
 
-![Alt text](Assets/image-7.png)
+
 <table>
     <tr>
         <td>Objective</td>
@@ -59,7 +59,7 @@
 
 </table>
 
-####  TC003 - View Cart Items
+
 ![Alt text](Assets/ViewCartItems.png)
 <table>
     <tr>

@@ -14,14 +14,14 @@
 # Table of content 
 - [Introduction](#introduction)
 - [Introduction](#Objectives) 
-1. [Selenium](#Selenium Lab)  
+i. [Selenium](#Selenium-Lab)  
     
-2. [BDD](#BDD Lab)  
+ii. [BDD](#BDD-Lab)  
     
-3. [API Test LAB](#API Test Lab)  
+iii.[API Test LAB](#API-est-Lab)  
     
 
-4. [TDD Lab](#TDD Lab)
-5. [Playwrite Lab](#Playwrite Lab)
+iv. [TDD Lab](#TDD-Lab)
+v. [Playwrite Lab](#Playwrite-Lab)
    
    

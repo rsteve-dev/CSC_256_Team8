@@ -1,6 +1,6 @@
 # CSC256 Team 8 Test Labs ReadMe
 
-### Team Members w/ Requested Roles
+### Team Members 
 1. Logan Bennett - Code Developer
 2. Abdul Caesar - Document Writer
 3. Juan Gomez - Tester
@@ -11,4 +11,17 @@
 8. Luke Wainwright - Document Writer
 9. Stephen Rotich - Project Lead/document Writer
     
-### project objectives
+# Table of content 
+- [Introduction](#introduction)
+- [Introduction](#Objectives) 
+1. [Selenium](#Selenium Lab)  
+    
+2. [BDD](#BDD Lab)  
+    
+3. [API Test LAB](#API Test Lab)  
+    
+
+4. [TDD Lab](#TDD Lab)
+5. [Playwrite Lab](#Playwrite Lab)
+   
+   

@@ -22,12 +22,12 @@ v. [Playwrite Lab](#Playwrite-Lab)
 - ## objectives
 - ## Project Team
     1. Logan Bennett - Code Developer
-    2. Abdul Caesar - Document Writer
-    3. Juan Gomez - Tester
-    4. Aiden Morris - Code Developer
+    2. Samson Truelove - Code Developer
+    3. Aiden Morris - Code Developer
+    4. Ava Vanduinen - Tester
     5. Sydney Southerland - Tester
-    6. Samson Truelove - Code Developer
-    7. Ava Vanduinen - Tester
+    6. Juan Gomez - Tester
+    7. Abdul Caesar - Document Writer
     8. Luke Wainwright - Document Writer
     9. Stephen Rotich - Project Lead/document Writer
 # Selenium Lab

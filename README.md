@@ -19,7 +19,7 @@ iv. [TDD Lab](#TDD-Lab)
 v. [Playwrite Lab](#Playwrite-Lab)
 
 # Introduction
-- ## objectives](#Objectives)
+- ## objectives
 - ## Project Team
     1. Logan Bennett - Code Developer
     2. Abdul Caesar - Document Writer

@@ -59,6 +59,8 @@
 
 </table>
 
+#### TC002 - view  cart
+
 <table>
     <tr>
         <td>Objective</td>

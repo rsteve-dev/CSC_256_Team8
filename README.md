@@ -35,13 +35,13 @@ v. [Playwrite Lab](#Playwrite-Lab)
     8. Luke Wainwright - Document Writer
     9. Stephen Rotich - Project Lead/document Writer
 # Selenium Lab
-##Introduction
+## Introduction
 Selenium is an open-source software suite of browser automation tools for controlling web browsers through programs and performing browser automation. It is functional across browsers and operating systems and can be used in various programming languages.<br>
 for more information please visit the selenium lab website <!--[selenium documentation](https://www.selenium.dev/documentation/)--> <a href="https://www.selenium.dev/documentation/">selenium documentation</a>
 </p>
 <br>
 <br>
-##Requirements 
+## Requirements 
 i.   Installing Python and Selenium WebDriver.
 ii.  Setting up ChromeDriver for Google Chrome.
 iii. Verifying the installation with a simple script
@@ -64,7 +64,7 @@ python official site: <https://www.python.org/downloads/>
 <br>
 <br>
 
-###### 2. Selenium installation
+#### 2. Selenium installation
 
 Make sure you've completed step 1 and have PIP installed and verified. Then, you'll be ready to easily install Selenium
 Using PIP ,install Selenium package  terminal or command prompt by typing `pip install selenium`
@@ -73,7 +73,7 @@ Using PIP ,install Selenium package  terminal or command prompt by typing `pip i
 <br>
 <br>
 
-###### 3. Download WebDriver
+#### 3. Download WebDriver
 
 Each browser requires a separate driver and needs to be downloadesd separately
 for instance :
@@ -96,7 +96,7 @@ __For Linux__
 Move the downloaded driver to /usr/local/bin or any directory in your PATH 
 Ensure proper permissions are granted to the driver (use chmod +x ) 
 ```
-###### 4. verify the installation by writing and running the following script
+#### 4. verify the installation by writing and running the following script
 ```
  # Python script to verify Selenium installation 
 from selenium import webdriver
@@ -111,7 +111,7 @@ driver.get('http://www.google.com')
 driver.quit()
 
 ```
-##selenium Lab guide 
+## selenium Lab guide 
 
 This section entails the Implementation of the  tests for different functionalities of a web application, and it covers the creation and running  of tests 
 
@@ -163,7 +163,7 @@ test_table_interaction()
 driver.close()
 ```
 
-##selenium Test Cases 
+## selenium Test Cases 
     
 # BDD Lab  
     

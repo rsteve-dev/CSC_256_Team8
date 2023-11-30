@@ -41,6 +41,7 @@ for more information please visit the selenium lab website <!--[selenium documen
 </p>
 <br>
 <br>
+
 ## Requirements 
 
   - Installing Python and Selenium WebDriver. 

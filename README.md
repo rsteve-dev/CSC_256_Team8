@@ -21,10 +21,10 @@
 - [TDD Lab](#TDD-Lab)
 
 - [Playwrite Lab](#Playwrite-Lab)
-    - [Playwrite Introduction ](#Playwrite-intro)
-    - [Requirements](#Playwrite-Requirements)
-    - [Setup & installation](#setup-installation)
-    - [Lab ](#Lab) 
+    - [ Playwright Lab: Testing a Bookstore Web Application](#Playwrite-intro)
+    - [Getting Started with Playwright](#Playwrite-Requirements)
+    - [Writing Playwright Tests](#setup-installation)
+    - [Conclusion](#Lab) 
 
 # Introduction
  ## objectives

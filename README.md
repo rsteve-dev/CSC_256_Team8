@@ -98,21 +98,72 @@ Ensure proper permissions are granted to the driver (use chmod +x )
 ```
 ###### 4. verify the installation by writing and running the following script
 ```
- ** Python script to verify Selenium installation **
+ # Python script to verify Selenium installation 
 from selenium import webdriver
 
-** Specify the path to chromedriver ** 
+# Specify the path to chromedriver
 driver = webdriver.Chrome('http://127.0.0.1:5000')
 
-**  Open a website **
+#  Open a website 
 driver.get('http://www.google.com')
 
 # Close the browser
 driver.quit()
 
 ```
-##Lab  
-this section entails the Implementation of the  tests for different functionalities of a web application
+##selenium Lab guide 
+
+This section entails the Implementation of the  tests for different functionalities of a web application, and it covers the creation and running  of tests 
+
+```
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+```
+
+```
+
+# Initialize the Chrome WebDriver. This allows Selenium to control a Chrome browser instance
+
+driver = webdriver.Chrome()
+
+# Navigate to the Flask web application's URL
+
+driver.get("<http://127.0.0.1:5000/>") 
+```
+```
+def test_loading_webpage():
+    # Test to ensure the main page loads correctly.
+ ```
+
+```
+def test_presence_of_elements():
+    # Test to verify the presence of key elements on the webpage. 
+```
+
+```
+def test_search_functionality():
+    # Test the search functionality.
+    
+    # TODO: Add detailed assertions for the search results.
+```
+
+```
+def test_table_interaction():
+    # Test interactions with the book details table.
+    
+    # TODO: Add detailed assertions for the table interaction results.
+    
+```
+
+```
+test_loading_webpage()
+test_presence_of_elements()
+test_search_functionality()
+test_table_interaction()
+driver.close()
+```
+
+##selenium Test Cases 
     
 # BDD Lab  
     

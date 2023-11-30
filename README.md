@@ -7,24 +7,24 @@
   - [objectives](#Objectives)
   - [Project Team](#Project-Team)
   
-i. [Selenium Lab](#Selenium-Lab)
-- [Introduction](#selenium-intro)
-- [Requirements](#selenium-Requirements)
-- [Setup & installation](#setup-installation)
-- [Lab ](#Lab) 
+- [Selenium Lab](#Selenium-Lab)
+    - [Introduction](#selenium-intro)
+    - [Requirements](#selenium-Requirements)
+    - [Setup & installation](#setup-installation)
+    - [Lab ](#Lab) 
     
-ii. [BDD Lab](#BDD-Lab)  
+- [BDD Lab](#BDD-Lab)  
     
-iii.[API Test LAB](#API-est-Lab)  
+- [API Test LAB](#API-est-Lab)  
 
 
-iv. [TDD Lab](#TDD-Lab)
+- [TDD Lab](#TDD-Lab)
 
-v. [Playwrite Lab](#Playwrite-Lab)
-- [Playwrite Introduction ](#Playwrite-intro)
-- [Requirements](#Playwrite-Requirements)
-- [Setup & installation](#setup-installation)
-- [Lab ](#Lab) 
+- [Playwrite Lab](#Playwrite-Lab)
+    - [Playwrite Introduction ](#Playwrite-intro)
+    - [Requirements](#Playwrite-Requirements)
+    - [Setup & installation](#setup-installation)
+    - [Lab ](#Lab) 
 
 # Introduction
  ## objectives

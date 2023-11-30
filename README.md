@@ -8,10 +8,10 @@
   - [Project Team](#Project-Team)
   
 i. [Selenium Lab](#Selenium-Lab)
-    - [Introduction](#selenium-intro)
-    - [Requirements](#selenium-Requirements)
-    - [Setup & installation](#setup-installation)
-    - [Lab ](#Lab) 
+- [Introduction](#selenium-intro)
+- [Requirements](#selenium-Requirements)
+- [Setup & installation](#setup-installation)
+- [Lab ](#Lab) 
     
 ii. [BDD Lab](#BDD-Lab)  
     

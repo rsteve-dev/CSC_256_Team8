@@ -27,8 +27,16 @@ v. [Playwrite Lab](#Playwrite-Lab)
 - [Lab ](#Lab) 
 
 # Introduction
-- ## objectives
-- ## Project Team
+ ## objectives
+-	Ensure the system meets the functional requirements as detailed in the SRS.
+-	Validate the system’s non-functional requirements.
+-	Identify and rectify defects prior to release.
+-	Ensure the application accurately handles data and operations.
+-	Confirm error handling and validation mechanisms.
+-	Verify integration between different modules.
+-	Ensure usability and efficiency of the command-line interface.
+
+ ## Project Team
     1. Logan Bennett - Code Developer
     2. Samson Truelove - Code Developer
     3. Aiden Morris - Code Developer

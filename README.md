@@ -21,6 +21,10 @@ iii.[API Test LAB](#API-est-Lab)
 iv. [TDD Lab](#TDD-Lab)
 
 v. [Playwrite Lab](#Playwrite-Lab)
+- [Introduction](#Playwrite-intro)
+- [Requirements](#Playwrite-Requirements)
+- [Setup & installation](#setup-installation)
+- [Lab ](#Lab) 
 
 # Introduction
 - ## objectives

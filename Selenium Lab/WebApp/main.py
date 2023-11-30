@@ -38,9 +38,6 @@ def get_csv_data(loc):
     # Open the file and force UTF-8 encoding
     with open(loc, 'r', encoding="utf8") as file:
         # Read the file and put each row in a csv_data object
-        #csvReader = csv.DictReader(file)
-        #csv_data = [row for row in csvReader]
-
         reader = csv.reader(file)
         for row in reader:
             csv_data.append(row)

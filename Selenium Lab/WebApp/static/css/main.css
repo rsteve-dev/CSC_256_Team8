@@ -149,3 +149,11 @@ td {
 #addNewBook label {
     margin: 0px 0px 0px 10px;
 }
+
+#errorBox {
+    background-color: RGB(150,0,0);
+    color: white;
+    text-align: center;
+    display: block;
+    padding: 10px;
+}

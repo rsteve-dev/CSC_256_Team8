@@ -14,7 +14,7 @@
     <h1>Wake County Bookstore</h1>
 
     <div class="topRow">
-        <button class="customButton" onclick="toggleVisibility('addNewBook')">Add New Book</button>
+        <button id='newBookToggle' class="customButton" onclick="toggleVisibility('addNewBook')">Add New Book</button>
         <input type="text" id="searchInput" onkeyup="search()" placeholder="Search for titles..">
 
         <div id="addNewBook" style="display: none;">
@@ -33,17 +33,21 @@
             <button id="submitNewBook" class="customButton" style="margin: auto; display: block;" onclick="addNewBook()">Submit</button>
         </div>
 
+        <div id="errorBox" style="display: none;">
+            One or more inputs is invalid. Please re-check your provided book information.
+        </div>
+
     </div>
 
     <table id="books_table">
         <thead>
             <tr>
-                <th onclick="sortTable(0)">Title</th>
-                <th onclick="sortTable(1)">Author</th>
-                <th onclick="sortTable(2)">Genre(s)</th>
-                <th onclick="sortTable(3, true)">Page Count</th>
-                <th onclick="sortTable(4, true)">Published</th>
-                <th>Add to Cart</th>
+                <th id='titleHeader' onclick="sortTable(0)">Title</th>
+                <th id='authorHeader' onclick="sortTable(1)">Author</th>
+                <th id='genresHeader' onclick="sortTable(2)">Genre(s)</th>
+                <th id='pageHeader' onclick="sortTable(3, true)">Page Count</th>
+                <th id='yearHeader' onclick="sortTable(4, true)">Published</th>
+                <th id='cartHeader'>Add to Cart</th>
             </tr>
         </thead>
         <tbody id="tbody">
@@ -55,8 +59,6 @@
 
                     // Loop every object in the data table
                     for(i = 1; data.length > i; i++) {
-
-                        console.log(data[i])
 
                         // Previously used toString() method was parsing into binary
                         let id = "row_" + i;
@@ -236,12 +238,19 @@
             // Serialize the information currently in the form newBookForm
             bookInfo = $('#newBookForm').serializeArray();
 
+            for(i = 0; i < 5; i++) {
+                if(bookInfo[i]["value"] == "" || bookInfo[i]["value"] == null) {
+                    document.getElementById("errorBox").style.display = "block";
+                    return;
+                }
+            }
+
             // Separate the data into specific variables
             bookTitle       = bookInfo[0]["value"];
             bookAuthor      = bookInfo[1]["value"];
             bookGenres      = bookInfo[2]["value"];
-            bookReleaseYear = bookInfo[4]["value"];
             bookPages       = bookInfo[3]["value"];
+            bookReleaseYear = bookInfo[4]["value"];
 
             // Rewrite book info w/ new array
             bookInfo = [bookTitle, bookAuthor, bookGenres, bookReleaseYear, bookPages];

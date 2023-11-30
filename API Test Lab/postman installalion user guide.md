@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Postman is a popular tool for API development and testing. It allows developers to build, test, and document APIs easily. This guide will help you with the installation process and provide a basic overview of how to use Postman.
+Postman is a popular tool for API development and testing. It allows developers and Testers to build, test, and document APIs easily. This guide will help  with the installation process and provide  an overview of how to use Postman.
 
 ## Installation
 
@@ -19,19 +19,19 @@ Postman is a popular tool for API development and testing. It allows developers 
 
 ## Getting Started with Postman
 
-### Creating an Account
+#### Creating an Account
 
 - Upon opening Postman for the first time, you will be prompted to create an account. This can be done using an email address, Google account, or other sign-in methods.
 - Creating an account allows you to sync your collections across devices and access more features.
 
-### Postman Interface
+#### Postman Interface
 
 - Familiarize yourself with the Postman interface. Key areas include:
   - **Request Tab**: Where you create new requests.
   - **Response Section**: View responses to your requests.
   - **Collections**: Organize your requests and tests.
 
-### Making Your First API Request
+#### Making Your First API Request
 
 1. Click on the `New` button and select `Request`.
 2. Enter the details for your request:
@@ -43,12 +43,12 @@ Postman is a popular tool for API development and testing. It allows developers 
 5. 
    ![Alt text](./postman_images/send_request.png)
 
-### Saving Requests
+#### Saving Requests
 
 - Save your requests in collections for easy access and organization.
 - Click on the `Save` button after setting up your request and specify the collection to save it in.
 
-### Using Collections and Environments
+#### Using Collections and Environments
 
 - ***grab the collection and Environment files in the github repo inside API test lab folder and import it to your local installed postman***
   
@@ -58,18 +58,18 @@ Postman is a popular tool for API development and testing. It allows developers 
 - 
 - ![Alt text](./postman_images/collection.png)
 
-### Writing Basic Tests
+#### Writing  Tests
 
-- Postman allows you to write tests in JavaScript in the `Tests` tab.
+- Postman allows us to write tests in JavaScript in the `Tests` tab.
 - These tests can validate various aspects of the response, such as status codes and response bodies.
 
 ![Test](./postman_images/image.png)
-### Running Collections
+#### Running Collections
 
 - Use the Collection Runner to run a series of requests in a collection, which is useful for automated testing.
 
-## Conclusion
+#### Conclusion
 
-This guide provides basic steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
+This guide provides  steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
 
 

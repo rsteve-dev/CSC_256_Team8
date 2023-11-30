@@ -42,9 +42,11 @@ for more information please visit the selenium lab website <!--[selenium documen
 <br>
 <br>
 ## Requirements 
-  i.   Installing Python and Selenium WebDriver. \
- ii.  Setting up ChromeDriver for Google Chrome. \
- iii. Verifying the installation with a simple script \
+
+  - Installing Python and Selenium WebDriver. 
+  - Setting up ChromeDriver for Google Chrome. 
+  - Verifying the installation with a simple script 
+  
 ## Setup & installation
 please verify that you have python and PIP installed
 to verify if python or PIP are  installed ,Open your terminal or command prompt. e.g CMD,powershell,Linux Terminal or Git Bash and type ```python --version```  ```pip --version``` as shown  in the example below using powerShell

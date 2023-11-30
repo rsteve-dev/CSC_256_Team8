@@ -63,7 +63,7 @@ Postman is a popular tool for API development and testing. It allows developers 
 - Postman allows you to write tests in JavaScript in the `Tests` tab.
 - These tests can validate various aspects of the response, such as status codes and response bodies.
 
-![Test](./postman_images/image.png)
+![Test](./postman_images/imagex.png)
 ### Running Collections
 
 - Use the Collection Runner to run a series of requests in a collection, which is useful for automated testing.

@@ -46,6 +46,7 @@
     7. Abdul Caesar - Document Writer
     8. Luke Wainwright - Document Writer
     9. Stephen Rotich - Project Lead/document Writer
+
 # Selenium Lab
 ## Introduction
 Selenium is an open-source software suite of browser automation tools for controlling web browsers through programs and performing browser automation. It is functional across browsers and operating systems and can be used in various programming languages.<br>

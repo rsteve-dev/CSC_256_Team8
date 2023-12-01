@@ -182,7 +182,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 ]
 ```
 
-### Place an Order ***in future release***
+### Place an Order `***in future release***`
 **Endpoint:** /orders/place \
 **HTTP Method:** POST \
 **Description:** Order the books in the user's shopping cart. \
@@ -219,7 +219,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ```
 
-### View Order History ***in future release***
+### View Order History `***in future release***`
 
 **Endpoint:** /orders \
 **HTTP Method:** GET \
@@ -251,4 +251,4 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 
 
-### Error Handling
+

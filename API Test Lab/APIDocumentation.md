@@ -16,7 +16,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ## Endpoints 
  Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***
-### List Books
+1. #### List Books
 
  **Endpoint:** `/api/books` \
  **HTTP Method:** GET \
@@ -53,7 +53,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 - **Status Code:** 500 OK
 
-### List Books by attribute e.g. published_year
+2. #### List Books by attribute e.g. published_year
 
  **Endpoint:** `/api/books?attribute=published_year&value=2007` \
  **HTTP Method:** GET \
@@ -91,7 +91,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 - **Status Code:** 500 OK
 
-### Display single Book {by unique id e.g. isbn}
+3. #### Display single Book {by unique id e.g. isbn}
 
  **Endpoint:** `/api/books/{isbn}` \
  **HTTP Method:** GET \
@@ -113,7 +113,7 @@ Authentication is required to access specific API endpoints. We use API keys for
   }
  ```
 
-### Add Book to Cart 
+4. #### Add Book to Cart 
 
  **Endpoint:** `/api/{{userID}}/cart/add`  \
  **HTTP Method:** POST \
@@ -131,7 +131,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ```
 
-### View Cart 
+5. #### View Cart 
 **Endpoint:** `/api/{{userID}}/cart` \
 **HTTP Method:** GET \
 **Description:** Get the user's shopping cart contents. \
@@ -153,7 +153,7 @@ Authentication is required to access specific API endpoints. We use API keys for
     ]
   ```
 
-### Remove Book from Cart 
+6. #### Remove Book from Cart 
 **Endpoint:** /cart/remove/{book_id} \
 **HTTP Method:** DELETE \
 **Description:** Remove a book from the user's shopping cart. \
@@ -163,7 +163,7 @@ Authentication is required to access specific API endpoints. We use API keys for
   - **Status Code:** 204 No Content 
   
 
-### Get Categories
+7. #### Get Categories
 
 **Endpoint:** /categories \
 **HTTP Method:** GET \
@@ -182,72 +182,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 ]
 ```
 
-### Place an Order `***in future release***`
-**Endpoint:** /orders/place \
-**HTTP Method:** POST \
-**Description:** Order the books in the user's shopping cart. \
-**Request Body:** 
-- JSON object containing user and payment information. Example request body: 
-  
-```json 
-{
-  "userId": "12345",
-  "items": [
-    {
-      "book_id": "1",
-      "quantity": 2
-    }
-  ],
-  "payment": {
-    "cardNumber": "**** **** **** 1234",
-    "expiryDate": "12/25",
-    "cvv": "123"
-  }
-}
 
-```
-**Response:** 
-
-- **Status Code:** 201 Created 
-- **Body:** Order confirmation with order ID. Example response: 
-
-```json 
-{
-  "orderId": "ABC123",
-  "totalAmount": 21.98
-}
-
-```
-
-### View Order History `***in future release***`
-
-**Endpoint:** /orders \
-**HTTP Method:** GET \
-**Description:** Get the user's order history. \
-**Response:** 
-- **Status Code:** 200 OK
-- **Body:** JSON array of order objects. Example response:
-```json
-
-[
-  {
-    "orderId": "ABC123",
-    "orderDate": "2023-11-15T12:34:56Z",
-    "items": [
-      {
-        "book": {
-          "id": "1",
-          "title": "The Great Gatsby",
-          "author": "F. Scott Fitzgerald",
-          "price": 10.99
-        },
-        "quantity": 2
-      }
-    ],
-    "totalAmount": 21.98
-  }
-]
-```
 
 
 

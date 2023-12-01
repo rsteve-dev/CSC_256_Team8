@@ -50,7 +50,7 @@
     8. Luke Wainwright - Document Writer
     9. Stephen Rotich - Project Lead/document Writer
 
-# Selenium Lab
+# 1. Selenium Lab
 ## Introduction
 Selenium is an open-source software suite of browser automation tools for controlling web browsers through programs and performing browser automation. It is functional across browsers and operating systems and can be used in various programming languages.<br>
 for more information please visit the selenium lab website <!--[selenium documentation](https://www.selenium.dev/documentation/)--> <a href="https://www.selenium.dev/documentation/">selenium documentation</a>
@@ -184,9 +184,9 @@ driver.close()
 
 ## selenium Test Cases 
     
-# BDD Lab  
+# 2. BDD Lab  
     
-# API Test LAB - Wake county online bookstore
+# 3. API Test LAB 
 
 ##   Wake County Bookstore API Documentation
 
@@ -447,9 +447,9 @@ This guide provides  steps to get started with Postman. For more advanced featur
 ## Lab setup and testing the endpoints  
     
 
-# TDD Lab
+# 4.  TDD Lab
 
-# Playwrite Lab
+# 5.  Playwrite Lab
 ## Playwright Lab: Testing a Bookstore Web Application
 Playwright is a powerful framework for automating browsers, allowing developers to simulate user interactions with web applications. It supports multiple browsers, making it ideal for cross-browser testing. Playwright is primarily used for end-to-end testing, which tests the flow of an application from start to finish. It ensures that the integrated components of an application function as expected. This lab will guide you through the process of using Playwright to write and execute tests on a Flask-based bookstore web application.
 

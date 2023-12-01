@@ -12,7 +12,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 ### Request Headers 
 
- `Authorization: Bearer YOUR_API_KEY`  
+ `Authorization: Bearer YOUR_API_KEY  supplied securely via sftp or other encrypted methodologies`  
 
 ## Endpoints 
  Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***

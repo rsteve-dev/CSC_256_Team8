@@ -60,32 +60,32 @@
 
 ## Playwright Lab
 ### Lab Testing
-- **TC001:** Loading the Webpage and Checking the Title
-	- Result: 
-	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved
-- **TC002:** Adding a New Book
-	- Result: 
-	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved
-- **TC003:** Search Functionality (Student Input)
-	- Result:
+- **TC001: Loading the Webpage and Checking the Title**
+	- Result: For the "Loading the Webpage" test, the page title should match "County Bookstore".
+	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+- **TC002: Adding a New Book**
+	- Result: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
+	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+- **TC003: Search Functionality (Student Input)**
+	- Result: Expected results will depend on the specific implementation but should generally include successful execution of the search.
 	- Tester Code Used:
-	- Status: 
-- **TC004:** Error Handling (Student Input)
-	- Result:
+	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+- **TC004: Error Handling (Student Input)**
+	- Result: Expected results will depend on the specific implementation but should generally include proper error handling.
 	- Tester Code Used:
-	- Status:
+	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
 
 - - -
 
 ## Selenium Lab
 ### Lab Testing
-- **TC001:** Validate that the new book “Pages” and “Release Year” fields only accept integers
+- **TC001: Validate that the new book “Pages” and “Release Year” fields only accept integers**
 	- Result: For the “Non-int input” test, the page and release year boxes in the ‘New Book’ section won’t be able to accept a non-numeric input.
 	- Status: Complete & Passed
-- **TC002:** Adding a New Book
+- **TC002: Adding a New Book**
 	- Result: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
 	- Status: Complete & Passed
-- **TC003:** Search Functionality (Student Input)
+- **TC003: Search Functionality (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful execution of the search.
 	- Tester Code Used:
 		```
@@ -104,8 +104,8 @@
         driver.implicitly_wait(2)
         assert search_title in driver.page_source
 	- Status: Complete & Passed
-- **TC004:** Error Handling (Student Input)
-	- Result: Expected results will depend on the specific implementation but should either assert the present of a displayed error or other handling.
+- **TC004: Error Handling (Student Input)**
+	- Result: Expected results will depend on the specific implementation but should either assert the presence of a displayed error or other handling.
 	- Tester Code Used:
 		```
   		# Show the new book box
@@ -142,11 +142,11 @@
 - **TC002:** TBD
 	- Result:
 	- Status:
-- **TC003:** Getting CSV Data (Student Input)
+- **TC003: Getting CSV Data (Student Input)**
 	- Result:
 	- Tester Code Used:
 	- Status:
-- **TC004:** Writing CSV Data (Student Input)
+- **TC004: Writing CSV Data (Student Input)**
 	- Result:
 	- Tester Code Used:
 	- Status:

@@ -225,7 +225,7 @@ Postman is a popular tool for API development and testing. It allows developers 
 3. Click `Send` to execute the request.
 4. The response will appear in the section below.
 5. 
-   ![Alt text](./postman_images/send_request.png)
+   ![Alt text](./Assets/send_request.png)
 
 #### Saving Requests
 
@@ -240,14 +240,14 @@ Postman is a popular tool for API development and testing. It allows developers 
 
 - **Environments**: Use environments to manage sets of variables for different setups (like development, testing, production).
 - 
-- ![Alt text](./postman_images/collection.png)
+- ![Alt text](./Assets/collection.png)
 
 #### Writing  Tests
 
 - Postman allows us to write tests in JavaScript in the `Tests` tab.
 - These tests can validate various aspects of the response, such as status codes and response bodies.
 
-![Test](./postman_images/imagex.png)
+![Test](./Assets/imagex.png)
 #### Running Collections
 
 - Use the Collection Runner to run a series of requests in a collection, which is useful for automated testing.

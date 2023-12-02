@@ -1,42 +1,6 @@
 # Lab Testing Progress
 
 ## API Test Lab
-### Test Cases (based on the api_Test_Lab.md file)
-- **TC001:** List Books: `/api/books`
-	- Result:
-	- Status:
-- **TC002:** List Books by Attribute: `/api/books?attribute=published_year&value=2007`
-	- Result:
-	- Status:
-- **TC003:** Display Single Book: `/api/books/{isbn}`
-	- Result:
-	- Status:
-- **TC004:** Get Categories: `/categories`
-	- Result:
-	- Status:
- - **TC005:** Error Handling: All Endpoints
-	- Result:
- 	- Status:
- 
-### Lab Testing
-- **TC001:** TBD
-	- Result:
-	- Status:
-- **TC002:** TBD
-	- Result:
-	- Status
-- **TC003:** TBD (Student Input)
-	- Result:
-	- Tester Code Used:
-	- Status:
-- **TC004:** TBD (Student Input)
-	- Result:
-	- Tester Code Used:
- 	- Status:
-
-- - -
-
-## BDD Lab
 ### Lab Testing
 - **TC001:** TBD
 	- Result:
@@ -51,8 +15,23 @@
 	- Result:
 	- Tester Code Used:
 	- Status:
-- **TC005:** TBD (Student Input)
-	- Result:
+
+- - -
+
+## BDD Lab
+### Lab Testing
+- **TC001: Validate that only partial input for a new book shows an error**
+	- Result: After partial input of a book, it will display an error instead of submitting the new book.
+	- Status:
+- **TC002: Sorting by the page column shows the smallest page count book**
+	- Result: The smallest page book will be the top row of the list.
+	- Status
+- **TC003: Ensure the search bar only filters by titles (Student Input)**
+	- Result: After searching for a value not in a title, there will be no results in the books list.
+	- Tester Code Used:
+	- Status:
+- **TC004: Add a new book (Student Input)**
+	- Result: The newly added book will be present in the list.
 	- Tester Code Used:
  	- Status:
 
@@ -151,17 +130,17 @@
 
 ## TDD Lab
 ### Lab Testing
-- **TC001:** TBD
-	- Result:
-	- Status:
-- **TC002:** TBD
-	- Result:
-	- Status:
+- **TC001: Adding a New Book**
+	- Result: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
+	- Status: In progress/being written
+- **TC002: Error Handling**
+	- Result: For the "Error Handling" test, an exception should be raised when attempting to submit a new book with empty inputs.
+	- Status: In progress/being written
 - **TC003: Getting CSV Data (Student Input)**
-	- Result:
+	- Result: Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data.
 	- Tester Code Used:
-	- Status:
+	- Status: In progress/being written
 - **TC004: Writing CSV Data (Student Input)**
-	- Result:
+	- Result: Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
 	- Tester Code Used:
-	- Status:
+	- Status: In progress/being written

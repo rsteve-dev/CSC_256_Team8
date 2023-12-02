@@ -4,6 +4,8 @@ Test Driven Development (TDD) is a testing methodology that requires test cases 
 ### What is pytest?
 Pytest is a commonly used testing framework in Python, and is widely popular due to its comprehensive and user-friendly features. Pytest is very useful for creating simple and efficient tests that are easy to read, and streamlines the testing process through automatic detection of all test files and functions within a given project. Though based on Behavior-Driven Development (BDD) principles, pytest is very flexible and can be applied to other testing methodologies as well, and additionally supports unit, functional and integration testing levels.
 
+This lab will guide you through the process of using pytest to write and execute tests on a Flask-based bookstore web application.
+
 - - -
 
 ## Learning Resources
@@ -18,68 +20,104 @@ Pytest is a commonly used testing framework in Python, and is widely popular due
 
 - - -
 
-## Getting Started with Pytest
+## Getting Started with Python, Pytest, and Required Packages
 - #### Install Python:
-  - Ensure Python (version 3.7 or higher) is installed on your system.
-    - If needed, download Python from [python.org](https://www.python.org/downloads/).
-- #### Install Pytest:
-  - Open a command line interface/terminal and install pytest using pip:
-    - `pip install pytest`
-  - You can then verify if pytest was successfully installed with the following command:
-    - `pytest --version`
+  - Ensure Python (version 3.7 or higher) is installed on your system. If needed, download Python from [python.org](https://www.python.org/downloads/).
+  - You can ensure Python is installed and check its version by opening a command line and running:
+    - `python --version`
+- #### Install Required Packages:
+  - Open a command line interface inside of the ‘WebApp’ folder.
+  - Run the requirements.txt file to install all required packages:
+    - `pip install -r requirements.txt`
 
 ## Set Up Your Testing Environment
-- Create a new folder on your machine for this project.
-- Download the provided `main.py` file and the incomplete `test_suite_pytest.py` file. Place these in the previously created folder.
-
-## Running Tests
-- Execute pytest tests with the following command:
-  - `pytest test_suite_pytest.py`
-- If pytest is installed correctly, a passing test will issue the following output format:
-  - ```
-    ======================== test session starts =====================
-    …
-    collected 1 item
-    test_suite.py .                                   	[100%]
-    ======================== 1 passed in 0.01s =====================
+- #### Setting Up the Python Virtual Environment
+  - Navigate to the ‘WebApp’ folder and open a command line. Initiate your Python virtual environment by running:
+    - `python -m venv env`
+- #### Run the Flask Application:
+  - Navigate to your ‘WebApp’ folder in the command line and run:
+    - `flask --debug --app main run`
+  - If you receive the error ‘flask is not a recognized command’, alternatively run:
+    - `python -m flask --debug --app main run`
+  - The application should now be running at http://127.0.0.1:5000/ and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
 
 - - -
 
 ## Writing Pytest Tests
-- #### Open Your Test File
-  - 
+- #### Open Your Test File:
+  - In your project folder, open the file named `test_main.py`.
+  - This file will contain all your pytest tests.
+
 - #### Basic Pytest Test Structure
-  - 
+  - ##### Assertions
+    - An assertion is a check that the code makes when running to verify if the provided condition is true. The test passes if the provided condition is validated, and fails if it does not meet the assertion requirements.
+    - The syntax of an assertion statement is:
+      - `assert expression, message`
+    - Where `expression` is the condition to check, and `message` is an optional error message in the event the test fails.
+  - ##### Fixtures
+    - A fixture is a mechanism that is established as a baseline in order to set up the testing environment or required data. In pytest, a fixture is a Python function that provides the necessary test data or other resources to test functions that require them.
+    - A fixture in pytest is formatted as:
+      - ```
+        @pytest.fixture
+        def function():
+          # Function information goes here
+  - ##### Parametrizing
+    - Parametrizing allows the test function to run multiple times with different provided sets of data, which eliminates the need to write multiple tests to check for various situations.
+    - Parametrizing tests in pytest is formatted as:
+    - ```
+      @pytest.mark.parametrize("string",[(value1)(value2)])
+      def function(string):
+        # Function information goes here
+    - Where `string` is the name of the argument the function will take, and `value1` and `value2` are a list of tuples, with each representing a different test case and containing a set of values for the argument. There can be multiple arguments and multiple tuples.
+  - ##### pytest.raises
+    - pytest.raises checks that certain exceptions get raised when appropriate. The test passes if the exception is raised, otherwise the test fails.
+  - A basic pytest test structure (included) looks like this:
+    - 
 
 - - -
 
 ## Test Examples
 - #### Test 1 - Adding a New Book
-  - This test validates if a user can successfully add a new book to the CSV file.
+  - This test validates that a new book can be successfully added.
+  - 
 - #### Test 2 - Error Handling
-  - This test validates if an exception is raised when a user attempts to add a new book with an invalid title.
+  - This test validates if an exception is raised when a user attempts to add a new book with empty inputs.
+  - 
 
 ## Incomplete Test Scenarios
-- #### Test 3 - Getting CSV Data
-  - This test attempts to successfullly load data from the CSV file.
-  - Incomplete/for student to fill out.
-- #### Test 4 - Writing CSV Data
-  - This test attempts to successfully save data to the CSV file.
-  - Incomplete/for student to fill out.
+- #### Test 3 (Incomplete) - Getting CSV Data
+  - Write a test that verifies that the data from the CSV file can be successfully loaded.
+  - Instruction: 
+- #### Test 4 (Incomplete) - Writing CSV Data
+  - Write a test that verifies that the CSV file can successfully write data.
+  - Instruction:
 
 - - -
 
 ## Expected Test Results
 - #### Test 1
-  - 
+  - In the "Adding a New Book" test, the new book title should be present in the page content after submission.
 - #### Test 2
-  - 
+  - For the "Error Handling" test, an exception should be raised when attempting to submit a new book with empty inputs.
 - #### Test 3
-  - 
+  - Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data.
 - #### Test 4
-  - 
+  - Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
+
+- - -
+
+## Running Tests
+- Execute pytest tests with the following command:
+  - `pytest test_main.py`
+- If pytest is installed correctly, a passing test will issue the following output format:
+  - ```
+    ======================== test session starts =====================
+    …
+    collected 1 item
+    test_main.py .                                   	[100%]
+    ======================== 1 passed in 0.01s =====================
 
 - - -
 
 ## Conclusion
-- What the lab taught
+- This lab should provide a good insight into the workings of pytest, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through a mix of guided examples and interactive exercises, you will gain practical experience in testing web applications. This hands-on approach is designed to enhance your skills in both pytest and general web testing methodologies such as Test Driven Development.

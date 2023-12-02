@@ -88,22 +88,8 @@
 - **TC003: Search Functionality (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful execution of the search.
 	- Tester Code Used:
-		```
-  		# Select the Search box
-  		search_title = "Gilead"
-
-  		# Click the Search bar to enter the desired title if not selected already
-        if("none" in driver.find_element(By.ID, "searchInput").get_attribute("style")):
-            driver.find_element(By.ID, "searchInput").click()
-        
-        # Send input
-        driver.find_element(By.ID, "searchInput").send_keys(search_title)
-
-        # Check to see if the book title is present in the page
-        # 2 seconds of wait added to allow for the page to refresh
-        driver.implicitly_wait(2)
-        assert search_title in driver.page_source
-	- Status: Complete & Passed
+		
+	- Status: In Progress
 - **TC004: Error Handling (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should either assert the presence of a displayed error or other handling.
 	- Tester Code Used:
@@ -128,6 +114,9 @@
 
         # Submit new book
         driver.find_element(By.ID, "submitNewBook").click()
+
+ 		# Assert error box displays
+        assert ("block" in driver.find_element(By.ID, "errorBox").get_attribute("style"))
 	- Status: Complete & Passed
 
 ![Screenshot showing a Terminal output indicating that the tests ran and passed.](Assets/Selenium_Lab_Testing_Complete.png)

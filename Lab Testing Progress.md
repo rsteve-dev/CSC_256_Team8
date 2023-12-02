@@ -88,8 +88,34 @@
 - **TC003: Search Functionality (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful execution of the search.
 	- Tester Code Used:
-		
-	- Status: In Progress
+		```
+  		# Store the search title in a variable
+        search_title = "Gilead"
+
+  		# Click the Search bar to enter the desired title if not selected already
+        if("none" in driver.find_element(By.ID, "searchInput").get_attribute("style")):
+            driver.find_element(By.ID, "searchInput").click()
+        
+        # Send input
+        driver.find_element(By.ID, "searchInput").send_keys(search_title)
+
+        # Check to see if the book title is present in the page
+        # 2 seconds of wait added to allow for the page to refresh
+        driver.implicitly_wait(2)
+        
+        # Get the body of the table
+        data_table = driver.find_element(By.ID, "tbody")
+        rows = data_table.find_elements(By.TAG_NAME, "tr")
+
+        # Loop through rows and compare text
+        for row in rows:
+            if row.is_displayed():
+                cells = row.find_elements(By.TAG_NAME, "td")[0].text
+                for c in cells:
+                    if search_title == c:
+                        num_row += 1
+                        assert ("block" in driver.find_element(By.ID, "row_" + str(num_row)).get_attribute("style"))
+	- Status: Complete & Passed
 - **TC004: Error Handling (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should either assert the presence of a displayed error or other handling.
 	- Tester Code Used:

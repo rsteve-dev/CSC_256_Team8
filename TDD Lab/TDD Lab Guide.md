@@ -37,8 +37,8 @@ This lab will guide you through the process of using pytest to write and execute
     - `python -m venv env`
 - #### Activate Python Virtual Environment
   -Activate the virtual environment:
-    - On Windows: venv\Scripts\activate
-    - On Unix or MacOS: source venv/bin/activate 
+    - On Windows: `venv\Scripts\activate`
+    - On Unix or MacOS: `source venv/bin/activate` 
 - #### Install Required Packages:
   - Open a command line interface inside of the ‘WebApp’ folder.
   - Run the requirements.txt file to install all required packages:

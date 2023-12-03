@@ -13,13 +13,13 @@
   - [Lab ](#Lab) 
     
 - [BDD Lab](#BDD-Lab)
- - [Getting Python, Behave and Required Packages](#Required)  
- - [Set Up Your Testing Environment](#Environment)  
- - [Learning Resources](##Learning)  
- - [Writing Behave Tests](#Behave)  
- - [Test Scenarios](#Test-Examples)  
- - [Running the Tests](#Tests)  
- - [BDD Conclusion](#Conclusion)  
+  - [Getting Python, Behave and Required Packages](#Required)  
+  - [Set Up Your Testing Environment](#Environment)  
+  - [Learning Resources](##Learning)  
+  - [Writing Behave Tests](#Behave)  
+  - [Test Scenarios](#Test-Examples)  
+  - [Running the Tests](#Tests)  
+  - [BDD Conclusion](#Conclusion)  
 
     
 - [API Test LAB](#API-est-Lab)

@@ -3,31 +3,46 @@
 
     
 # Table of content 
-- [Introduction](#introduction)
-  - [objectives](#Objectives)
-  - [Project Team](#Project-Team)
+	- [Introduction](#introduction)
+ 	 - [objectives](#Objectives)
+ 	 - [Project Team](#Project-Team)
   
 - [Selenium Lab](#Selenium-Lab)
-    - [Introduction](#selenium-intro)
-    - [Requirements](#selenium-Requirements)
-    - [Setup & installation](#setup-installation)
-    - [Lab ](#Lab) 
+   	 - [Introduction](#selenium-intro)
+   	 - [Requirements](#selenium-Requirements)
+   	 - [Setup & installation](#setup-installation)
+   	 - [Lab ](#Lab) 
     
-- [BDD Lab](#BDD-Lab)  
+- [BDD Lab](#BDD-Lab)
+  	- [Getting Python, Behave and Required Packages](#Required)  
+	- [Set Up Your Testing Environment](#Environment)  
+	- [Learning Resources](##Learning)  
+	- [Writing Behave Tests](#Behave)  
+	- [Test Scenarios](#Test-Examples)  
+	 - [Running the Tests](#Tests)  
+ 	- [BDD Conclusion](#Conclusion)  
+
     
 - [API Test LAB](#API-est-Lab)
-    - [Wake County Bookstore API Documentation](#APIDocumentation)
-    - [Endpoints](#Endpoints)
-    - [Postman Installation and Lab Guide](#postman-lab-Guide)
-    - [Lab -Writing and Testing the endpoints ](#APILab) 
+    	- [Wake County Bookstore API Documentation](#APIDocumentation)
+    	- [Endpoints](#Endpoints)
+    	- [Postman Installation and Lab Guide](#postman-lab-Guide)
+    	- [Lab -Writing and Testing the endpoints ](#APILab) 
 
 - [Test Driven Development (TDD)](#TDD-Lab)
-
+	- [Getting Python, Pytest, and Required Packages](#Required)  
+	- [Set Up Your Testing Environment](#Environment)  
+	- [Learning Resources](##Learning)  
+	- [ Writing Pytest TDD Tests](#pytest)  
+	- [Test Scenarios](#Test-Examples)  
+ 	- [Running the Tests](#Tests)
+	- [Expected Test Results](#Expected)
+ 	- [TDD Conclusion](#Conclusion)  
 - [Playwrite Lab](#Playwrite-Lab)
-    - [ Playwright Lab: Testing a Bookstore Web Application](#Playwrite-intro)
-    - [Getting Started with Playwright](#Playwrite-Requirements)
-    - [Writing Playwright Tests](#setup-installation)
-    - [Conclusion](#Lab) 
+   	- [ Playwright Lab: Testing a Bookstore Web Application](#Playwrite-intro)
+    	- [Getting Started with Playwright](#Playwrite-Requirements)
+    	- [Writing Playwright Tests](#setup-installation)
+    	- [Conclusion](#Lab) 
 
 # Introduction
  ## objectives

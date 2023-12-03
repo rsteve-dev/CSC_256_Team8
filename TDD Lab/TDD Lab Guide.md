@@ -124,6 +124,12 @@ This lab will guide you through the process of using pytest to write and execute
           # Find and click the submit button
           submit_button = driver.find_element(By.ID, "submitNewBook")
           submit_button.click()
+
+          # Check to see if the book title is present in the page
+          # 2 seconds of wait added to allow for the page to refresh
+          driver.implicitly_wait(2)
+          assert newTitle in driver.page_source
+    
           print("Test executed successfully.")
   
         except Exception as e:

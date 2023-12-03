@@ -31,15 +31,18 @@ This lab will guide you through the process of using pytest to write and execute
   - Ensure Python (version 3.7 or higher) is installed on your system. If needed, download Python from [python.org](https://www.python.org/downloads/).
   - You can ensure Python is installed and check its version by opening a command line and running:
     - `python --version`
-- #### Install Required Packages:
-  - Open a command line interface inside of the ‘WebApp’ folder.
-  - Run the requirements.txt file to install all required packages:
-    - `pip install -r requirements.txt`
-
 ## Set Up Your Testing Environment
 - #### Setting Up the Python Virtual Environment
   - Navigate to the ‘WebApp’ folder and open a command line. Initiate your Python virtual environment by running:
     - `python -m venv env`
+- #### Activate Python Virtual Environment
+  -Activate the virtual environment:
+    - On Windows: venv\Scripts\activate
+    - On Unix or MacOS: source venv/bin/activate 
+- #### Install Required Packages:
+  - Open a command line interface inside of the ‘WebApp’ folder.
+  - Run the requirements.txt file to install all required packages:
+    - `pip install -r requirements.txt`
 - #### Run the Flask Application:
   - Navigate to your ‘WebApp’ folder in the command line and run:
     - `flask --debug --app main run`

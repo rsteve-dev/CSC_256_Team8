@@ -205,9 +205,11 @@
 	- Result: Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
 	- Tester Code Used:
 		- Red Phase:
- 		- 
+ 		- ![Screenshot showing the tester's code for the Red Phase of TDD for the test_write_csv_data() test.](Assets/TDD_Lab_test_write_csv_data_red_phase.png)
 		- Green Phase:
-		- 
+		- ![Screenshot showing the tester's code for the Green Phase of TDD for the test_write_csv_data() test.](Assets/TDD_Lab_test_write_csv_data_green_phase.png)
 		- Refactor Phase:
-  		- 
+  		- ![Screenshot showing the tester's code for the Refactor Phase of TDD for the test_write_csv_data() test.](Assets/TDD_Lab_test_write_csv_data_refactor_phase.png)
 	- Status: Complete & Passed
+
+![Screenshot showing a Terminal output indicating that the tests ran and passed.](Assets/TDD_Lab_Testing_Complete.png)

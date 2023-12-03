@@ -22,83 +22,73 @@
 ### Lab Testing
 - **TC001: Validate that only partial input for a new book shows an error**
 	- Result: After partial input of a book, it will display an error instead of submitting the new book.
-	- Status: Pass
+	- Status: Complete & Passed
 - **TC002: Sorting by the page column shows the smallest page count book**
 	- Result: The smallest page book will be the top row of the list.
-	- Status: Pass
+	- Status: Complete & Passed
 
 - **TC003: Ensure the search bar only filters by titles (Student Input)**
 	- Result: After searching for a value not in a title, there will be no results in the books list.
-	- Tester Code Used: from behave import *
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+	- Tester Code Used: 
+		```
+		from behave import *
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
+		
+		driver = webdriver.Chrome()
+		
+		@given('We are on the bookstore search page')
+		def step_user_on_search_page(context):
+		    # Your test code here
+		    driver.get("http://127.0.0.1:5000/")
+		    driver.implicitly_wait(0.5)
 
-driver = webdriver.Chrome()
-
-@given('We are on the bookstore search page')
-def step_user_on_search_page(context):
-    # Your test code here
-    driver.get("http://127.0.0.1:5000/")
-    driver.implicitly_wait(0.5)
-     
-
-
-@when('We try to search using a non-book category Author')
-def step_search_non_book_category(context ):
-    # Your test code here
-    driver.find_element(By.ID, "searchInput").send_keys("Clive Staples Lewis")
-    pass
-    
-
-
-@then('The search should not display any results')
-def step_verify_no_search_results(context):
-    # Your test code here
-    driver.find_element(By.ID, "searchInput").click()
-    driver.implicitly_wait(0.5)
-	- Status: Pass
-
-
+		@when('We try to search using a non-book category Author')
+		def step_search_non_book_category(context ):
+		    # Your test code here
+		    driver.find_element(By.ID, "searchInput").send_keys("Clive Staples Lewis")
+		
+		@then('The search should not display any results')
+		def step_verify_no_search_results(context):
+		    # Your test code here
+		    driver.find_element(By.ID, "searchInput").click()
+		    driver.implicitly_wait(0.5)
+	- Status: Complete & Passed
 - **TC004: Add a new book (Student Input)**
 	- Result: The newly added book will be present in the list.
-	- Tester Code Used: from behave import *
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-
-driver = webdriver.Chrome()
-
-@given('We have the bookstore open and are on the submission page')
-def step_impl(context):
-    # Your test code here
-    driver.get("http://127.0.0.1:5000/")
-    new_book_button = driver.find_element(By.ID, "newBookToggle")
-    if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
-        new_book_button.click()
-    driver.implicitly_wait(0.5)
-    assert "block" in driver.find_element(By.ID, "addNewBook").get_attribute("style")
-    pass    
-
-
-@when("we add a new book's information")
-def step_add_new_book(context):
-    # Your test code here
-    driver.find_element(By.ID, "newTitle").send_keys("This is a test")
-    driver.find_element(By.ID, "newAuthor").send_keys("New Author")
-    driver.find_element(By.ID, "newGenres").send_keys("Test")
-    driver.find_element(By.ID, "pages").send_keys(1111)
-    driver.find_element(By.ID, "releaseYear").send_keys(1995)
-    
-    pass
-
-
-@then('the new book should appear in the list of submissions')
-def step_impl(context):
-    # Your test code here
-    driver.find_element(By.ID, "submitNewBook").click()
-    driver.implicitly_wait(0.5)
-    pass
- 	- Status: Pass
-
+	- Tester Code Used:
+		```
+		from behave import *
+		from selenium import webdriver
+		from selenium.webdriver.common.by import By
+		
+		driver = webdriver.Chrome()
+		
+		@given('We have the bookstore open and are on the submission page')
+		def step_impl(context):
+		    # Your test code here
+		    driver.get("http://127.0.0.1:5000/")
+		    new_book_button = driver.find_element(By.ID, "newBookToggle")
+		    if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
+		        new_book_button.click()
+		    driver.implicitly_wait(0.5)
+		    assert "block" in driver.find_element(By.ID, "addNewBook").get_attribute("style")    
+		
+		@when("we add a new book's information")
+		def step_add_new_book(context):
+		    # Your test code here
+		    driver.find_element(By.ID, "newTitle").send_keys("This is a test")
+		    driver.find_element(By.ID, "newAuthor").send_keys("New Author")
+		    driver.find_element(By.ID, "newGenres").send_keys("Test")
+		    driver.find_element(By.ID, "pages").send_keys(1111)
+		    driver.find_element(By.ID, "releaseYear").send_keys(1995)		
+		
+		@then('the new book should appear in the list of submissions')
+		def step_impl(context):
+		    # Your test code here
+		    driver.find_element(By.ID, "submitNewBook").click()
+		    driver.implicitly_wait(0.5)
+ 	- Status: Complete & Passed
 
 - - -
 
@@ -220,4 +210,4 @@ def step_impl(context):
 		- 
 		- Refactor Phase:
   		- 
-	- Status: In progress/being written
+	- Status: Complete & Passed

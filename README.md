@@ -3,10 +3,9 @@
 
     
 # Table of content 
-	- [Introduction](#introduction)
- 	 - [objectives](#Objectives)
- 	 - [Project Team](#Project-Team)
-  
+- [Introduction](#introduction)
+- [objectives](#Objectives)
+- [Project Team](#Project-Team)
 - [Selenium Lab](#Selenium-Lab)
    	 - [Introduction](#selenium-intro)
    	 - [Requirements](#selenium-Requirements)

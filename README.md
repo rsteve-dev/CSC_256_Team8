@@ -19,7 +19,7 @@
 	- [Learning Resources](##Learning)  
 	- [Writing Behave Tests](#Behave)  
 	- [Test Scenarios](#Test-Examples)  
-	 - [Running the Tests](#Tests)  
+	- [Running the Tests](#Tests)  
  	- [BDD Conclusion](#Conclusion)  
 
     
@@ -37,7 +37,8 @@
 	- [Test Scenarios](#Test-Examples)  
  	- [Running the Tests](#Tests)
 	- [Expected Test Results](#Expected)
- 	- [TDD Conclusion](#Conclusion)  
+ 	- [TDD Conclusion](#Conclusion)
+    
 - [Playwrite Lab](#Playwrite-Lab)
    	- [ Playwright Lab: Testing a Bookstore Web Application](#Playwrite-intro)
     	- [Getting Started with Playwright](#Playwrite-Requirements)

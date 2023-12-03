@@ -25,7 +25,7 @@
 	- Status:
 - **TC002: Sorting by the page column shows the smallest page count book**
 	- Result: The smallest page book will be the top row of the list.
-	- Status
+	- Status:
 - **TC003: Ensure the search bar only filters by titles (Student Input)**
 	- Result: After searching for a value not in a title, there will be no results in the books list.
 	- Tester Code Used:
@@ -139,14 +139,20 @@
 - **TC003: Getting CSV Data (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data. 
 	- Tester Code Used:
-		- **Red Phase:**
- 			- 
-		- **Green Phase:**
- 			- 
-		- **Refactor Phase:**
-			- 
+		- Red Phase:
+ 		- 
+		- Green Phase:
+		- 
+		- Refactor Phase:
+  		- 
 	- Status: In progress/being written
 - **TC004: Writing CSV Data (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
 	- Tester Code Used:
+		- Red Phase:
+ 		- 
+		- Green Phase:
+		- 
+		- Refactor Phase:
+  		- 
 	- Status: In progress/being written

@@ -1,6 +1,12 @@
 # Test Driven Development (TDD) Lab Guide
 ### What is TDD?
 Test Driven Development (TDD) is a testing methodology that requires test cases to be written before any actual development of the code begins. This ensures that any code written adheres to and passes the test cases, which in turn produces solid, high-quality code with minimal bugs. TDD promotes frequent feedback as well, through the development of small sections of test cases and code together, which helps by immediately outlining which areas of the code need to be fixed instead of waiting for the entire code to be completed before the testing process begins.
+
+TDD development is broken up into three categories, each which follows one main rule:
+- **Red Phase:** Write a failing unit test for the functionality to be implemented.
+- **Green Phase:** Write just enough production code to make the failing test pass.
+- **Refactor Phase:** Improve upon the code written in the green phase to reduce redundancy.
+
 ### What is pytest?
 Pytest is a commonly used testing framework in Python, and is widely popular due to its comprehensive and user-friendly features. Pytest is very useful for creating simple and efficient tests that are easy to read, and streamlines the testing process through automatic detection of all test files and functions within a given project. Though based on Behavior-Driven Development (BDD) principles, pytest is very flexible and can be applied to other testing methodologies as well, and additionally supports unit, functional and integration testing levels.
 
@@ -87,10 +93,10 @@ This lab will guide you through the process of using pytest to write and execute
 ## Incomplete Test Scenarios
 - #### Test 3 (Incomplete) - Getting CSV Data
   - Write a test that verifies that the data from the CSV file can be successfully loaded.
-  - Instruction: 
+  - Instruction: Follow the three phases/rules of TDD when writing the test & include screenshots of each phase.
 - #### Test 4 (Incomplete) - Writing CSV Data
   - Write a test that verifies that the CSV file can successfully write data.
-  - Instruction:
+  - Instruction: Follow the three phases/rules of TDD when writing the test & include screenshots of each phase.
 
 - - -
 
@@ -108,7 +114,7 @@ This lab will guide you through the process of using pytest to write and execute
 
 ## Running Tests
 - Execute pytest tests with the following command:
-  - `pytest test_main.py`
+  - `python test_main.py`
 - If pytest is installed correctly, a passing test will issue the following output format:
   - ```
     ======================== test session starts =====================

@@ -37,7 +37,7 @@ This lab will guide you through the process of using pytest to write and execute
     - `python -m venv env`
 - #### Activate Python Virtual Environment
   - Activate the virtual environment:
-      - On Windows: `venv\Scripts\activate`
+      - On Windows: `env\Scripts\activate`
       - On Unix or MacOS: `source venv/bin/activate` 
 - #### Install Required Packages:
   - Open a command line interface inside of the ‘WebApp’ folder.
@@ -80,16 +80,99 @@ This lab will guide you through the process of using pytest to write and execute
     - Where `string` is the name of the argument the function will take, and `value1` and `value2` are a list of tuples, with each representing a different test case and containing a set of values for the argument. There can be multiple arguments and multiple tuples.
   - ##### pytest.raises
     - pytest.raises checks that certain exceptions get raised when appropriate. The test passes if the exception is raised, otherwise the test fails.
-
+    - pytest.raises is formatted as:
+    - ```
+      def function():
+        with pytest.raises(Error)
+          # Function that will raise an error goes here
 - - -
 
 ## Test Examples
 - #### Test 1 - Adding a New Book
   - This test validates that a new book can be successfully added.
-  - 
+  - ```
+    @pytest.mark.parametrize("newTitle, newAuthor, newGenre, pages, releaseYear", 
+                         [("Fake Title", "Fake Author", "Fiction", "100", "2023")])
+    def test_add_new_book(driver, newTitle, newAuthor, newGenre, pages, releaseYear):
+        # Test to see if a new book input can be successfully added
+        try:
+            # Navigate to the page with the form
+            driver.get("http://127.0.0.1:5000/")  
+
+          # Click the 'Add New Book' button to reveal the form
+          new_book_toggle = driver.find_element(By.ID, "newBookToggle")
+          new_book_toggle.click()
+  
+          # Wait for the form to be visible
+          WebDriverWait(driver, 10).until(
+             expected_conditions.visibility_of_element_located((By.ID, "newBookForm"))
+          )
+  
+          # Now find and fill out the form
+          title_input = driver.find_element(By.NAME, "title")
+          author_input = driver.find_element(By.NAME, "author")
+          genre_input = driver.find_element(By.NAME, "genres")
+          pages_input = driver.find_element(By.NAME, "pages")
+          year_input = driver.find_element(By.NAME, "releaseYear")
+  
+          title_input.send_keys(newTitle)
+          author_input.send_keys(newAuthor)
+          genre_input.send_keys(newGenre)
+          pages_input.send_keys(pages)
+          year_input.send_keys(releaseYear)
+  
+          # Find and click the submit button
+          submit_button = driver.find_element(By.ID, "submitNewBook")
+          submit_button.click()
+          print("Test executed successfully.")
+  
+        except Exception as e:
+          # Handle any exceptions that occur during the test
+          pytest.fail(f"An error occurred during the test: {e}")
 - #### Test 2 - Error Handling
   - This test validates if an exception is raised when a user attempts to add a new book with empty inputs.
-  - 
+  - ```
+    @pytest.mark.parametrize("newTitle, newAuthor, newGenre, pages, releaseYear", 
+                         [("", "", "", "", "")])
+    def test_add_new_book_raises_exception(driver, newTitle, newAuthor, newGenre, pages, releaseYear):
+        # Test to see if an invalid new book input correctly reports an error
+        try:
+            # Navigate to the page with the form
+            driver.get("http://127.0.0.1:5000/")  
+
+            # Click the 'Add New Book' button to reveal the form
+            new_book_toggle = driver.find_element(By.ID, "newBookToggle")
+            new_book_toggle.click()
+    
+            # Wait for the form to be visible
+            WebDriverWait(driver, 10).until(
+               expected_conditions.visibility_of_element_located((By.ID, "newBookForm"))
+            )
+    
+            # Now find and fill out the form
+            title_input = driver.find_element(By.NAME, "title")
+            author_input = driver.find_element(By.NAME, "author")
+            genre_input = driver.find_element(By.NAME, "genres")
+            pages_input = driver.find_element(By.NAME, "pages")
+            year_input = driver.find_element(By.NAME, "releaseYear")
+            
+            title_input.send_keys(newTitle)
+            author_input.send_keys(newAuthor)
+            genre_input.send_keys(newGenre)
+            pages_input.send_keys(pages)
+            year_input.send_keys(releaseYear)
+    
+            # Find and click the submit button
+            submit_button = driver.find_element(By.ID, "submitNewBook")
+            submit_button.click()
+    
+            # Assert error box displays
+            assert ("block" in driver.find_element(By.ID, "errorBox").get_attribute("style"))
+            print("Test executed successfully.")
+    
+        except Exception as e:
+            # Handle any exceptions that occur during the test
+            pytest.fail(f"An error occurred during the test: {e}")
 
 ## Incomplete Test Scenarios
 - #### Test 3 (Incomplete) - Getting CSV Data
@@ -115,15 +198,17 @@ This lab will guide you through the process of using pytest to write and execute
 
 ## Running Tests
 - Execute pytest tests with the following command:
-  - `python test_main.py`
-- If pytest is installed correctly, a passing test will issue the following output format:
+  - `pytest test_main.py`
+- If pytest is installed correctly, a passing test will issue something similar to following output format:
   - ```
-    ======================== test session starts =====================
+    ======================== test session starts ===================================================
     …
-    collected 1 item
-    test_main.py .                                   	[100%]
-    ======================== 1 passed in 0.01s =====================
+    collected 4 items
 
+    test_main.py
+    DevTools listening on ws://127.0.0.1:60121/devtools/browser/463a3f77-4edf-4925-a642-0d38c646b465
+    ....                                   	                                                  [100%]
+    ======================== 4 passed in 0.01s =====================================================
 - - -
 
 ## Conclusion

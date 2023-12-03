@@ -132,10 +132,10 @@
 ### Lab Testing
 - **TC001: Adding a New Book**
 	- Result: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
-	- Status: In progress/being written
+	- Status: Complete & Passed
 - **TC002: Error Handling**
 	- Result: For the "Error Handling" test, an exception should be raised when attempting to submit a new book with empty inputs.
-	- Status: In progress/being written
+	- Status: Complete & Passed
 - **TC003: Getting CSV Data (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data. 
 	- Tester Code Used:

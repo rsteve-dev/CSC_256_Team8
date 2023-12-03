@@ -26,6 +26,7 @@
 - **TC002: Sorting by the page column shows the smallest page count book**
 	- Result: The smallest page book will be the top row of the list.
 	- Status: Pass
+
 - **TC003: Ensure the search bar only filters by titles (Student Input)**
 	- Result: After searching for a value not in a title, there will be no results in the books list.
 	- Tester Code Used: from behave import *
@@ -56,6 +57,8 @@ def step_verify_no_search_results(context):
     driver.find_element(By.ID, "searchInput").click()
     driver.implicitly_wait(0.5)
 	- Status: Pass
+
+
 - **TC004: Add a new book (Student Input)**
 	- Result: The newly added book will be present in the list.
 	- Tester Code Used: from behave import *
@@ -95,7 +98,7 @@ def step_impl(context):
     driver.implicitly_wait(0.5)
     pass
  	- Status: Pass
-![image](https://github.com/rsteve-dev/CSC_256_Team8/assets/123521768/824a59dd-d618-4a3a-b498-6738974150d3)
+
 
 - - -
 

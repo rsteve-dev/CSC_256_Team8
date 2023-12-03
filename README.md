@@ -34,14 +34,14 @@
    
 
 - [Test Driven Development (TDD)](#TDD-Lab)
- - [Getting Python, Pytest, and Required Packages](#Required)  
- - [Set Up Your Testing Environment](#Environment)  
- - [Learning Resources](##Learning)  
- - [ Writing Pytest TDD Tests](#pytest)  
- - [Test Scenarios](#Test-Examples)  
- - [Running the Tests](#Tests)
- - [Expected Test Results](#Expected)
- - [TDD Conclusion](#Conclusion)
+  - [Getting Python, Pytest, and Required Packages](#Required)  
+  - [Set Up Your Testing Environment](#Environment)  
+  - [Learning Resources](##Learning)  
+  - [ Writing Pytest TDD Tests](#pytest)  
+  - [Test Scenarios](#Test-Examples)  
+  - [Running the Tests](#Tests)
+  - [Expected Test Results](#Expected)
+  - [TDD Conclusion](#Conclusion)
     
 - [Playwrite Lab](#Playwrite-Lab)
   - [ Playwright Lab: Testing a Bookstore Web Application](#Playwrite-intro)

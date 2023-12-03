@@ -27,17 +27,17 @@ def test_add_new_book(driver, newTitle, newAuthor, newGenre, pages, releaseYear)
         )
 
         # Now find and fill out the form
-        title_input = driver.find_element(By.NAME, "title")
-        author_input = driver.find_element(By.NAME, "author")
-        genre_input = driver.find_element(By.NAME, "genres")
-        pages_input = driver.find_element(By.NAME, "pages")
-        year_input = driver.find_element(By.NAME, "releaseYear")
+        title_ = driver.find_element(By.NAME, "title")
+        author_ = driver.find_element(By.NAME, "author")
+        genre_ = driver.find_element(By.NAME, "genres")
+        pages_ = driver.find_element(By.NAME, "pages")
+        year_ = driver.find_element(By.NAME, "releaseYear")
 
-        title_input.send_keys(newTitle)
-        author_input.send_keys(newAuthor)
-        genre_input.send_keys(newGenre)
-        pages_input.send_keys(pages)
-        year_input.send_keys(releaseYear)
+        title_.send_keys(newTitle)
+        author_.send_keys(newAuthor)
+        genre_.send_keys(newGenre)
+        pages_.send_keys(pages)
+        year_.send_keys(releaseYear)
 
         # Find and click the submit button
         submit_button = driver.find_element(By.ID, "submitNewBook")

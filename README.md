@@ -24,9 +24,10 @@
 
     
 - [API Test LAB](#API-est-Lab)
-    	- [API Documentation](#APIDocumentation)
-    	- [Endpoints](#Endpoints)
-    	- [Postman Installation and Lab Guide](#postman-lab-Guide)
+  	- [API Documentation](#Documentation)
+  	- [Endpoints](#Endpoints)
+    	- [Set Up Your Testing Environment](#postman)
+  	- [Postman Installation and Lab Guide](#Expected)
     	- [Test Scenarios](#APILab)
   	- [Running the Tests](#Tests)
 	- [Expected Test Results](#Expected)

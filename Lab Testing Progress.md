@@ -137,8 +137,14 @@
 	- Result: For the "Error Handling" test, an exception should be raised when attempting to submit a new book with empty inputs.
 	- Status: In progress/being written
 - **TC003: Getting CSV Data (Student Input)**
-	- Result: Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data.
+	- Result: Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data. 
 	- Tester Code Used:
+		- **Red Phase:**
+ 			- 
+		- **Green Phase:**
+ 			- 
+		- **Refactor Phase:**
+			- 
 	- Status: In progress/being written
 - **TC004: Writing CSV Data (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.

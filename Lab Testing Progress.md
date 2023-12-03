@@ -95,6 +95,7 @@ def step_impl(context):
     driver.implicitly_wait(0.5)
     pass
  	- Status: Pass
+![image](https://github.com/rsteve-dev/CSC_256_Team8/assets/123521768/824a59dd-d618-4a3a-b498-6738974150d3)
 
 - - -
 

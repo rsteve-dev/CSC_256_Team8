@@ -77,8 +77,6 @@ This lab will guide you through the process of using pytest to write and execute
     - Where `string` is the name of the argument the function will take, and `value1` and `value2` are a list of tuples, with each representing a different test case and containing a set of values for the argument. There can be multiple arguments and multiple tuples.
   - ##### pytest.raises
     - pytest.raises checks that certain exceptions get raised when appropriate. The test passes if the exception is raised, otherwise the test fails.
-  - A basic pytest test structure (included) looks like this:
-    - 
 
 - - -
 

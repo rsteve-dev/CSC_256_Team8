@@ -195,32 +195,26 @@ BDD, meaning “Behavior-driven development” is a software development style t
 -	Open a command line interface inside of the ‘WebApp’ folder 
 -	Run the `requirements.txt` file to install all required packages: `pip install -r requirements.txt`
 
+## Set Up Your Testing Environment:
 
-
-
-
-
-
-##	Set Up Your Testing Environment:
 #### Setting Up the Python Virtual Environment
--	Navigate to the ‘WebApp’ folder and open a command line. Initiate your Python virtual environment by running:`python -m venv env`
+- Navigate to the `WebApp` folder and open a command line. Initiate your Python virtual environment by running:`python -m venv env`
+- 
 #### Run the Flask Application:
     - Navigate to your ‘WebApp’ folder in the command line and run:`flask --debug --app main run`
     - If you receive the error ‘flask is not a recognized command’, alternatively run:`python -m flask --debug --app main run`
     - The application should now be running at` http://127.0.0.1:5000/` and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
------------------------------------------------------------------------------
-##	Learning Resources:
+
+## Learning Resources
+
 Official Behave Documentation:
 - Behave Documentation: The official docs for Behave and how to use it.
 - Official Behave GitHub Repo: The official Behave GitHub repository
 - Community Forums and Support:
    - Stack Overflow: Community Q&A on Behave-related topics.
 
------------------------------------------------------------------------------
-
-
-
 ##	Writing Behave Tests
+
 #### Understanding the file structure and Behave:
 -	In your WebApp folder, you will have a sub-folder called Features, this is where all Gherkin-based tests are stored for Behave in files noted as .feature files.
 -	Inside the Features folder is another sub-folder called Steps, this is where the actual tests’ functionality goes in the form of Python scripts.
@@ -228,8 +222,10 @@ Official Behave Documentation:
 -	Similarly, steps can be combined into single files or split into multiple such as steps focusing on a specific action that will be reused often. (Ex: A step that opens the website to be tested).
 -	For this lab, each scenario in the feature file will be broken down into its own step file.
 -	Behave is a BDD Python Testing Framework. This means for web-interaction, a framework such as Selenium Web-Driver or Splinter will need to be utilized. For this lab, Selenium Web-Driver will be used for all step-functionality.
+
 #### Basic Behave Test Structure:
 -	A base Behave feature written in Gherkin given-when-then looks like this:
+
 #### Feature: showing off behave
      Scenario: Run a simple test
         Given we have behave installed

@@ -96,7 +96,7 @@
 		    driver.find_element(By.ID, "submitNewBook").click()
 		    driver.implicitly_wait(0.5)
  	- Status: Complete & Passed
- 
+  - ![TC0040](Assets/bdd_addBook.png)
   - ![TC004](Assets/bdd_addBook2.png)
 
 - - -

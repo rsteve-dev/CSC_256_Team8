@@ -869,7 +869,6 @@ This lab will guide you through the process of using pytest to write and execute
     ....                                   	                                                  [100%]
     ======================== 4 passed in 0.01s =====================================================
 
-
 ## Conclusion
 - This lab should provide a good insight into the workings of pytest, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through a mix of guided examples and interactive exercises, you will gain practical experience in testing web applications. This hands-on approach is designed to enhance your skills in both pytest and general web testing methodologies such as Test Driven Development.
 

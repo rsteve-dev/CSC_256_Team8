@@ -98,6 +98,8 @@
  	- Status: Complete & Passed
   - ![TC0040](Assets/bdd_addBook.png)
   - ![TC004](Assets/bdd_addBook2.png)
+ 
+  - ![tcResults](Assets/bdd_testRun.png)
 
 - - -
 

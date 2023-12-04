@@ -28,6 +28,7 @@
 - **TC002: Sorting by the page column shows the smallest page count book**
 	- Result: The smallest page book will be the top row of the list.
 	- Status: Complete & Passed
+ - ![TC002](Assets/bdd_ascendingSort.png)
 
 - **TC003: Ensure the search bar only filters by titles (Student Input)**
 	- Result: After searching for a value not in a title, there will be no results in the books list.

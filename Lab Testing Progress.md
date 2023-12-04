@@ -59,6 +59,8 @@
 	- Status: Complete & Passed
 
  - ![TC003](Assets/bdd_nonTitle.png)
+
+ - ![TC003](Assets/bdd_nonTitle.png)
 - **TC004: Add a new book (Student Input)**
 	- Result: The newly added book will be present in the list.
 	- Tester Code Used:

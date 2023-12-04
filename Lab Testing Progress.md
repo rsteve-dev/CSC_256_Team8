@@ -23,6 +23,8 @@
 - **TC001: Validate that only partial input for a new book shows an error**
 	- Result: After partial input of a book, it will display an error instead of submitting the new book.
 	- Status: Complete & Passed
+
+ - ![TC001](Assets/bdd_addError.png)
 - **TC002: Sorting by the page column shows the smallest page count book**
 	- Result: The smallest page book will be the top row of the list.
 	- Status: Complete & Passed

@@ -114,6 +114,8 @@
 	- Tester Code Used:
 	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
 
+ - 1[TC004](Assets/bdd_addBook.png)
+
 - - -
 
 ## Selenium Lab

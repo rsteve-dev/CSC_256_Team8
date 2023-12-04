@@ -60,7 +60,7 @@
 
  - ![TC003](Assets/bdd_nonTitle.png)
 
- - ![TC003](Assets/bdd_nonTitle.png)
+   
 - **TC004: Add a new book (Student Input)**
 	- Result: The newly added book will be present in the list.
 	- Tester Code Used:
@@ -96,6 +96,8 @@
 		    driver.find_element(By.ID, "submitNewBook").click()
 		    driver.implicitly_wait(0.5)
  	- Status: Complete & Passed
+ 
+  - ![TC004](Assets/bdd_addBook2.png)
 
 - - -
 

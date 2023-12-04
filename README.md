@@ -4,7 +4,7 @@
     
 # Table of content 
 - [Introduction](#introduction)
-- [objectives](#Objectives)
+- [Objectives](#Objectives)
 - [Project Team](#Project-Team)
 - [Selenium Lab](#Selenium-Lab)
   - [Introduction](#selenium-intro)
@@ -63,12 +63,16 @@
     1. Logan Bennett - Code Developer
     2. Samson Truelove - Code Developer
     3. Aiden Morris - Code Developer
-    4. Ava Vanduinen - Tester
+    4. Ava VanDuinen - Tester
     5. Sydney Southerland - Tester
     6. Juan Gomez - Tester
     7. Abdul Caesar - Document Writer
     8. Luke Wainwright - Document Writer
     9. Stephen Rotich - Project Lead/document Writer
+
+
+- - -
+
 
 # 1. Selenium Lab
 ## Introduction
@@ -204,6 +208,10 @@ driver.close()
 
 ## selenium Test Cases 
       
+
+- - -
+
+
 # 2. BDD Lab: Testing a Bookstore Web Application
 BDD, meaning “Behavior-driven development” is a software development style that encourages collaboration between the dev team, QA, and non-technical partners such as investors or business participants. BDD is presented in natural language styles such as the Gherkin language which presents behavior in a given-when-then format. This lab will guide you through using the Python  based Behave Framework to utilize BDD methods in testing a book store web application.
 
@@ -379,6 +387,9 @@ XX steps passed, 0 failed, 0 skipped, 0 undefined
 
 ##	Conclusion
 This lab should provide a good insight into the workings of the Behave BDD testing framework and how to implement it into a workflow. Behave allows business partners, QA testers, and development teams all get involved in the testing process to allow everyone to better understand how the program should function.
+
+
+- - -
 
     
 # 3. API Test LAB 
@@ -642,6 +653,9 @@ This guide provides  steps to get started with Postman. For more advanced featur
 ## Lab setup and testing the endpoints  
     
 
+- - -
+
+
 # 4. Test Driven Development (TDD) Lab Guide
 ### What is TDD?
 Test Driven Development (TDD) is a testing methodology that requires test cases to be written before any actual development of the code begins. This ensures that any code written adheres to and passes the test cases, which in turn produces solid, high-quality code with minimal bugs. TDD promotes frequent feedback as well, through the development of small sections of test cases and code together, which helps by immediately outlining which areas of the code need to be fixed instead of waiting for the entire code to be completed before the testing process begins.
@@ -656,7 +670,6 @@ Pytest is a commonly used testing framework in Python, and is widely popular due
 
 This lab will guide you through the process of using pytest to write and execute tests on a Flask-based bookstore web application.
 
-- - -
 
 ## Learning Resources
 - #### Documentation:
@@ -668,7 +681,6 @@ This lab will guide you through the process of using pytest to write and execute
 - #### Community Forums and Support:
   - [Stack Overflow:](https://stackoverflow.com/questions/tagged/pytest) Community forum for discussing pytest-related topics.
 
-- - -
 
 ## Getting Started with Python, Pytest, and Required Packages
 - #### Install Python:
@@ -681,7 +693,7 @@ This lab will guide you through the process of using pytest to write and execute
     - `python -m venv env`
 - #### Activate Python Virtual Environment
   - Activate the virtual environment:
-      - On Windows: `venv\Scripts\activate`
+      - On Windows: `env\Scripts\activate`
       - On Unix or MacOS: `source venv/bin/activate` 
 - #### Install Required Packages:
   - Open a command line interface inside of the ‘WebApp’ folder.
@@ -694,7 +706,6 @@ This lab will guide you through the process of using pytest to write and execute
     - `python -m flask --debug --app main run`
   - The application should now be running at http://127.0.0.1:5000/ and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
 
-- - -
 
 ## Writing Pytest Tests
 - #### Open Your Test File:
@@ -724,16 +735,105 @@ This lab will guide you through the process of using pytest to write and execute
     - Where `string` is the name of the argument the function will take, and `value1` and `value2` are a list of tuples, with each representing a different test case and containing a set of values for the argument. There can be multiple arguments and multiple tuples.
   - ##### pytest.raises
     - pytest.raises checks that certain exceptions get raised when appropriate. The test passes if the exception is raised, otherwise the test fails.
+    - pytest.raises is formatted as:
+    - ```
+      def function():
+        with pytest.raises(Error)
+          # Function that will raise an error goes here
 
-- - -
 
 ## Test Examples
 - #### Test 1 - Adding a New Book
   - This test validates that a new book can be successfully added.
-  - 
+  - ```
+    @pytest.mark.parametrize("newTitle, newAuthor, newGenre, pages, releaseYear", 
+                         [("Fake Title", "Fake Author", "Fiction", "100", "2023")])
+    def test_add_new_book(driver, newTitle, newAuthor, newGenre, pages, releaseYear):
+        # Test to see if a new book input can be successfully added
+        try:
+            # Navigate to the page with the form
+            driver.get("http://127.0.0.1:5000/")  
+
+          # Click the 'Add New Book' button to reveal the form
+          new_book_toggle = driver.find_element(By.ID, "newBookToggle")
+          new_book_toggle.click()
+  
+          # Wait for the form to be visible
+          WebDriverWait(driver, 10).until(
+             expected_conditions.visibility_of_element_located((By.ID, "newBookForm"))
+          )
+  
+          # Now find and fill out the form
+          title_input = driver.find_element(By.NAME, "title")
+          author_input = driver.find_element(By.NAME, "author")
+          genre_input = driver.find_element(By.NAME, "genres")
+          pages_input = driver.find_element(By.NAME, "pages")
+          year_input = driver.find_element(By.NAME, "releaseYear")
+  
+          title_input.send_keys(newTitle)
+          author_input.send_keys(newAuthor)
+          genre_input.send_keys(newGenre)
+          pages_input.send_keys(pages)
+          year_input.send_keys(releaseYear)
+  
+          # Find and click the submit button
+          submit_button = driver.find_element(By.ID, "submitNewBook")
+          submit_button.click()
+
+          # Check to see if the book title is present in the page
+          # 2 seconds of wait added to allow for the page to refresh
+          driver.implicitly_wait(2)
+          assert newTitle in driver.page_source
+    
+          print("Test executed successfully.")
+  
+        except Exception as e:
+          # Handle any exceptions that occur during the test
+          pytest.fail(f"An error occurred during the test: {e}")
 - #### Test 2 - Error Handling
   - This test validates if an exception is raised when a user attempts to add a new book with empty inputs.
-  - 
+  - ```
+    @pytest.mark.parametrize("newTitle, newAuthor, newGenre, pages, releaseYear", 
+                         [("", "", "", "", "")])
+    def test_add_new_book_raises_exception(driver, newTitle, newAuthor, newGenre, pages, releaseYear):
+        # Test to see if an invalid new book input correctly reports an error
+        try:
+            # Navigate to the page with the form
+            driver.get("http://127.0.0.1:5000/")  
+
+            # Click the 'Add New Book' button to reveal the form
+            new_book_toggle = driver.find_element(By.ID, "newBookToggle")
+            new_book_toggle.click()
+    
+            # Wait for the form to be visible
+            WebDriverWait(driver, 10).until(
+               expected_conditions.visibility_of_element_located((By.ID, "newBookForm"))
+            )
+    
+            # Now find and fill out the form
+            title_input = driver.find_element(By.NAME, "title")
+            author_input = driver.find_element(By.NAME, "author")
+            genre_input = driver.find_element(By.NAME, "genres")
+            pages_input = driver.find_element(By.NAME, "pages")
+            year_input = driver.find_element(By.NAME, "releaseYear")
+            
+            title_input.send_keys(newTitle)
+            author_input.send_keys(newAuthor)
+            genre_input.send_keys(newGenre)
+            pages_input.send_keys(pages)
+            year_input.send_keys(releaseYear)
+    
+            # Find and click the submit button
+            submit_button = driver.find_element(By.ID, "submitNewBook")
+            submit_button.click()
+    
+            # Assert error box displays
+            assert ("block" in driver.find_element(By.ID, "errorBox").get_attribute("style"))
+            print("Test executed successfully.")
+    
+        except Exception as e:
+            # Handle any exceptions that occur during the test
+            pytest.fail(f"An error occurred during the test: {e}")
 
 ## Incomplete Test Scenarios
 - #### Test 3 (Incomplete) - Getting CSV Data
@@ -743,7 +843,6 @@ This lab will guide you through the process of using pytest to write and execute
   - Write a test that verifies that the CSV file can successfully write data.
   - Instruction: Follow the three phases/rules of TDD when writing the test & include screenshots of each phase.
 
-- - -
 
 ## Expected Test Results
 - #### Test 1
@@ -755,25 +854,30 @@ This lab will guide you through the process of using pytest to write and execute
 - #### Test 4
   - Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
 
-- - -
 
 ## Running Tests
 - Execute pytest tests with the following command:
-  - `python test_main.py`
-- If pytest is installed correctly, a passing test will issue the following output format:
+  - `pytest test_main.py`
+- If pytest is installed correctly, a passing test will issue something similar to following output format:
   - ```
-    ======================== test session starts =====================
+    ======================== test session starts ===================================================
     …
-    collected 1 item
-    test_main.py .                                   	[100%]
-    ======================== 1 passed in 0.01s =====================
+    collected 4 items
 
-- - -
+    test_main.py
+    DevTools listening on ws://127.0.0.1:60121/devtools/browser/463a3f77-4edf-4925-a642-0d38c646b465
+    ....                                   	                                                  [100%]
+    ======================== 4 passed in 0.01s =====================================================
+
 
 ## Conclusion
 - This lab should provide a good insight into the workings of pytest, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through a mix of guided examples and interactive exercises, you will gain practical experience in testing web applications. This hands-on approach is designed to enhance your skills in both pytest and general web testing methodologies such as Test Driven Development.
 
-# 5.  Playwrite Lab
+
+- - - 
+
+
+# 5.  Playwright Lab
 ## Playwright Lab: Testing a Bookstore Web Application
 Playwright is a powerful framework for automating browsers, allowing developers to simulate user interactions with web applications. It supports multiple browsers, making it ideal for cross-browser testing. Playwright is primarily used for end-to-end testing, which tests the flow of an application from start to finish. It ensures that the integrated components of an application function as expected. This lab will guide you through the process of using Playwright to write and execute tests on a Flask-based bookstore web application.
 

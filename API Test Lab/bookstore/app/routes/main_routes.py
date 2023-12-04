@@ -12,12 +12,13 @@ def get_books():
     value = request.args.get("value")
 
     try:
-        books = helpers.get_books_from_csv(helpers.csv_path)
+        #books = helpers.get_books_from_csv(helpers.csv_path)
         if attribute and value:
             filtered_books = helpers.filter_books(helpers.csv_path, attribute, value)
             return jsonify(filtered_books), 200
         else:
             books = helpers.get_books_from_csv(helpers.csv_path)
+            #print(f"book :{books}")
             return jsonify(books), 200
     except Exception as e:
         current_app.logger.error(f"Error occurred: {e}")

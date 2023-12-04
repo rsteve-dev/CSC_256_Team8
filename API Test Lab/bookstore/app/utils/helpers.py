@@ -113,6 +113,7 @@ def get_books_from_csv(csvfile_path):
         reader = csv.DictReader(file)
         for row in reader:
             books.append(row)
+    #print(books)
     return books
 
 

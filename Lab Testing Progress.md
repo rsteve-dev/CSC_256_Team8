@@ -195,21 +195,55 @@
 	- Result: Expected results will depend on the specific implementation but should generally include successful loading of the CSV file data. 
 	- Tester Code Used:
 		- Red Phase:
- 		- 
+			```
+			with open(temp_csv_file, 'r', newline='', encoding="utf8") as file:
+				reader = csv.reader(file)
+				csv_data = reader
+			
+			assert csv_data == expected_data
 		- Green Phase:
-		- 
+			```
+			with open(temp_csv_file, 'r') as file:
+				reader = csv.DictReader(file)
+   				for row in reader:
+   					for r in row:
+						csv_data.append(r)
+			
+			assert csv_data == expected_data
 		- Refactor Phase:
-  		- 
-	- Status: In progress/being written
+			```
+			# Open the file to read
+			with open(temp_csv_file, 'r', newline='', encoding="utf8") as file:
+				# Read the file and put each row in a csv_data object
+				reader = csv.DictReader(file)
+				csv_data = [row for row in reader]
+			
+			# Assert to ensure that the file contents match expected
+			assert csv_data == expected_data
+	- Status: Complete & Passed
 - **TC004: Writing CSV Data (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
 	- Tester Code Used:
 		- Red Phase:
- 		- ![Screenshot showing the tester's code for the Red Phase of TDD for the test_write_csv_data() test.](Assets/TDD_Lab_test_write_csv_data_red_phase.png)
+			```
+			with open(temp_csv_file, 'w') as file:
+				temp_csv_file.writer("")
+			        
+			assert temp_csv_file == ""
 		- Green Phase:
-		- ![Screenshot showing the tester's code for the Green Phase of TDD for the test_write_csv_data() test.](Assets/TDD_Lab_test_write_csv_data_green_phase.png)
+			```
+			with open(temp_csv_file, 'w') as file:
+				temp_csv_file.write_text("")
+			        
+			assert temp_csv_file.read_text() == ""
 		- Refactor Phase:
-  		- ![Screenshot showing the tester's code for the Refactor Phase of TDD for the test_write_csv_data() test.](Assets/TDD_Lab_test_write_csv_data_refactor_phase.png)
+			```
+			# Open the file to write
+			with open(temp_csv_file, 'w', newline='', encoding="utf8") as file:
+				temp_csv_file.write_text("temp_csv_file testing text")
+			        
+			# Assert that contents of the file are accurate
+			assert temp_csv_file.read_text() == "temp_csv_file testing text"
 	- Status: Complete & Passed
 
 ![Screenshot showing a Terminal output indicating that the tests ran and passed.](Assets/TDD_Lab_Testing_Complete.png)

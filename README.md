@@ -6,52 +6,48 @@
 - [Project Team](#project-team)
   
 - [Selenium Lab](#selenium-title)
-  - [Introduction](#selenium-introduction)
   - [Getting Python, Selenium, and Required Packages](#selenium-setup)
   - [Set Up Your Testing Environment](#selenium-testing-environment)
   - [Learning Resources](#selenium-resources)
   - [Writing Selenium Tests](#selenium-writing-tests)
-  - [Test Examples](#selenium-examples)
-  - [Test Exercises](#selenium-exercises)
+  - [Test Scenarios](#selenium-examples)
   - [Running the Tests](#selenium-running-tests)
   - [Conclusion](#selenium-conclusion)
     
-- [BDD Lab](#BDD-Lab)
-  - [Getting Python, Behave and Required Packages](#Required)  
-  - [Set Up Your Testing Environment](#Environment)  
-  - [Learning Resources](##Learning)  
-  - [Writing Behave Tests](#Behave)  
-  - [Test Scenarios](#Test-Examples)  
-  - [Running the Tests](#Tests)  
-  - [BDD Conclusion](#Conclusion)  
-
+- [BDD Lab](#bdd-title)
+  - [Getting Python, Behave and Required Packages](#bdd-setup)  
+  - [Set Up Your Testing Environment](#bdd-environment)  
+  - [Learning Resources](#bdd-resources)  
+  - [Writing Behave Tests](#bdd-writing-tests)  
+  - [Test Scenarios](#bdd-examples)
+  - [Running the Tests](#bdd-running-tests)  
+  - [BDD Conclusion](#bdd-conclusion)  
     
-- [API Test LAB](#API-est-Lab)
-  - [API Documentation](#Documentation)
-  - [Endpoints](#Endpoints)
-  - [Set Up Your Testing Environment](#postman)
-  - [Postman Installation and Lab Guide](#Expected)
-  - [Test Scenarios](#APILab)
-  - [Running the Tests](#Tests)
-  - [Expected Test Results](#Expected)
-  - [Conclusion](#Conclusion)
-   
+- [API Test LAB](#api-title)
+  - [API Documentation](#api-documentation)
+  - [Endpoints](#api-endpoints)
+  - [Postman Installation and Lab Guide](#api-installation)
+  - [Test Scenarios](#api-test-scenarios)
 
-- [Test Driven Development (TDD)](#TDD-Lab)
-  - [Getting Python, Pytest, and Required Packages](#Required)  
-  - [Set Up Your Testing Environment](#Environment)  
-  - [Learning Resources](##Learning)  
-  - [ Writing Pytest TDD Tests](#pytest)  
-  - [Test Scenarios](#Test-Examples)  
-  - [Running the Tests](#Tests)
-  - [Expected Test Results](#Expected)
-  - [TDD Conclusion](#Conclusion)
+- [Test Driven Development (TDD)](#tdd-title)
+  - [What is TDD?](#tdd-what-is)
+  - [Getting Python, Pytest, and Required Packages](#tdd-setup)  
+  - [Set Up Your Testing Environment](#tdd-environment)  
+  - [Learning Resources](#tdd-resources)  
+  - [Writing Pytest TDD Tests](#tdd-writing-tests)  
+  - [Test Scenarios](#tdd-examples)  
+  - [Expected Test Results](#tdd-results)
+  - [Running the Tests](#tdd-running-tests)
+  - [TDD Conclusion](#tdd-conclusion)
     
-- [Playwrite Lab](#Playwrite-Lab)
-  - [ Playwright Lab: Testing a Bookstore Web Application](#Playwrite-intro)
-  - [Getting Started with Playwright](#Playwrite-Requirements)
-  - [Writing Playwright Tests](#setup-installation)
-  - [Conclusion](#Lab) 
+- [Playwrite Lab](#playwright-title)
+  - [Getting Started with Playwright](#playwright-getting-started)
+  - [Learning Resources](#playwright-resources)
+  - [Writing Playwright Tests](#playwright-writing-tests)
+  - [Test Scenarios](#playwright-test-examples)
+  - [Expected Test Results](#playwright-results)
+  - [Running the Tests](#playwright-running)
+  - [Conclusion](#playwright-conclusion) 
 
 <h1 id='global-introduction'>Introduction</h1>
 
@@ -78,7 +74,6 @@
 - - -
 
 <h1 id='selenium-title'>1. Selenium Lab</h1>
-<h2 id='selenium-introduction'>Introduction</h2>
 Selenium is an umbrella of tools and libraries used for web based automated testing. Selenium allows the user to emulate interacting with websites and browsers as if a real user was doing so, letting you test your websites across many different browsers easily and efficiently. This lab will guide you through the process of using Selenium to write and execute tests on a Flask-based bookstore web application.
 
 <h2 id='selenium-setup'>Getting Python, Selenium and Required Packages:</h2> 
@@ -213,11 +208,10 @@ Observe the results to ensure all tests are functioning as expected. Your comman
 This lab should provide a good insight into the workings of Selenium Web Driver, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through working with Selenium to implement these tests, we can assure that functionality does not break in the future when further additions are made to our program by simply running the tests again.
 
 - - - 
-
-# 2. BDD Lab: Testing a Bookstore Web Application
+<h1 id='bdd-title'>2. BDD Lab: Testing a Bookstore Web Application</h2>
 BDD, meaning “Behavior-driven development” is a software development style that encourages collaboration between the dev team, QA, and non-technical partners such as investors or business participants. BDD is presented in natural language styles such as the Gherkin language which presents behavior in a given-when-then format. This lab will guide you through using the Python  based Behave Framework to utilize BDD methods in testing a book store web application.
 
-##	Getting Python, Behave and Required Packages:
+<h2 id='bdd-setup'>Getting Python, Behave and Required Packages:</h2>
 #### Install Python:
 -	Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [Python's Official Website](https://www.python.org/downloads/).
 -	You can ensure Python is installed and check its version by opening a command line and running: `python --version`
@@ -225,7 +219,7 @@ BDD, meaning “Behavior-driven development” is a software development style t
 -	Open a command line interface inside of the ‘WebApp’ folder 
 -	Run the `requirements.txt` file to install all required packages: `pip install -r requirements.txt`
 
-## Set Up Your Testing Environment:
+<h2 id='bdd-environment'>Setup Your Testing Environment</h2>
 
 #### Setting Up the Python Virtual Environment
 - Navigate to the `WebApp` folder and open a command line. Initiate your Python virtual environment by running: `python -m venv env`
@@ -236,7 +230,7 @@ BDD, meaning “Behavior-driven development” is a software development style t
 - The application should now be running at `http://127.0.0.1:5000/` and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
 - Close the flask application with `Ctrl + C` in the command line
 
-## Learning Resources
+<h2 id='bdd-resources'>Learning Resources</h2>
 
 Official Behave Documentation:
 - [Behave Documentation](https://behave.readthedocs.io/en/latest/): The official docs for Behave and how to use it.
@@ -244,7 +238,7 @@ Official Behave Documentation:
 Community Forums and Support:
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/python-behave): Community Q&A on Behave-related topics.
 
-##	Writing Behave Tests
+<h2 id='bdd-writing-tests'>Writing Behave Tests</h2>
 
 #### Understanding the file structure and Behave:
 -	In your WebApp folder, you will have a sub-folder called Features, this is where all Gherkin-based tests are stored for Behave in files noted as .feature files.
@@ -283,7 +277,7 @@ def step_impl(context):
     assert context.failed is False
 ```
 
-## Test Examples:
+<h2 id='bdd-examples'>Test Examples</h2>
 #### TC001: – Validate that only partial input for a new book shows an error
 
 This test enters only a title in the new book box and upon trying to submit, will be met with an error instead.
@@ -385,14 +379,13 @@ def step_impl(context):
 	Write a test that adds a new book and find it in the list after submission.
 	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
 ```
-##	Expected Results from Testing
-
+<h2 id='bdd-results'>Expected Results from Testing</h2>
 - Test 1: After partial input of a book, it will display an error instead of submitting the new book.
 - Test 2: The smallest page book will be the top row of the list.
 - Test 3: After searching for a value not in a title, there will be no results in the books list.
 - Test 4: The newly added book will be present in the list.
 
-##	Running the Tests
+<h2 id='bdd-running-tests'>Running the Tests</h2>
 - Execute your tests using the command: `behave`
 - It will automatically run all feature files in the Features sub-folder. Observe the results to ensure all tests are functioning as expected. Your command line should indicate:
 ```
@@ -401,33 +394,34 @@ def step_impl(context):
 XX steps passed, 0 failed, 0 skipped, 0 undefined
 ```
 
-##	Conclusion
+<h2 id='bdd-conclusion'>Conclusion</h2>
 This lab should provide a good insight into the workings of the Behave BDD testing framework and how to implement it into a workflow. Behave allows business partners, QA testers, and development teams all get involved in the testing process to allow everyone to better understand how the program should function.
 
 
 - - -
 
     
-# 3. API Test LAB 
+<h1 id='api-title'>3. API Test Lab</h1>
 
-##  Wake County Bookstore API Documentation
+<h2 id='api-documentation'>API Documentation</h2>
 
 Welcome to the Wake County Bookstore. This API allows developers to access and interact with our online bookstore's features, including browsing books, managing a shopping cart, placing orders, and viewing order history.
 
-## Base URL
+#### Base URL
 
 The base URL for all API endpoints is: `http://127.0.0.1:3000`
 
-## Authentication
+#### Authentication
 
 Authentication is required to access specific API endpoints. We use API keys for authentication. To obtain an API key, please get in touch with our support team.
 
-### Request Headers 
+#### Request Headers 
 
  `Authorization: Bearer YOUR_API_KEY  supplied securely via sftp or other encrypted methodologies`  
 
-## Endpoints 
- Get the yaml representation using the openAPI 3.0 specification format here: ***[wc-booksore.yaml](./wc-booksore.yaml)***
+<h2 id='api-endpoints'>Endpoints</h2>
+
+Get the yaml representation using the openAPI 3.0 specification format here: ***[wc-booksore.yaml](./wc-booksore.yaml)***
 1. #### List Books
 
  **Endpoint:** `/api/books` \
@@ -596,7 +590,7 @@ Authentication is required to access specific API endpoints. We use API keys for
 
 
 
-## Postman Installation and Lab Guide
+<h2 id='api-installation'>Postman Installation and Lab Guide</h2>
 
 Postman is a popular tool for API development and testing. It allows developers and Testers to build, test, and document APIs easily. This guide will help  with the installation process and provide  an overview of how to use Postman to test our wake county onlinebookstore
 
@@ -611,7 +605,7 @@ Postman is a popular tool for API development and testing. It allows developers 
 - After downloading, open the installer file.
 - Follow the on-screen instructions to complete the installation.
 
-## Getting Started with Postman
+## Getting Started With Postman
 
 #### Creating an Account
 
@@ -664,9 +658,9 @@ Postman is a popular tool for API development and testing. It allows developers 
 
 #### Conclusion
 
-This guide provides  steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
+This guide provides steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
 
-## Lab   
+<h2 id='api-test-scenarios'>Test Scenarios</h2>
 
 ## TC001 - Testing endpoint: `Endpoint: /api/books`
 
@@ -793,8 +787,9 @@ pm.test("TC008: Add Book to Cart - Contains ISBN ,authors,categories,num_pages,p
 
 - - -
 
-# 4. Test Driven Development (TDD) Lab Guide
-### What is TDD?
+<h1 id='tdd-title'>4. Test Driven Development (TDD) Lab Guide</h1>
+
+<h2 id='tdd-what-is'>What is TTD?</h2>
 Test Driven Development (TDD) is a testing methodology that requires test cases to be written before any actual development of the code begins. This ensures that any code written adheres to and passes the test cases, which in turn produces solid, high-quality code with minimal bugs. TDD promotes frequent feedback as well, through the development of small sections of test cases and code together, which helps by immediately outlining which areas of the code need to be fixed instead of waiting for the entire code to be completed before the testing process begins.
 
 TDD development is broken up into three categories, each which follows one main rule:
@@ -808,26 +803,16 @@ Pytest is a commonly used testing framework in Python, and is widely popular due
 This lab will guide you through the process of using pytest to write and execute tests on a Flask-based bookstore web application.
 
 
-## Learning Resources
-- #### Documentation:
-  - [Python Documentation:](https://docs.python.org/3/) The official Python guide.
-  - [Pytest Documentation:](https://docs.pytest.org/en/7.1.x/contents.html) Details how to use and run pytest.
-- #### Online Tutorials and Courses:
-  - [Unit Testing and Test Driven Development in Python:](https://www.linkedin.com/learning-login/share?account=56744281&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Funit-testing-and-test-driven-development-in-python%3Ftrk%3Dshare_ent_url%26shareId%3DFpSOpa0%252FQMOlU%252BPfWmg0AQ%253D%253D) A course from LinkedIn Learning covering unit testing and TDD with Python.
-  - [Test-Driven Development (TDD) - Quick Guide:](https://brainhub.eu/library/test-driven-development-tdd) More information on TDD, including the TDD cycle, advantages & disadvantages, and common practices.
-- #### Community Forums and Support:
-  - [Stack Overflow:](https://stackoverflow.com/questions/tagged/pytest) Community forum for discussing pytest-related topics.
+<h2 id='tdd-setup'>Getting Started with Python, Pytest, and Required Packages</h2>
 
-
-## Getting Started with Python, Pytest, and Required Packages
 - #### Install Python:
   - Ensure Python (version 3.7 or higher) is installed on your system. If needed, download Python from [python.org](https://www.python.org/downloads/).
-  - You can ensure Python is installed and check its version by opening a command line and running:
-    - `python --version`
-## Set Up Your Testing Environment
+  - You can ensure Python is installed and check its version by opening a command line and running: `python --version`
+    
+<h2 id='tdd-environment'>Setting Up Your Testing Environment</h2>
+
 - #### Setting Up the Python Virtual Environment
-  - Navigate to the ‘WebApp’ folder and open a command line. Initiate your Python virtual environment by running:
-    - `python -m venv env`
+  - Navigate to the `WebApp` folder and open a command line. Initiate your Python virtual environment by running: `python -m venv env`
 - #### Activate Python Virtual Environment
   - Activate the virtual environment:
       - On Windows: `env\Scripts\activate`
@@ -841,10 +826,22 @@ This lab will guide you through the process of using pytest to write and execute
     - `flask --debug --app main run`
   - If you receive the error ‘flask is not a recognized command’, alternatively run:
     - `python -m flask --debug --app main run`
-  - The application should now be running at http://127.0.0.1:5000/ and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
+  - The application should now be running at `http://127.0.0.1:5000/` and will respond to changes you make in the code when you refresh the page.
+  - The flask application will need to be running for the lab to interact with it.
 
+<h2 id='tdd-resources'>Learning Resources</h2>
 
-## Writing Pytest Tests
+- #### Documentation:
+  - [Python Documentation:](https://docs.python.org/3/) The official Python guide.
+  - [Pytest Documentation:](https://docs.pytest.org/en/7.1.x/contents.html) Details how to use and run pytest.
+- #### Online Tutorials and Courses:
+  - [Unit Testing and Test Driven Development in Python:](https://www.linkedin.com/learning-login/share?account=56744281&forceAccount=false&redirect=https%3A%2F%2Fwww.linkedin.com%2Flearning%2Funit-testing-and-test-driven-development-in-python%3Ftrk%3Dshare_ent_url%26shareId%3DFpSOpa0%252FQMOlU%252BPfWmg0AQ%253D%253D) A course from LinkedIn Learning covering unit testing and TDD with Python.
+  - [Test-Driven Development (TDD) - Quick Guide:](https://brainhub.eu/library/test-driven-development-tdd) More information on TDD, including the TDD cycle, advantages & disadvantages, and common practices.
+- #### Community Forums and Support:
+  - [Stack Overflow:](https://stackoverflow.com/questions/tagged/pytest) Community forum for discussing pytest-related topics.
+
+<h2 id='tdd-writing-tests'>Writing Pytest Tests</h2>
+
 - #### Open Your Test File:
   - In your project folder, open the file named `test_main.py`.
   - This file will contain all your pytest tests.
@@ -878,7 +875,8 @@ This lab will guide you through the process of using pytest to write and execute
         with pytest.raises(Error)
           # Function that will raise an error goes here```
 
-## Test Examples
+<h2 id='tdd-examples'>Test Examples</h2>
+
 - #### Test 1 - Adding a New Book
   - This test validates that a new book can be successfully added.
   - ```
@@ -980,7 +978,7 @@ This lab will guide you through the process of using pytest to write and execute
   - Instruction: Follow the three phases/rules of TDD when writing the test & include screenshots of each phase.
 
 
-## Expected Test Results
+<h2 id='tdd-results'>Expected Test Results</h2>
 - #### Test 1
   - In the "Adding a New Book" test, the new book title should be present in the page content after submission.
 - #### Test 2
@@ -991,7 +989,7 @@ This lab will guide you through the process of using pytest to write and execute
   - Expected results will depend on the specific implementation but should generally include successful writing of data to the CSV file.
 
 
-## Running Tests
+<h2 id='tdd-running-tests'>Running Tests</h2>
 - Execute pytest tests with the following command:
   - `pytest test_main.py`
 - If pytest is installed correctly, a passing test will issue something similar to following output format:
@@ -1005,23 +1003,22 @@ This lab will guide you through the process of using pytest to write and execute
     ....                                   	                                                  [100%]
     ======================== 4 passed in 0.01s =====================================================
 
-## Conclusion
+<h2 id='tdd-conclusion'>Conclusion</h2>
 - This lab should provide a good insight into the workings of pytest, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through a mix of guided examples and interactive exercises, you will gain practical experience in testing web applications. This hands-on approach is designed to enhance your skills in both pytest and general web testing methodologies such as Test Driven Development.
 
 
 - - - 
 
 
-# 5.  Playwright Lab
-## Playwright Lab: Testing a Bookstore Web Application
+<h1 id="playwright-title">5.  Playwright Lab</h1>
+
 Playwright is a powerful framework for automating browsers, allowing developers to simulate user interactions with web applications. It supports multiple browsers, making it ideal for cross-browser testing. Playwright is primarily used for end-to-end testing, which tests the flow of an application from start to finish. It ensures that the integrated components of an application function as expected. This lab will guide you through the process of using Playwright to write and execute tests on a Flask-based bookstore web application.
 
-## Getting Started with Playwright
+<h2 id='playwright-getting-started'>Getting Started with Playwright</h2>
 #### Install Python:
 Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
 
 #### Install Playwright
-
 Open a command line interface and install Playwright using pip:
 `pip install` playwright
 After installation, run the following command to install the necessary browsers:
@@ -1035,7 +1032,8 @@ Navigate to your project folder in the command line and run:
 `python main.py`
 The application should now be running  
 
-#### Learning Resources:
+<h2 id='playwright-resources'>Learning Resources</h2>
+
 - Official Playwright Documentation:
 	- [Playwright Docs](https://playwright.dev/docs/intro)Comprehensive guide and reference to Playwright features and API.
 - Online Tutorials and Courses:
@@ -1045,12 +1043,11 @@ The application should now be running
 	- [Playwright GitHub](https://github.com/microsoft/playwright): For contributions, issues, and discussions related to Playwright.
 	- [Stack Overflow](https://stackoverflow.com/questions/tagged/playwright): Community Q&A on Playwright-related topics.
 
-
-
-## Writing Playwright Tests
-1. Open Your Test File
-2. In your project folder, open the file named playwright_test_suite.py.
-   This file will contain all your Playwright tests.
+<h2 id='playwright-writing-tests'>Writing Playwright Tests</h2>
+- Open Your Test File
+- In your project folder, open the file named playwright_test_suite.py.
+  - This file will contain all your Playwright tests.
+  
 #### Basic Playwright Test Structure
 A basic Playwright test structure (included) looks like this:
 ```
@@ -1069,8 +1066,8 @@ with sync_playwright() as playwright:
     run(playwright)
 ```
 
+<h2 id='playwright-test-examples'>Test Examples</h2>
 
-#### Test Examples
 1. Test 1 - Loading the Webpage and Checking the Title:
    This test navigates to the main page and checks if the title is as expected.
    ```
@@ -1088,7 +1085,7 @@ This test simulates adding a new book by interacting with the web elements.
 	assert "New Book Title" in page.content()  # Verification logic
    ```
 
-#### Incomplete Test Scenarios (Exercises YOU need to Complete):
+## Incomplete Test Scenarios (Exercises YOU need to Complete):
 3. Test 3 (Incomplete) - Search Functionality:
    Write a test that searches for a book and verifies the search results.
    Instruction: Fill in the search input, click the search button, and assert that the expected result is present in the page content.
@@ -1096,19 +1093,19 @@ This test simulates adding a new book by interacting with the web elements.
     Write a test for handling an error, like submitting an empty form.
       Instruction: Try submitting the 'Add Book' form without filling in any details and assert that the appropriate error message is displayed.
 
-#### Expected Results from Testing
+<h2 id='playwright-results'>Expected Results from Testing</h2>
 
 - Test 1: For the "Loading the Webpage" test, the page title should match "County Bookstore".
 - Test 2: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
 - Test 3: Expected results will depend on the specific implementation but should generally include successful execution of the search.
 - Test 4:  Expected results will depend on the specific implementation but should generally include proper error handling.
 
-#### Running the Tests
-Execute your tests using the command:
-	` python playwright_test_suite.py `
-         Observe the results to ensure all tests are functioning as expected.
+<h2 id='playwright-running'>Running Playwright Tests</h2>
 
-## Conclusion
+- Execute your tests using the command: `python playwright_test_suite.py`
+- Observe the results to ensure all tests are functioning as expected.
+
+<h2 id='playwright-conclusion'>Conclusion</h2>
 This lab provides a comprehensive introduction to automated web testing using Playwright. Through a mix of guided examples and interactive exercises, you will gain practical experience in testing web applications. This hands-on approach is designed to enhance your skills in both Playwright and general web testing methodologies.
    
    

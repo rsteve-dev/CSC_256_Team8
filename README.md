@@ -155,62 +155,91 @@ driver.quit()
 
 ```
 ## selenium Lab guide 
-
-This section entails the Implementation of the  tests for different functionalities of a web application, and it covers the creation and running  of tests 
-
+#### TC001: Test to ensure the “Pages” and “Release Year” Fields only accepts integers
 ```
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-```
+def test_001_nonint_input():
+    # Test to ensure the “Pages” and “Release Year” Fields only accepts integers
+    print("Starting test: test_001_nonint_input")
+    try:
 
-```
+        # Show the new book box
+        new_book_button = driver.find_element(By.ID, "newBookToggle")
 
-# Initialize the Chrome WebDriver. This allows Selenium to control a Chrome browser instance
+        # Click the Add New Book button to display the book section if not displayed already
+        if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
+            new_book_button.click()
 
-driver = webdriver.Chrome()
+        # Wait half a second for the box to appear
+        driver.implicitly_wait(0.5)
 
-# Navigate to the Flask web application's URL
+        # Attempt to put a character in int-only inputs
+        driver.find_element(By.ID, "pages").send_keys("a")
+        driver.find_element(By.ID, "releaseYear").send_keys("a")
 
-driver.get("<http://127.0.0.1:5000/>") 
-```
-```
-def test_loading_webpage():
-    # Test to ensure the main page loads correctly.
- ```
+        # Get the current contents of the input
+        pages_input_content = driver.find_element(By.ID, "pages").get_attribute("value")
+        release_year_input_content = driver.find_element(By.ID, "releaseYear").get_attribute("value")
 
-```
-def test_presence_of_elements():
-    # Test to verify the presence of key elements on the webpage. 
-```
+        # Assert results
+        assert pages_input_content == ""
+        assert release_year_input_content == ""
 
-```
-def test_search_functionality():
-    # Test the search functionality.
-    
-    # TODO: Add detailed assertions for the search results.
-```
-
-```
-def test_table_interaction():
-    # Test interactions with the book details table.
-    
-    # TODO: Add detailed assertions for the table interaction results.
-    
+        print("Passed: test_001_nonint_input\n")
+        
+    except Exception as e:
+        print("Failed: test_001_nonint_input. Error: " + str(e) + '\n')
 ```
 
+#### TC002: Test to ensure adding a new book works
 ```
-test_loading_webpage()
-test_presence_of_elements()
-test_search_functionality()
-test_table_interaction()
-driver.close()
+def test_002_add_book():
+    # Test to ensure adding a new book works
+    print("Starting test: test_002_add_book")
+
+    try:
+        # Show the new book box
+        new_book_button = driver.find_element(By.ID, "newBookToggle")
+        
+        # Click the Add New Book button to display the book section if not displayed already
+        if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
+            new_book_button.click()
+
+        # Wait half a second for the box to appear
+        driver.implicitly_wait(0.5)
+
+        # Send inputs
+        new_title = "Test Title " + str(randint(0, 100)) # Random number after title to prevent duplicate entries
+        driver.find_element(By.ID, "newTitle").send_keys(new_title) 
+        driver.find_element(By.ID, "newAuthor").send_keys("Fake Author")
+        driver.find_element(By.ID, "newGenres").send_keys("Fiction")
+        driver.find_element(By.ID, "pages").send_keys("100")
+        driver.find_element(By.ID, "releaseYear").send_keys("2023")
+
+        # Submit new book
+        driver.find_element(By.ID, "submitNewBook").click()
+
+        # Check to see if the book title is present in the page
+        # 2 seconds of wait added to allow for the page to refresh
+        driver.implicitly_wait(2)
+        assert new_title in driver.page_source
+
+        print("Passed: test_002_add_book\n")
+
+    except AssertionError:
+        print("Failed: test_002_add_book. Added book is not present\n")
 ```
 
-## selenium Test Cases 
-      
-
-- - -
-
+#### TOdo Tests
+#### TC003 : Test to search for a specific book and assert the book is present in the results
+``` def test_003_search_book():
+    #Code goes here
+```
+#### TC004 : Test to see if an invalid new book input correctly reports an error
+```
+def test_004_invalid_input():
+       #Code goes here
+```
+*
 
 # 2. BDD Lab: Testing a Bookstore Web Application
 BDD, meaning “Behavior-driven development” is a software development style that encourages collaboration between the dev team, QA, and non-technical partners such as investors or business participants. BDD is presented in natural language styles such as the Gherkin language which presents behavior in a given-when-then format. This lab will guide you through using the Python  based Behave Framework to utilize BDD methods in testing a book store web application.

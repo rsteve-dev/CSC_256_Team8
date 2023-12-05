@@ -1,16 +1,20 @@
 # CSC256 Team 8 Test Labs ReadMe
-
-
     
 # Table of content 
-- [Introduction](#introduction)
-- [Objectives](#Objectives)
-- [Project Team](#Project-Team)
-- [Selenium Lab](#Selenium-Lab)
-  - [Introduction](#selenium-intro)
-  - [Requirements](#selenium-Requirements)
-  - [Setup & installation](#setup-installation)
-  - [Lab ](#Lab) 
+- [Introduction](#global-introduction)
+- [Objectives](#global-objectives)
+- [Project Team](#project-team)
+  
+- [Selenium Lab](#selenium-title)
+  - [Introduction](#selenium-introduction)
+  - [Getting Python, Selenium, and Required Packages](#selenium-setup)
+  - [Set Up Your Testing Environment](#selenium-testing-environment)
+  - [Learning Resources](#selenium-resources)
+  - [Writing Selenium Tests](#selenium-writing-tests)
+  - [Test Examples](#selenium-examples)
+  - [Test Exercises](#selenium-exercises)
+  - [Running the Tests](#selenium-running-tests)
+  - [Conclusion](#selenium-conclusion)
     
 - [BDD Lab](#BDD-Lab)
   - [Getting Python, Behave and Required Packages](#Required)  
@@ -49,8 +53,9 @@
   - [Writing Playwright Tests](#setup-installation)
   - [Conclusion](#Lab) 
 
-# Introduction
- ## objectives
+<h1 id='global-introduction'>Introduction</h1>
+
+<h2 id='global-objectives'>Objectives</h2>
 -	Ensure the system meets the functional requirements as detailed in the SRS.
 -	Validate the system’s non-functional requirements.
 -	Identify and rectify defects prior to release.
@@ -59,7 +64,7 @@
 -	Verify integration between different modules.
 -	Ensure usability and efficiency of the command-line interface.
 
- ## Project Team
+<h2 id='project-team'>Project Team</h2>
     1. Logan Bennett - Code Developer
     2. Samson Truelove - Code Developer
     3. Aiden Morris - Code Developer
@@ -68,151 +73,110 @@
     6. Juan Gomez - Tester
     7. Abdul Caesar - Document Writer
     8. Luke Wainwright - Document Writer
-    9. Stephen Rotich - Project Lead/document Writer
-
+    9. Stephen Rotich - Project Lead/Document Writer
 
 - - -
 
+<h1 id='selenium-title'>1. Selenium Lab</h1>
+<h2 id='selenium-introduction'>Introduction</h2>
+Selenium is an umbrella of tools and libraries used for web based automated testing. Selenium allows the user to emulate interacting with websites and browsers as if a real user was doing so, letting you test your websites across many different browsers easily and efficiently. This lab will guide you through the process of using Selenium to write and execute tests on a Flask-based bookstore web application.
 
-# 1. Selenium Lab
-## Introduction
-Selenium is an open-source software suite of browser automation tools for controlling web browsers through programs and performing browser automation. It is functional across browsers and operating systems and can be used in various programming languages.<br>
-for more information please visit the selenium lab website <!--[selenium documentation](https://www.selenium.dev/documentation/)--> <a href="https://www.selenium.dev/documentation/">selenium documentation</a>
-</p>
-<br>
-<br>
+<h2 id='selenium-setup'>Getting Python, Selenium and Required Packages:</h2> 
+#### Install Python:
+- Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [Python's Official Website](https://www.python.org/downloads/).
+- You can ensure Python is installed and check its version by opening a command line and running: `python --version`
+#### Install Required Packages:
+- Open a command line interface inside of the `WebApp` folder 
+- Run the requirements.txt file to install all required packages: `pip install -r requirements.txt`
 
-## Requirements 
+<h2 id='selenium-testing-environment'>Set Up Your Testing Environment:</h2>
 
-  - Installing Python and Selenium WebDriver. 
-  - Setting up ChromeDriver for Google Chrome. 
-  - Verifying the installation with a simple script 
+#### Setting Up the Chrome Web Driver
+- There are 2 ways to get a working Chrome web driver for this lab. The first and simpler option is to simply install Google Chrome at its default location.
+- Alternatively, navigate to Google Chrome Labs to download the latest stable release of Chrome web browser to use as the Chrome Web Driver. To setup the Chrome Web Driver via this method, follow the instructions here depending on your operating system.
+#### Setting Up the Python Virtual Environment
+- Navigate to the `WebApp` folder and open a command line. Initiate your Python virtual environment by running: `python -m venv env`
+#### Run the Flask Application:
+- Navigate to your `WebApp` folder in the command line and run: `flask --debug --app main run`
+- If you receive the error `flask is not a recognized command`, alternatively run: `python -m flask --debug --app main run`
+- The application should now be running at `http://127.0.0.1:5000/` and will respond to changes you make in the code when you refresh the page.
+- The flask application will need to be running for the lab to interact with it.
+- You can close the flask application using `Ctrl + C` in your command line.
   
-## Setup & installation
-please verify that you have python and PIP installed
-to verify if python or PIP are  installed ,Open your terminal or command prompt. e.g CMD,powershell,Linux Terminal or Git Bash and type ```python --version```  ```pip --version``` as shown  in the example below using powerShell
-![Powershell ](Assets/image.png)
+<h2 id='selenium-resources'>Learning Resources:</h2>
 
-If Python or Pip is not installed ,Follow the instructions below
+Official Selenium Documentation:
+- [Selenium Documentation](https://www.selenium.dev/documentation/): The official docs for Selenium and how to use it.
+Community Forums and Support:
+- [Selenium Public Support Group](https://groups.google.com/g/selenium-users?pli=1): A public Google group for Selenium users to seek help from one another
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/selenium-webdriver): Community Q&A on Selenium-related topics.
 
- ```
- Install Python
-1. Download Python from the official Python website.
-2. Run the installer.
-3. Make sure to check the box that says "Add Python to PATH" during installation.
-4. Verify Python & PIP are installed
+<h2 id='selenium-writing-tests'>Writing Selenium Tests</h2>
+
+#### Open Your Test File:
+- In your project folder, open the file named selenium_test_suite.py
+- This file will contain all your Selenium tests.
+#### Basic Selenium Test Structure:
+- A basic Selenium test structure (included) looks like this:
 ```
-
-python official site: <https://www.python.org/downloads/>
-<br>
-<br>
-
-#### 2. Selenium installation
-
-Make sure you've completed step 1 and have PIP installed and verified. Then, you'll be ready to easily install Selenium
-Using PIP ,install Selenium package  terminal or command prompt by typing `pip install selenium`
-
-![Alt text](Assets/image-2.png)
-<br>
-<br>
-
-#### 3. Download WebDriver
-
-Each browser requires a separate driver and needs to be downloadesd separately
-for instance :
-
-+ Chrome:<https://sites.google.com/a/chromium.org/chromedriver/>
-+ Firefox: <https://github.com/mozilla/geckodriver/releases>
-+ Safari: Safari driver come swith the macOS
-+ Edge: <https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/>
-  
-__For windows__
-
-```
-Extract the downloaded driver and place it in a location of your choice
-Add the path to the driver in your system's PATH variable. This ensures Python can access and use the driver.
-```
-
-__For Linux__
-
-```
-Move the downloaded driver to /usr/local/bin or any directory in your PATH 
-Ensure proper permissions are granted to the driver (use chmod +x ) 
-```
-#### 4. verify the installation by writing and running the following script
-```
- # Python script to verify Selenium installation 
+# Import driver
 from selenium import webdriver
+# Start web driver for Chrome
+driver = webdriver.Chrome()
+# Navigate to the Flask web application's URL.
+driver.get("http://127.0.0.1:5000/")
 
-# Specify the path to chromedriver
-driver = webdriver.Chrome('http://127.0.0.1:5000')
-
-#  Open a website 
-driver.get('http://www.google.com')
-
-# Close the browser
-driver.quit()
-
-```
-
-## selenium Lab guide 
-#### TC001: Test to ensure the “Pages” and “Release Year” Fields only accepts integers
-
-```
-def test_001_nonint_input():
-    # Test to ensure the “Pages” and “Release Year” Fields only accepts integers
-    print("Starting test: test_001_nonint_input")
+# Define the test function
+def test_loading_webpage():
+    # Test to ensure the main page loads correctly.
+    print("Starting test: test_loading_webpage")
     try:
+		# Assert result
+        assert "County Bookstore" in driver.title
+        print("Passed: test_loading_webpage")
+    except AssertionError:
+        print("Failed: test_loading_webpage. Expected 'County Bookstore' in page title.")
+
+# Call test function
+test_loading_webpage()
+# Close the driver when done
+driver.close()
+```
+
+<h2 id='selenium-examples'>Test Examples</h2>
+
+#### Test 1 – Validate that the new book “Pages” and “Release Year” fields only accept integers:
+This test enters a single letter into the “Pages” and “Release Year” options in the new book field and asserts that it failed to enter them.
+```
+print("Starting test: test_001_nonint_input")
+    	try:
 
         # Show the new book box
         new_book_button = driver.find_element(By.ID, "newBookToggle")
-
-        # Click the Add New Book button to display the book section if not displayed already
-        if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
-            new_book_button.click()
-
+        new_book_button.click()
         # Wait half a second for the box to appear
         driver.implicitly_wait(0.5)
-
-        # Attempt to put a character in int-only inputs
-        driver.find_element(By.ID, "pages").send_keys("a")
-        driver.find_element(By.ID, "releaseYear").send_keys("a")
-
+        # Grab the inputs
+        pages_input = driver.find_element(By.ID, "pages")
+        release_year_input = driver.find_element(By.ID, "releaseYear")
+        # Attempt to put a character in them
+        pages_input.send_keys("a")
+        release_year_input.send_keys("a")
         # Get the current contents of the input
         pages_input_content = driver.find_element(By.ID, "pages").get_attribute("value")
-        release_year_input_content = driver.find_element(By.ID, "releaseYear").get_attribute("value")
-
+        pages_inrelease_year_input_content = driver.find_element(By.ID, "releaseYear").get_attribute("value")
         # Assert results
         assert pages_input_content == ""
-        assert release_year_input_content == ""
-
+        assert pages_inrelease_year_input_content == ""
         print("Passed: test_001_nonint_input\n")
-        
     except Exception as e:
         print("Failed: test_001_nonint_input. Error: " + str(e) + '\n')
 ```
-
-#### TC002: Test to ensure adding a new book works
-
-```
-def test_002_add_book():
-    # Test to ensure adding a new book works
-    print("Starting test: test_002_add_book")
-
-    try:
-        # Show the new book box
-        new_book_button = driver.find_element(By.ID, "newBookToggle")
-        
-        # Click the Add New Book button to display the book section if not displayed already
-        if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
-            new_book_button.click()
-
-        # Wait half a second for the box to appear
-        driver.implicitly_wait(0.5)
-
-        # Send inputs
-        new_title = "Test Title " + str(randint(0, 100)) # Random number after title to prevent duplicate entries
-        driver.find_element(By.ID, "newTitle").send_keys(new_title) 
+#### Test 2 - Adding a New Book:
+This test simulates adding a new book by interacting with the web elements.
+	
+ 	# Send inputs
+        driver.find_element(By.ID, "newTitle").send_keys("Fake Title")
         driver.find_element(By.ID, "newAuthor").send_keys("Fake Author")
         driver.find_element(By.ID, "newGenres").send_keys("Fiction")
         driver.find_element(By.ID, "pages").send_keys("100")
@@ -226,35 +190,36 @@ def test_002_add_book():
         driver.implicitly_wait(2)
         assert new_title in driver.page_source
 
-        print("Passed: test_002_add_book\n")
+<h2 id='selenium-exercises'>Incomplete Test Scenarios (Exercises YOU need to Complete):</h2>
+#### Test 3 (Incomplete) - Search Functionality:
+- Write a test that searches for a book and verifies the search results.
+- Instruction: Fill in the search input, click the search button, and assert that the expected result is present in the page content.
+#### Test 4 (Incomplete) - Error Handling:
+- Write a test for handling an error, like submitting an empty form.
+- Instruction: Try submitting the 'Add Book' form without filling in any details and assert that the appropriate error message is displayed.
 
-    except AssertionError:
-        print("Failed: test_002_add_book. Added book is not present\n")
-```
+<h2 id='selenium-results'>Expected Results from Testing</h2>
 
-#### TODO Tests
+- Test 1: For the “Non-int input” test, the page and release year boxes in the ‘New Book’ section won’t be able to accept a non-numeric input.
+- Test 2: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
+- Test 3: Expected results will depend on the specific implementation but should generally include successful execution of the search.
+- Test 4:  Expected results will depend on the specific implementation but should either assert the present of a displayed error or other handling.
+  
+<h2 id='selenium-running-tests'>Running Selenium Tests</h2>
+Execute your tests using the command: `python selenium_test_suite.py`
+Observe the results to ensure all tests are functioning as expected. Your command line should indicate “Passed: __” or “Failed: __” for each test.
 
-#### TC003 : Test to search for a specific book and assert the book is present in the results
+<h2 id='selenium-conclusion'>Conclusion</h2>
+This lab should provide a good insight into the workings of Selenium Web Driver, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through working with Selenium to implement these tests, we can assure that functionality does not break in the future when further additions are made to our program by simply running the tests again.
 
-``` def test_003_search_book():
-    #Code goes here
-```
-
-
-#### TC004 : Test to see if an invalid new book input correctly reports an error
-
-```
-def test_004_invalid_input():
-       #Code goes here
-```
-*
+- - - 
 
 # 2. BDD Lab: Testing a Bookstore Web Application
 BDD, meaning “Behavior-driven development” is a software development style that encourages collaboration between the dev team, QA, and non-technical partners such as investors or business participants. BDD is presented in natural language styles such as the Gherkin language which presents behavior in a given-when-then format. This lab will guide you through using the Python  based Behave Framework to utilize BDD methods in testing a book store web application.
 
 ##	Getting Python, Behave and Required Packages:
 #### Install Python:
--	Ensure Python (version 3.7 or higher) is installed on your system. You can download it from python.org.
+-	Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [Python's Official Website](https://www.python.org/downloads/).
 -	You can ensure Python is installed and check its version by opening a command line and running: `python --version`
 #### Install Required Packages:
 -	Open a command line interface inside of the ‘WebApp’ folder 
@@ -263,20 +228,21 @@ BDD, meaning “Behavior-driven development” is a software development style t
 ## Set Up Your Testing Environment:
 
 #### Setting Up the Python Virtual Environment
-- Navigate to the `WebApp` folder and open a command line. Initiate your Python virtual environment by running:`python -m venv env`
-- 
+- Navigate to the `WebApp` folder and open a command line. Initiate your Python virtual environment by running: `python -m venv env`
+  
 #### Run the Flask Application:
-    - Navigate to your ‘WebApp’ folder in the command line and run:`flask --debug --app main run`
-    - If you receive the error ‘flask is not a recognized command’, alternatively run:`python -m flask --debug --app main run`
-    - The application should now be running at` http://127.0.0.1:5000/` and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
+- Navigate to your ‘WebApp’ folder in the command line and run: `flask --debug --app main run`
+- If you receive the error ‘flask is not a recognized command’, alternatively run: `python -m flask --debug --app main run`
+- The application should now be running at `http://127.0.0.1:5000/` and will respond to changes you make in the code when you refresh the page. The flask application will need to be running for the lab to interact with it.
+- Close the flask application with `Ctrl + C` in the command line
 
 ## Learning Resources
 
 Official Behave Documentation:
-- Behave Documentation: The official docs for Behave and how to use it.
-- Official Behave GitHub Repo: The official Behave GitHub repository
-- Community Forums and Support:
-   - Stack Overflow: Community Q&A on Behave-related topics.
+- [Behave Documentation](https://behave.readthedocs.io/en/latest/): The official docs for Behave and how to use it.
+- [Official Behave GitHub Repo](https://github.com/behave/behave): The official Behave GitHub repository
+Community Forums and Support:
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/python-behave): Community Q&A on Behave-related topics.
 
 ##	Writing Behave Tests
 
@@ -291,14 +257,18 @@ Official Behave Documentation:
 #### Basic Behave Test Structure:
 -	A base Behave feature written in Gherkin given-when-then looks like this:
 
-#### Feature: showing off behave
+```
+Feature: showing off behave
      Scenario: Run a simple test
         Given we have behave installed
         When we implement a test
-        Then behave will test it for us! ```
--	This feature’s corresponding steps would be written as:
--	
-``` from behave import *
+        Then behave will test it for us!
+```
+
+- This feature’s corresponding steps would be written as:	
+
+```
+from behave import *
 
 @given('we have behave installed')
 def step_impl(context):
@@ -313,12 +283,12 @@ def step_impl(context):
     assert context.failed is False
 ```
 
-
 ## Test Examples:
 #### TC001: – Validate that only partial input for a new book shows an error
 
 This test enters only a title in the new book box and upon trying to submit, will be met with an error instead.
-``` from behave import *
+```
+from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
@@ -356,8 +326,9 @@ def step_impl(context):
 ```
 
 #### TC002: – Sorting by the page column shows the smallest page count book
-```
+
 This test sorts the page column, leaving the results from smallest to largest then ensures the smallest page count is the one at the top of the list.
+```
 from behave import *
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -416,18 +387,19 @@ def step_impl(context):
 ```
 ##	Expected Results from Testing
 
-•	Test 1: After partial input of a book, it will display an error instead of submitting the new book.
-•	Test 2: The smallest page book will be the top row of the list.
-•	Test 3: After searching for a value not in a title, there will be no results in the books list.
-•	Test 4:  The newly added book will be present in the list.
+- Test 1: After partial input of a book, it will display an error instead of submitting the new book.
+- Test 2: The smallest page book will be the top row of the list.
+- Test 3: After searching for a value not in a title, there will be no results in the books list.
+- Test 4: The newly added book will be present in the list.
 
 ##	Running the Tests
-Execute your tests using the command:
-	behave
-It will automatically run all feature files in the Features sub-folder. Observe the results to ensure all tests are functioning as expected. Your command line should indicate:
+- Execute your tests using the command: `behave`
+- It will automatically run all feature files in the Features sub-folder. Observe the results to ensure all tests are functioning as expected. Your command line should indicate:
+```
 1 feature passed, 0 failed, 0 skipped
 4 scenarios passed, 0 failed, 0 skipped
 XX steps passed, 0 failed, 0 skipped, 0 undefined
+```
 
 ##	Conclusion
 This lab should provide a good insight into the workings of the Behave BDD testing framework and how to implement it into a workflow. Behave allows business partners, QA testers, and development teams all get involved in the testing process to allow everyone to better understand how the program should function.
@@ -438,7 +410,7 @@ This lab should provide a good insight into the workings of the Behave BDD testi
     
 # 3. API Test LAB 
 
-##   Wake County Bookstore API Documentation
+##  Wake County Bookstore API Documentation
 
 Welcome to the Wake County Bookstore. This API allows developers to access and interact with our online bookstore's features, including browsing books, managing a shopping cart, placing orders, and viewing order history.
 
@@ -455,7 +427,7 @@ Authentication is required to access specific API endpoints. We use API keys for
  `Authorization: Bearer YOUR_API_KEY  supplied securely via sftp or other encrypted methodologies`  
 
 ## Endpoints 
- Get the yaml representation using the openAPI 3.0 specification format here.***[wc-booksore.yaml](./wc-booksore.yaml)***
+ Get the yaml representation using the openAPI 3.0 specification format here: ***[wc-booksore.yaml](./wc-booksore.yaml)***
 1. #### List Books
 
  **Endpoint:** `/api/books` \
@@ -819,7 +791,7 @@ pm.test("TC008: Add Book to Cart - Contains ISBN ,authors,categories,num_pages,p
 
 ```
 
-
+- - -
 
 # 4. Test Driven Development (TDD) Lab Guide
 ### What is TDD?
@@ -889,14 +861,14 @@ This lab will guide you through the process of using pytest to write and execute
       - ```
         @pytest.fixture
         def function():
-          # Function information goes here
+          # Function information goes here```
   - ##### Parametrizing
     - Parametrizing allows the test function to run multiple times with different provided sets of data, which eliminates the need to write multiple tests to check for various situations.
     - Parametrizing tests in pytest is formatted as:
     - ```
       @pytest.mark.parametrize("string",[(value1)(value2)])
       def function(string):
-        # Function information goes here
+        # Function information goes here```
     - Where `string` is the name of the argument the function will take, and `value1` and `value2` are a list of tuples, with each representing a different test case and containing a set of values for the argument. There can be multiple arguments and multiple tuples.
   - ##### pytest.raises
     - pytest.raises checks that certain exceptions get raised when appropriate. The test passes if the exception is raised, otherwise the test fails.
@@ -904,8 +876,7 @@ This lab will guide you through the process of using pytest to write and execute
     - ```
       def function():
         with pytest.raises(Error)
-          # Function that will raise an error goes here
-
+          # Function that will raise an error goes here```
 
 ## Test Examples
 - #### Test 1 - Adding a New Book
@@ -1047,7 +1018,7 @@ Playwright is a powerful framework for automating browsers, allowing developers 
 
 ## Getting Started with Playwright
 #### Install Python:
-Ensure Python (version 3.7 or higher) is installed on your system. You can download it from .
+Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
 
 #### Install Playwright
 
@@ -1066,13 +1037,13 @@ The application should now be running
 
 #### Learning Resources:
 - Official Playwright Documentation:
-	- Comprehensive guide and reference to Playwright features and API.
+	- [Playwright Docs](https://playwright.dev/docs/intro)Comprehensive guide and reference to Playwright features and API.
 - Online Tutorials and Courses:
-	- A course on Udemy covering basics to advanced concepts.
-	- A series of video tutorials for visual learners.
+	- [Automate Testing with Playwright](https://www.udemy.com/course/automated-software-testing-with-playwright/): A course on Udemy covering basics to advanced concepts.
+	- [Playwright Tutorial Series on YouTube](https://www.youtube.com/playlist?list=PL4cUxeGkcC9jx2TTZk3IGWKSbtugYdrlu): A series of video tutorials for visual learners.
 - Community Forums and Support:
-	- For contributions, issues, and discussions related to Playwright.
-	- Community Q&A on Playwright-related topics.
+	- [Playwright GitHub](https://github.com/microsoft/playwright): For contributions, issues, and discussions related to Playwright.
+	- [Stack Overflow](https://stackoverflow.com/questions/tagged/playwright): Community Q&A on Playwright-related topics.
 
 
 
@@ -1096,7 +1067,6 @@ def run(playwright):
 
 with sync_playwright() as playwright:
     run(playwright)
-
 ```
 
 
@@ -1110,13 +1080,13 @@ with sync_playwright() as playwright:
    ```
 2.  Test 2 - Adding a New Book:
 This test simulates adding a new book by interacting with the web elements.
-```
+   ```
 	page.click("text=Add Book")  # Click on the 'Add Book' button
 	page.fill("input[name='title']", "New Book Title")  # Fill the title
 	page.fill("input[name='author']", "Author Name")  # Fill the author
 	page.click("text=Submit")  # Submit the new book
 	assert "New Book Title" in page.content()  # Verification logic
-```
+   ```
 
 #### Incomplete Test Scenarios (Exercises YOU need to Complete):
 3. Test 3 (Incomplete) - Search Functionality:

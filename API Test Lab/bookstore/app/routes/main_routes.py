@@ -47,13 +47,20 @@ def get_single_books(isbn):
 @validators.require_api_key
 def add_new_book(userID):
     headers = request.headers
-    print("userID:", userID)
-    # Get the data from the POST request as json which is converted to a python list
-    # The data sent is a list of info for a single book.
     data = request.get_json()
-    print(type(data))
-    # Call the update function to create the new library.
-    helpers.create_cart_and_add_content(str(userID), "db-models", data)
-    # helpers.add_book_to_csv(data)
 
-    return data, f"{200}: data successfully added to cart "
+    # Assuming `create_cart_and_add_content` returns None if the book doesn't exist
+    result = helpers.create_cart_and_add_content(str(userID), "db-models", data)
+
+    if result is None:
+        # If the book doesn't exist, return a 404 error
+        return jsonify({"error": "Book not found"}), 404
+
+    # Verify if all required fields are present in the data
+    required_fields = ['ISBN', 'authors', 'categories', 'num_pages', 'published_year', 'subtitle', 'title']
+    if not all(field in data for field in required_fields):
+        # If any required field is missing, return a 400 Bad Request
+        return jsonify({"error": "Missing required book fields"}), 400
+
+    # If everything is okay, return the book data with a 201 status
+    return jsonify(data), 201

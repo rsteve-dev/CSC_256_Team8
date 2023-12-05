@@ -53,12 +53,12 @@ pm.test("TC002: List Books by Attribute - Status code is 200", function () {
     pm.response.to.have.status(200);
 });
 
-pm.test("TC002: Edge Case - Non-existent Attribute Values", function () {
+pm.test("TC002: Non-existent Attribute Values", function () {
     var jsonData = pm.response.json();
     pm.expect(jsonData).to.be.an('array').that.is.empty;
 });
 
-pm.test("TC002: Edge Case - Special Characters in Query", function () {
+pm.test("TC002: Special Characters in Query", function () {
     pm.response.to.have.status(400); // Assuming 400 for bad request
 });
 pm.test("TC002: List Books by Attribute - Response is a JSON array", function () {

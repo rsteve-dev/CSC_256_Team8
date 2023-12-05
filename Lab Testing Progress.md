@@ -1,5 +1,14 @@
 # Lab Testing Progress
 
+## Table of Contents:
+- [API Test Lab](#API-Test-Lab)
+- [BDD Lab](#BDD-Lab)
+- [Playwright Lab](#Playwright-Lab)
+- [Selenium Lab](#Selenium-Lab)
+- [TDD Lab](#TDD-Lab)
+
+- - -
+
 ## API Test Lab
 ### Lab Testing
 - **TC001:** TBD

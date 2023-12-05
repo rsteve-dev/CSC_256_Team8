@@ -105,6 +105,7 @@ Selenium is an umbrella of tools and libraries used for web based automated test
 
 Official Selenium Documentation:
 - [Selenium Documentation](https://www.selenium.dev/documentation/): The official docs for Selenium and how to use it.
+  
 Community Forums and Support:
 - [Selenium Public Support Group](https://groups.google.com/g/selenium-users?pli=1): A public Google group for Selenium users to seek help from one another
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/selenium-webdriver): Community Q&A on Selenium-related topics.
@@ -189,6 +190,7 @@ This test simulates adding a new book by interacting with the web elements.
         assert new_title in driver.page_source
 
 <h2 id='selenium-exercises'>Incomplete Test Scenarios (Exercises YOU need to Complete):</h2>
+
 #### Test 3 (Incomplete) - Search Functionality:
 - Write a test that searches for a book and verifies the search results.
 - Instruction: Fill in the search input, click the search button, and assert that the expected result is present in the page content.
@@ -204,17 +206,22 @@ This test simulates adding a new book by interacting with the web elements.
 - Test 4:  Expected results will depend on the specific implementation but should either assert the present of a displayed error or other handling.
   
 <h2 id='selenium-running-tests'>Running Selenium Tests</h2>
+
 Execute your tests using the command: `python selenium_test_suite.py`
 Observe the results to ensure all tests are functioning as expected. Your command line should indicate “Passed: __” or “Failed: __” for each test.
 
 <h2 id='selenium-conclusion'>Conclusion</h2>
+
 This lab should provide a good insight into the workings of Selenium Web Driver, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through working with Selenium to implement these tests, we can assure that functionality does not break in the future when further additions are made to our program by simply running the tests again.
 
 - - - 
+
 <h1 id='bdd-title'>2. BDD Lab: Testing a Bookstore Web Application</h2>
+
 BDD, meaning “Behavior-driven development” is a software development style that encourages collaboration between the dev team, QA, and non-technical partners such as investors or business participants. BDD is presented in natural language styles such as the Gherkin language which presents behavior in a given-when-then format. This lab will guide you through using the Python  based Behave Framework to utilize BDD methods in testing a book store web application.
 
 <h2 id='bdd-setup'>Getting Python, Behave and Required Packages:</h2>
+
 #### Install Python:
 -	Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [Python's Official Website](https://www.python.org/downloads/).
 -	You can ensure Python is installed and check its version by opening a command line and running: `python --version`
@@ -238,6 +245,7 @@ BDD, meaning “Behavior-driven development” is a software development style t
 Official Behave Documentation:
 - [Behave Documentation](https://behave.readthedocs.io/en/latest/): The official docs for Behave and how to use it.
 - [Official Behave GitHub Repo](https://github.com/behave/behave): The official Behave GitHub repository
+  
 Community Forums and Support:
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/python-behave): Community Q&A on Behave-related topics.
 
@@ -281,6 +289,7 @@ def step_impl(context):
 ```
 
 <h2 id='bdd-examples'>Test Examples</h2>
+
 #### TC001: – Validate that only partial input for a new book shows an error
 
 This test enters only a title in the new book box and upon trying to submit, will be met with an error instead.
@@ -383,12 +392,14 @@ def step_impl(context):
 	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
 ```
 <h2 id='bdd-results'>Expected Results from Testing</h2>
+
 - Test 1: After partial input of a book, it will display an error instead of submitting the new book.
 - Test 2: The smallest page book will be the top row of the list.
 - Test 3: After searching for a value not in a title, there will be no results in the books list.
 - Test 4: The newly added book will be present in the list.
 
 <h2 id='bdd-running-tests'>Running the Tests</h2>
+
 - Execute your tests using the command: `behave`
 - It will automatically run all feature files in the Features sub-folder. Observe the results to ensure all tests are functioning as expected. Your command line should indicate:
 ```
@@ -398,6 +409,7 @@ XX steps passed, 0 failed, 0 skipped, 0 undefined
 ```
 
 <h2 id='bdd-conclusion'>Conclusion</h2>
+
 This lab should provide a good insight into the workings of the Behave BDD testing framework and how to implement it into a workflow. Behave allows business partners, QA testers, and development teams all get involved in the testing process to allow everyone to better understand how the program should function.
 
 
@@ -793,6 +805,7 @@ pm.test("TC008: Add Book to Cart - Contains ISBN ,authors,categories,num_pages,p
 <h1 id='tdd-title'>4. Test Driven Development (TDD) Lab Guide</h1>
 
 <h2 id='tdd-what-is'>What is TTD?</h2>
+
 Test Driven Development (TDD) is a testing methodology that requires test cases to be written before any actual development of the code begins. This ensures that any code written adheres to and passes the test cases, which in turn produces solid, high-quality code with minimal bugs. TDD promotes frequent feedback as well, through the development of small sections of test cases and code together, which helps by immediately outlining which areas of the code need to be fixed instead of waiting for the entire code to be completed before the testing process begins.
 
 TDD development is broken up into three categories, each which follows one main rule:
@@ -982,6 +995,7 @@ This lab will guide you through the process of using pytest to write and execute
 
 
 <h2 id='tdd-results'>Expected Test Results</h2>
+
 - #### Test 1
   - In the "Adding a New Book" test, the new book title should be present in the page content after submission.
 - #### Test 2
@@ -993,8 +1007,8 @@ This lab will guide you through the process of using pytest to write and execute
 
 
 <h2 id='tdd-running-tests'>Running Tests</h2>
-- Execute pytest tests with the following command:
-  - `pytest test_main.py`
+
+- Execute pytest tests with the following command: `pytest test_main.py`
 - If pytest is installed correctly, a passing test will issue something similar to following output format:
   - ```
     ======================== test session starts ===================================================
@@ -1007,6 +1021,7 @@ This lab will guide you through the process of using pytest to write and execute
     ======================== 4 passed in 0.01s =====================================================
 
 <h2 id='tdd-conclusion'>Conclusion</h2>
+
 - This lab should provide a good insight into the workings of pytest, how to automate testing, and the beneficial impact that something like automated web-testing can provide in a development environment. Through a mix of guided examples and interactive exercises, you will gain practical experience in testing web applications. This hands-on approach is designed to enhance your skills in both pytest and general web testing methodologies such as Test Driven Development.
 
 
@@ -1018,6 +1033,7 @@ This lab will guide you through the process of using pytest to write and execute
 Playwright is a powerful framework for automating browsers, allowing developers to simulate user interactions with web applications. It supports multiple browsers, making it ideal for cross-browser testing. Playwright is primarily used for end-to-end testing, which tests the flow of an application from start to finish. It ensures that the integrated components of an application function as expected. This lab will guide you through the process of using Playwright to write and execute tests on a Flask-based bookstore web application.
 
 <h2 id='playwright-getting-started'>Getting Started with Playwright</h2>
+
 #### Install Python:
 Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
 
@@ -1047,6 +1063,7 @@ The application should now be running
 	- [Stack Overflow](https://stackoverflow.com/questions/tagged/playwright): Community Q&A on Playwright-related topics.
 
 <h2 id='playwright-writing-tests'>Writing Playwright Tests</h2>
+
 - Open Your Test File
 - In your project folder, open the file named playwright_test_suite.py.
   - This file will contain all your Playwright tests.

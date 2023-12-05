@@ -229,7 +229,7 @@ def test_002_add_book():
         print("Failed: test_002_add_book. Added book is not present\n")
 ```
 
-#### TOdo Tests
+#### TODO Tests
 #### TC003 : Test to search for a specific book and assert the book is present in the results
 ``` def test_003_search_book():
     #Code goes here

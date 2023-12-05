@@ -14,17 +14,17 @@
 - **TC001: Testing endpoint: Endpoint: `/api/books`**
   - Result: The request was sent with valid credentials and The response was Valid with  status code 200 OK
   - Status: Complete & Passed
-  ![Assets/APITC001-1](APITC001-1.png)
+![Assets/APITC001-1](APITC001-1.png)
  
   - Send a request with an invalid or no API key using this endpoint
     - Result:401 was returned when an invalid API key was supplied
     - Status: Complete & Passed
-     ![Assets/APITC001-2](APITC001-2.png)
+![Assets/APITC001-2](APITC001-2.png)
 
   - Send a request with an invalid or no API key using this endpoint
     - Result:404 Not Found or similar error response was reeturned
     - Status: Complete & Passed
-    ![Assets/APITC001-3](APITC001-3.png)
+![Assets/APITC001-3](APITC001-3.png)
   
   
 

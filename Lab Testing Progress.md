@@ -96,7 +96,7 @@
 		    driver.find_element(By.ID, "submitNewBook").click()
 		    driver.implicitly_wait(0.5)
  	- Status: Complete & Passed
-  - ![TC0040](Assets/bdd_addBook.png)
+  - ![TC004](Assets/bdd_addBook.png)
   - ![TC004](Assets/bdd_addBook2.png)
  
   - ![tcResults](Assets/bdd_testRun.png)
@@ -107,20 +107,42 @@
 ### Lab Testing
 - **TC001: Loading the Webpage and Checking the Title**
 	- Result: For the "Loading the Webpage" test, the page title should match "County Bookstore".
-	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+	- Status: Complete & Passed
 - **TC002: Adding a New Book**
 	- Result: In the "Adding a New Book" test, the new book title should be present in the page content after submission.
-	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+	- Status: Complete & Passed
 - **TC003: Search Functionality (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include successful execution of the search.
 	- Tester Code Used:
-	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+		```
+		searchResult = "Gilead" # Store search title in variable
+		page.fill("input[id='searchInput']", searchResult) # Enter search title in 'Search' box
+		elements = page.locator("div.tbody") # Gets table data
+		if elements.count() > 0:  
+			visible = [handle.is_visible() for handle in elements.element_handles()]
+		# Verify the expected result is present & visible in the page content
+		assert searchResult in visible, "Search did not return expected results"
+	- Status: Complete & Passed
 - **TC004: Error Handling (Student Input)**
 	- Result: Expected results will depend on the specific implementation but should generally include proper error handling.
 	- Tester Code Used:
-	- Status: Attempted - currently waiting for [Issue #21](https://github.com/rsteve-dev/CSC_256_Team8/issues/21) to be resolved.
+		```
+		# Store error message in variable
+		errorMessage = "One or more inputs is invalid. Please re-check your provided book information."
+		    
+		page.click("text=Add New Book") # Click on the 'Add Book' button
+		page.fill("input[name='title']", "")  # Leave the title empty
+		page.fill("input[name='author']", "")  # Leave the author empty
+		page.fill("input[name='genres']", "")  # Leave the genre empty
+		page.fill("input[name='pages']", "")  # Leave the pages empty
+		page.fill("input[name='releaseYear']", "")  # Leave the release year empty
+		page.click("text=Submit")  # Submit the form without filling any details
+		    
+		# Verify if an error message was raised
+		assert errorMessage in page.content(), "Error handling not working as expected"
+	- Status: Complete & Passed
 
- - 1[TC004](Assets/bdd_addBook.png)
+ ![Screenshot showing a Terminal output indicating that the tests ran and passed.](Assets/Playwright_Lab_Testing_Complete.png)
 
 - - -
 

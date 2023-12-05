@@ -154,63 +154,100 @@ driver.get('http://www.google.com')
 driver.quit()
 
 ```
+
 ## selenium Lab guide 
-
-This section entails the Implementation of the  tests for different functionalities of a web application, and it covers the creation and running  of tests 
-
-```
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-```
+#### TC001: Test to ensure the “Pages” and “Release Year” Fields only accepts integers
 
 ```
+def test_001_nonint_input():
+    # Test to ensure the “Pages” and “Release Year” Fields only accepts integers
+    print("Starting test: test_001_nonint_input")
+    try:
 
-# Initialize the Chrome WebDriver. This allows Selenium to control a Chrome browser instance
+        # Show the new book box
+        new_book_button = driver.find_element(By.ID, "newBookToggle")
 
-driver = webdriver.Chrome()
+        # Click the Add New Book button to display the book section if not displayed already
+        if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
+            new_book_button.click()
 
-# Navigate to the Flask web application's URL
+        # Wait half a second for the box to appear
+        driver.implicitly_wait(0.5)
 
-driver.get("<http://127.0.0.1:5000/>") 
-```
-```
-def test_loading_webpage():
-    # Test to ensure the main page loads correctly.
- ```
+        # Attempt to put a character in int-only inputs
+        driver.find_element(By.ID, "pages").send_keys("a")
+        driver.find_element(By.ID, "releaseYear").send_keys("a")
 
-```
-def test_presence_of_elements():
-    # Test to verify the presence of key elements on the webpage. 
-```
+        # Get the current contents of the input
+        pages_input_content = driver.find_element(By.ID, "pages").get_attribute("value")
+        release_year_input_content = driver.find_element(By.ID, "releaseYear").get_attribute("value")
 
-```
-def test_search_functionality():
-    # Test the search functionality.
-    
-    # TODO: Add detailed assertions for the search results.
-```
+        # Assert results
+        assert pages_input_content == ""
+        assert release_year_input_content == ""
 
-```
-def test_table_interaction():
-    # Test interactions with the book details table.
-    
-    # TODO: Add detailed assertions for the table interaction results.
-    
-```
-
-```
-test_loading_webpage()
-test_presence_of_elements()
-test_search_functionality()
-test_table_interaction()
-driver.close()
+        print("Passed: test_001_nonint_input\n")
+        
+    except Exception as e:
+        print("Failed: test_001_nonint_input. Error: " + str(e) + '\n')
 ```
 
-## selenium Test Cases 
-      
+#### TC002: Test to ensure adding a new book works
 
-- - -
+```
+def test_002_add_book():
+    # Test to ensure adding a new book works
+    print("Starting test: test_002_add_book")
 
+    try:
+        # Show the new book box
+        new_book_button = driver.find_element(By.ID, "newBookToggle")
+        
+        # Click the Add New Book button to display the book section if not displayed already
+        if("none" in driver.find_element(By.ID, "addNewBook").get_attribute("style")):
+            new_book_button.click()
+
+        # Wait half a second for the box to appear
+        driver.implicitly_wait(0.5)
+
+        # Send inputs
+        new_title = "Test Title " + str(randint(0, 100)) # Random number after title to prevent duplicate entries
+        driver.find_element(By.ID, "newTitle").send_keys(new_title) 
+        driver.find_element(By.ID, "newAuthor").send_keys("Fake Author")
+        driver.find_element(By.ID, "newGenres").send_keys("Fiction")
+        driver.find_element(By.ID, "pages").send_keys("100")
+        driver.find_element(By.ID, "releaseYear").send_keys("2023")
+
+        # Submit new book
+        driver.find_element(By.ID, "submitNewBook").click()
+
+        # Check to see if the book title is present in the page
+        # 2 seconds of wait added to allow for the page to refresh
+        driver.implicitly_wait(2)
+        assert new_title in driver.page_source
+
+        print("Passed: test_002_add_book\n")
+
+    except AssertionError:
+        print("Failed: test_002_add_book. Added book is not present\n")
+```
+
+#### TODO Tests
+
+#### TC003 : Test to search for a specific book and assert the book is present in the results
+
+``` def test_003_search_book():
+    #Code goes here
+```
+
+
+#### TC004 : Test to see if an invalid new book input correctly reports an error
+
+```
+def test_004_invalid_input():
+       #Code goes here
+```
+*
 
 # 2. BDD Lab: Testing a Bookstore Web Application
 BDD, meaning “Behavior-driven development” is a software development style that encourages collaboration between the dev team, QA, and non-technical partners such as investors or business participants. BDD is presented in natural language styles such as the Gherkin language which presents behavior in a given-when-then format. This lab will guide you through using the Python  based Behave Framework to utilize BDD methods in testing a book store web application.
@@ -260,6 +297,7 @@ Official Behave Documentation:
         When we implement a test
         Then behave will test it for us! ```
 -	This feature’s corresponding steps would be written as:
+-	
 ``` from behave import *
 
 @given('we have behave installed')
@@ -272,11 +310,13 @@ def step_impl(context):
 
 @then('behave will test it for us!')
 def step_impl(context):
-    assert context.failed is False ```
+    assert context.failed is False
+```
 
 
-##	Test Examples:
-#### Test 1 – Validate that only partial input for a new book shows an error:
+## Test Examples:
+#### TC001: – Validate that only partial input for a new book shows an error
+
 This test enters only a title in the new book box and upon trying to submit, will be met with an error instead.
 ``` from behave import *
 from selenium import webdriver
@@ -314,8 +354,9 @@ def step_impl(context):
     # Assert the error box came up
     assert "block" in driver.find_element(By.ID, "errorBox").get_attribute("style")
 ```
+
+#### TC002: – Sorting by the page column shows the smallest page count book
 ```
-#### Test 2 – Sorting by the page column shows the smallest page count book:
 This test sorts the page column, leaving the results from smallest to largest then ensures the smallest page count is the one at the top of the list.
 from behave import *
 from selenium import webdriver
@@ -363,13 +404,16 @@ def step_impl(context):
 ```
 
 ##	Incomplete Test Scenarios (Exercises YOU need to Complete): 
-#### Test 3 (Incomplete) – Ensure the search bar only filters by titles:
-	Write a test that uses the search bar to search for something other than a title of a book and get no results.
-	Instruction: Fill in the search input with a value other than something present in a title of a book and ensure there are no results.
-#### Test 4 (Incomplete) – Add a new book:
-	Write a test that adds a new book and find it in the list after submission.
-	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
-
+#### TC003: (Incomplete) – Ensure the search bar only filters by titles:
+```
+	Write a test that uses the search bar to search for something other than a title of a book and get no results.
+	Instruction: Fill in the search input with a value other than something present in a title of a book and ensure there are no results.
+```
+#### TC004: (Incomplete) – Add a new book:
+```
+	Write a test that adds a new book and find it in the list after submission.
+	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
+```
 ##	Expected Results from Testing
 
 •	Test 1: After partial input of a book, it will display an error instead of submitting the new book.
@@ -650,10 +694,131 @@ Postman is a popular tool for API development and testing. It allows developers 
 
 This guide provides  steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
 
-## Lab setup and testing the endpoints  
-    
+## Lab   
 
-- - -
+## TC001 - Testing endpoint: `Endpoint: /api/books`
+
+1. Send a request with valid credentials 
+   -  we expect  200 OK response.
+2. Send a request with invalid or no API key using this endpoint:
+   - expect a 401 Unauthorized .
+3. Send a request with a malformed URL for example <http://127.0.0.1:3001> in place of <http://127.0.0.1:3000> (changed  port number)
+   - expect a 404 Not Found or similar error response
+4. Send a request to the endpoint and check the json response
+    - is it a valid response but with an empty `JSON` response?
+    - Does the Json Response contain data?
+
+#### Postman Tests for TC001
+```
+pm.test("TC001: List Books - Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("TC001: Edge Case - Invalid API Key", function () {
+    var unauthorizedStatus = pm.response.code === 401 || pm.response.code === 403;
+    pm.expect(unauthorizedStatus).to.be.true;
+});
+pm.test("TC001: Edge Case - Malformed URL", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("TC001: List Books - Response is a JSON array", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.be.an('array');
+});
+pm.test("TC001: Edge Case - Handle Empty Array", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.length).to.be.at.least(0);
+});
+
+
+```
+
+## TC002: Testing Endpoint supplied with attribute e.g published_year :  `/api/books?attribute=published_year&value=2007`
+
+  1. Send a request with specific query parameters e.g.` ?attribute=published_year&value=2007`
+    - we expect  200 OK response.
+  
+  2. Use non-existent attribute values (e.g., a future year) and expect a proper handling,
+   - Expectation: empty array
+
+  3. Verify the API's response when the attribute filter matches no books
+   - Expectation: empty array
+  
+#### Postman Tests for TC002
+
+```
+pm.test("TC002: List Books by Attribute - Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+pm.test("TC002: Edge Case - Non-existent Attribute Values", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.be.an('array').that.is.empty;
+});
+
+pm.test("TC002: Edge Case - Special Characters in Query", function () {
+    pm.response.to.have.status(400); // Assuming 400 for bad request
+});
+pm.test("TC002: List Books by Attribute - Response is a JSON array", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.be.an('array');
+});
+
+```
+
+## TC003: Test Endpoint to Display single Book :  `/api/books/{isbn}`
+
+ 1. send a GET request for a single book:
+   -  Confirm a 200 OK status for valid ISBN
+  2. Use an invalid or non-existent ISBN and expect a 404 Error
+  3. Test with a malformed ISBN (e.g., incorrect format) and check the response
+  4. end a request to the endpoint and check the json response
+   
+#### Postman Tests for TC003
+
+```
+pm.test("TC003: Display Single Book - Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("TC003: Invalid ISBN", function () {
+    pm.response.to.have.status(404);
+});
+pm.test("TC003: Display Single Book - Response is a JSON object", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.be.an('object');
+});
+
+```
+
+## TC004: Test Endpoint Add Book to Cart' Endpoint :  `/api/{{userID}}/cart/add`
+
+1. check for a 201 Created status after adding a book
+    - Expected Results: 201 status code
+2. Confirm the presence of ISBN ,authors,categories,num_pages,published_year,subtitle,title in the response.
+3. Try adding a book with invalid or extreme quantities
+
+#### Postman Tests for TC004
+```
+pm.test("TC004: Add Book to Cart - Status code is 201", function () {
+    pm.response.to.have.status(201);
+});
+pm.test("TC004: Add Non-existent Book", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("TC008: Add Book to Cart - Contains ISBN ,authors,categories,num_pages,published_year,subtitle,title", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property('ISBN');
+    pm.expect(jsonData).to.have.property('authors');
+    pm.expect(jsonData).to.have.property('categories')
+    pm.expect(jsonData).to.have.property('num_pages')
+    pm.expect(jsonData).to.have.property('published_year')
+    pm.expect(jsonData).to.have.property('subtitle')
+    pm.expect(jsonData).to.have.property('title')
+});
+
+```
+
 
 
 # 4. Test Driven Development (TDD) Lab Guide

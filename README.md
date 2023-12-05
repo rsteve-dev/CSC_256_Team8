@@ -154,8 +154,10 @@ driver.get('http://www.google.com')
 driver.quit()
 
 ```
+
 ## selenium Lab guide 
 #### TC001: Test to ensure the “Pages” and “Release Year” Fields only accepts integers
+
 ```
 def test_001_nonint_input():
     # Test to ensure the “Pages” and “Release Year” Fields only accepts integers
@@ -191,6 +193,7 @@ def test_001_nonint_input():
 ```
 
 #### TC002: Test to ensure adding a new book works
+
 ```
 def test_002_add_book():
     # Test to ensure adding a new book works
@@ -230,11 +233,16 @@ def test_002_add_book():
 ```
 
 #### TODO Tests
+
 #### TC003 : Test to search for a specific book and assert the book is present in the results
+
 ``` def test_003_search_book():
     #Code goes here
 ```
+
+
 #### TC004 : Test to see if an invalid new book input correctly reports an error
+
 ```
 def test_004_invalid_input():
        #Code goes here

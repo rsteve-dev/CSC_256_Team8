@@ -67,3 +67,57 @@ pm.test("TC002: List Books by Attribute - Response is a JSON array", function ()
 });
 
 ```
+
+## TC003: Test Endpoint to Display single Book :  `/api/books/{isbn}`
+
+ 1. send a GET request for a single book:
+   -  Confirm a 200 OK status for valid ISBN
+  2. Use an invalid or non-existent ISBN and expect a 404 Error
+  3. Test with a malformed ISBN (e.g., incorrect format) and check the response
+  4. end a request to the endpoint and check the json response
+   
+#### Postman Tests for TC003
+
+```
+pm.test("TC003: Display Single Book - Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+pm.test("TC003: Invalid ISBN", function () {
+    pm.response.to.have.status(404);
+});
+pm.test("TC003: Display Single Book - Response is a JSON object", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.be.an('object');
+});
+
+```
+
+## TC004: Test Endpoint Add Book to Cart' Endpoint :  `/api/{{userID}}/cart/add`
+
+1. check for a 201 Created status after adding a book
+    - Expected Results: 201 status code
+2. Confirm the presence of ISBN ,authors,categories,num_pages,published_year,subtitle,title in the response.
+3. Try adding a book with invalid or extreme quantities
+
+#### Postman Tests for TC004
+```
+pm.test("TC004: Add Book to Cart - Status code is 201", function () {
+    pm.response.to.have.status(201);
+});
+pm.test("TC004: Add Non-existent Book", function () {
+    pm.response.to.have.status(404);
+});
+
+pm.test("TC008: Add Book to Cart - Contains ISBN ,authors,categories,num_pages,published_year,subtitle,title", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData).to.have.property('ISBN');
+    pm.expect(jsonData).to.have.property('authors');
+    pm.expect(jsonData).to.have.property('categories')
+    pm.expect(jsonData).to.have.property('num_pages')
+    pm.expect(jsonData).to.have.property('published_year')
+    pm.expect(jsonData).to.have.property('subtitle')
+    pm.expect(jsonData).to.have.property('title')
+});
+
+```
+

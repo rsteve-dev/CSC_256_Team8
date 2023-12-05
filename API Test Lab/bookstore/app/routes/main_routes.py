@@ -3,7 +3,7 @@ from flask import Blueprint, jsonify, current_app, request
 
 main = Blueprint("main", __name__)
 
-
+#List Books (/api/books)
 @main.route("/api/books", methods=["GET"])
 @validators.require_api_key
 def get_books():
@@ -23,6 +23,24 @@ def get_books():
     except Exception as e:
         current_app.logger.error(f"Error occurred: {e}")
         return jsonify({"error": str(e)}), 500
+
+
+#Display Single Book (/api/books/{isbn})
+@main.route("/api/books/<isbn>", methods=["GET"])
+@validators.require_api_key
+def get_single_books(isbn):
+    try:
+        books = helpers.get_books_from_csv(helpers.csv_path)
+        # Find the book with the given ISBN
+        book = next((book for book in books if book['ISBN'] == isbn), None)
+        if book:
+            return jsonify(book), 200
+        else:
+            return jsonify({"error": "Book not found"}), 404
+    except Exception as e:
+        current_app.logger.error(f"Error occurred: {e}")
+        return jsonify({"error": str(e)}), 500
+
 
 
 @main.route("/api/<userID>/cart/add", methods=["POST"])

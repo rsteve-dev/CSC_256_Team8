@@ -305,7 +305,7 @@ def step_impl(context):
 
 
 ##	Test Examples:
-#### Test 1 – Validate that only partial input for a new book shows an error:
+#### TC001: – Validate that only partial input for a new book shows an error:
 This test enters only a title in the new book box and upon trying to submit, will be met with an error instead.
 ``` from behave import *
 from selenium import webdriver
@@ -344,7 +344,7 @@ def step_impl(context):
     assert "block" in driver.find_element(By.ID, "errorBox").get_attribute("style")
 ```
 ```
-#### Test 2 – Sorting by the page column shows the smallest page count book:
+#### TC002: – Sorting by the page column shows the smallest page count book:
 This test sorts the page column, leaving the results from smallest to largest then ensures the smallest page count is the one at the top of the list.
 from behave import *
 from selenium import webdriver
@@ -392,10 +392,10 @@ def step_impl(context):
 ```
 
 ##	Incomplete Test Scenarios (Exercises YOU need to Complete): 
-#### Test 3 (Incomplete) – Ensure the search bar only filters by titles:
+#### TC003: (Incomplete) – Ensure the search bar only filters by titles:
 	Write a test that uses the search bar to search for something other than a title of a book and get no results.
 	Instruction: Fill in the search input with a value other than something present in a title of a book and ensure there are no results.
-#### Test 4 (Incomplete) – Add a new book:
+#### TC004: (Incomplete) – Add a new book:
 	Write a test that adds a new book and find it in the list after submission.
 	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
 

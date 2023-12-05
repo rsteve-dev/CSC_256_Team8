@@ -52,6 +52,7 @@
 <h1 id='global-introduction'>Introduction</h1>
 
 <h2 id='global-objectives'>Objectives</h2>
+
 -	Ensure the system meets the functional requirements as detailed in the SRS.
 -	Validate the system’s non-functional requirements.
 -	Identify and rectify defects prior to release.
@@ -61,6 +62,7 @@
 -	Ensure usability and efficiency of the command-line interface.
 
 <h2 id='project-team'>Project Team</h2>
+
     1. Logan Bennett - Code Developer
     2. Samson Truelove - Code Developer
     3. Aiden Morris - Code Developer
@@ -77,6 +79,7 @@
 Selenium is an umbrella of tools and libraries used for web based automated testing. Selenium allows the user to emulate interacting with websites and browsers as if a real user was doing so, letting you test your websites across many different browsers easily and efficiently. This lab will guide you through the process of using Selenium to write and execute tests on a Flask-based bookstore web application.
 
 <h2 id='selenium-setup'>Getting Python, Selenium and Required Packages:</h2> 
+
 #### Install Python:
 - Ensure Python (version 3.7 or higher) is installed on your system. You can download it from [Python's Official Website](https://www.python.org/downloads/).
 - You can ensure Python is installed and check its version by opening a command line and running: `python --version`

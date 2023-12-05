@@ -651,7 +651,8 @@ Postman is a popular tool for API development and testing. It allows developers 
 This guide provides  steps to get started with Postman. For more advanced features and detailed documentation, visit the [Postman Learning Center](https://learning.postman.com/).
 
 ## Lab   
-    ## TC001 - Testing endpoint: `Endpoint: /api/books`
+
+## TC001 - Testing endpoint: `Endpoint: /api/books`
 
 1. Send a request with valid credentials 
    -  we expect  200 OK response.

@@ -289,6 +289,7 @@ Official Behave Documentation:
         When we implement a test
         Then behave will test it for us! ```
 -	This feature’s corresponding steps would be written as:
+-	
 ``` from behave import *
 
 @given('we have behave installed')
@@ -301,11 +302,13 @@ def step_impl(context):
 
 @then('behave will test it for us!')
 def step_impl(context):
-    assert context.failed is False ```
+    assert context.failed is False
+```
 
 
-##	Test Examples:
-#### TC001: – Validate that only partial input for a new book shows an error:
+## Test Examples:
+#### TC001: – Validate that only partial input for a new book shows an error
+
 This test enters only a title in the new book box and upon trying to submit, will be met with an error instead.
 ``` from behave import *
 from selenium import webdriver
@@ -343,8 +346,9 @@ def step_impl(context):
     # Assert the error box came up
     assert "block" in driver.find_element(By.ID, "errorBox").get_attribute("style")
 ```
+
+#### TC002: – Sorting by the page column shows the smallest page count book
 ```
-#### TC002: – Sorting by the page column shows the smallest page count book:
 This test sorts the page column, leaving the results from smallest to largest then ensures the smallest page count is the one at the top of the list.
 from behave import *
 from selenium import webdriver
@@ -393,12 +397,15 @@ def step_impl(context):
 
 ##	Incomplete Test Scenarios (Exercises YOU need to Complete): 
 #### TC003: (Incomplete) – Ensure the search bar only filters by titles:
-	Write a test that uses the search bar to search for something other than a title of a book and get no results.
-	Instruction: Fill in the search input with a value other than something present in a title of a book and ensure there are no results.
+```
+	Write a test that uses the search bar to search for something other than a title of a book and get no results.
+	Instruction: Fill in the search input with a value other than something present in a title of a book and ensure there are no results.
+```
 #### TC004: (Incomplete) – Add a new book:
-	Write a test that adds a new book and find it in the list after submission.
-	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
-
+```
+	Write a test that adds a new book and find it in the list after submission.
+	Instruction: Fill in the new book contents, submit the form, and check to see if the new book is present.
+```
 ##	Expected Results from Testing
 
 •	Test 1: After partial input of a book, it will display an error instead of submitting the new book.
